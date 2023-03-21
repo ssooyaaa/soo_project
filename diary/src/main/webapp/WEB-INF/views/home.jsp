@@ -18,11 +18,11 @@
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>
 	<link rel="stylesheet" href="./resources/css/app.css"/>
 	
-	<!--슬라이드-->
+	<!--슬라이드 ${pageContext.request.contextPath}-->
 	<link rel="stylesheet" href="./resources/css/jquery.bxslider.css"/>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
 	
-	<script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
+	<script src="./resources/js/home.js"></script>
 	
 </head>
 <body>

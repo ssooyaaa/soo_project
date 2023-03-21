@@ -7,8 +7,8 @@
 	<title>Photo-Domestic</title>
 	<meta name="viewport" content="width=1190, user-scalable=yes">
 	
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/photos.js"></script>
+	<script src="./resources/js/header.js"></script>
+	<script src="./resources/js/photos.js"></script>
 	
 	
 </head>

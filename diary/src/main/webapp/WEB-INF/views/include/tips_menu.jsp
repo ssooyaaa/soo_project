@@ -4,8 +4,8 @@
 	
 	<meta name="viewport" content="width=1190, user-scalable=yes">
 	
-<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/tips.js"></script>
+<script src="./resources/js/header.js"></script>
+<script src="./resources/js/tips.js"></script>
 
 <div class="tips-menu">
 	<nav class="tips-menu-submenu <c:if test="${tips_menu eq 'transport'}">active</c:if>" data-tips="transport">

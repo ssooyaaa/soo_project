@@ -8,8 +8,8 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
+	<script src="./resources/js/header.js"></script>
+	<script src="./resources/js/detail.js"></script>
 		
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 

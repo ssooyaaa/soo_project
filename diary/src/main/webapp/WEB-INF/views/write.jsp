@@ -19,8 +19,8 @@
 	<script src="./resources/js/config.js"></script>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>	
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/newWrite.js"></script>
+	<script src="./resources/js/header.js"></script>
+	<script src="./resources/js/newWrite.js"></script>
 	
 		
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>

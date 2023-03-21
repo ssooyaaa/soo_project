@@ -11,8 +11,8 @@
 	
 	<meta name="viewport" content="width=1190, user-scalable=yes">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/mydiary.js"></script>
+	<script src="./resources/js/header.js"></script>
+	<script src="./resources/js/mydiary.js"></script>
 	
 	
 	

@@ -15,7 +15,7 @@
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>
 	<link rel="stylesheet" href="./resources/css/app.css"/>
 	
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
+	<script src="./resources/js/header.js"></script>
 	<script src="./resources/js/login.js"></script>
 	
 </head>

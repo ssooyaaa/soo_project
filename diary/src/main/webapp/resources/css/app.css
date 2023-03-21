@@ -200,7 +200,7 @@ header .log-del:hover > span{
 	font-weight:800;
 	font-family:maru;
 	position:absolute;
-	right:100px;
+	right:40px;
 	bottom:30px;
 	overflow:hidden;
 	white-space:nowrap;
@@ -211,7 +211,7 @@ header .log-del:hover > span{
 
 @keyframes typing{
 	from {width:0}
-	to {width:50%}
+	to {width:30%}
 }
 
 .home-domestic-name{
