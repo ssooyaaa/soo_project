@@ -199,6 +199,14 @@
 		</dependency>
 		
 		
+		<!-- 구글맵 -->
+		<dependency>
+		  <groupId>com.google.code.geocoder-java</groupId>
+		  <artifactId>geocoder-java</artifactId>
+		  <version>0.16</version>
+		</dependency>
+		
+		
 		
 		
 		    

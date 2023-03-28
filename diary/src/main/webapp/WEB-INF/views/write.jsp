@@ -65,12 +65,6 @@
 				<div class="write-upload">Upload Main Image</div>
 			</div>
 			
-			<!-- <label for="main-img" class="write-main-img">
-				<i class="fa-solid fa-image"></i>
-				<span style="margin-left:5px;">Upload Main Image</span>
-				<img style="object-fit:cover;" id="preview-main-img" class="preview-main-img" src="#"/>
-			</label>
-			<input type="file" id="main-img" accept="image/*"/> -->
 			
 			<div class="write-body-sub">
 				<div class="write-sub-radiobox">

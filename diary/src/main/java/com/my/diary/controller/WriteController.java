@@ -1,5 +1,6 @@
 package com.my.diary.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
+import com.google.code.geocoder.model.GeocoderStatus;
+import com.google.code.geocoder.model.LatLng;
 import com.my.diary.dao.AbroadDao;
 import com.my.diary.dao.AccomodationDao;
 import com.my.diary.dao.DomesticDao;
@@ -132,9 +140,6 @@ public class WriteController {
 			String new_mydiary_nation = newMydiary.getNation();
 			System.out.println(new_mydiary_nation);
 			
-
-			
-			
 			//Photos 저장
 			for(int i=0;i<photosList.size();i++) {
 				
@@ -149,9 +154,9 @@ public class WriteController {
 				
 				newPhotos.setMydiary_idx(new_mydiary_idx);
 				newPhotos.setPhotos(photos_url);
-				newPhotos.setExplain_text(explain_text);
 				newPhotos.setSequence(sequence);
-				
+				newPhotos.setExplain_text(explain_text);
+							
 				
 				photosDao.addPhotos(newPhotos);
 			}
@@ -257,6 +262,8 @@ public class WriteController {
 			}
 			
 			
+			
+			
 			//트랜잭션 commit
 			transactionManager.commit(status);
 			
@@ -274,6 +281,5 @@ public class WriteController {
 		
 	}
 	
-
 	
 }

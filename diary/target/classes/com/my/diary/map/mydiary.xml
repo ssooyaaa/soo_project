@@ -46,5 +46,10 @@
 		WHERE mydiary_idx=#{mydiary_idx}
 	</delete>
 	
+	<select id="getNation" parameterType="Integer" resultType="Mydiary">
+		SELECT * FROM mydiary
+		WHERE user_idx=#{user_idx}
+	</select>
+	
 
 </mapper>

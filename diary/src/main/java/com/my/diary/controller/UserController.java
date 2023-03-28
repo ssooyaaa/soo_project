@@ -52,43 +52,6 @@ public class UserController {
 			return "dup";
 		}
 		
-		/*
-		 * if(resultUserById != null) {
-		 * 
-		 * if(resultUserById.getAccount().equals("Y")) { return "dup"; }else {
-		 * userDao.addUser(newUser); } }
-		 * 
-		 * if(resultUserByNick != null) { if(resultUserByNick.getAccount().equals("Y"))
-		 * { return "noNick"; }else { userDao.addUser(newUser); } }
-		 * 
-		 * 
-		 * 
-		 * return "ok";
-		 */
-		
-		
-		
-		
-//		if(resultUserById == null) {
-//			//기존 id없음 -> 가입
-//			if(resultUserByNick == null) {
-//				//기존 닉네임없음 -> 가입
-//				if(resultUserById.getAccount().equals("Y") || resultUserByNick.getAccount().equals("Y")) {
-//					return "";
-//				}else {
-//					userDao.addUser(newUser);
-//					return "ok";
-//				}
-//				
-//			}else {
-//				//기존 닉네임있음 -> 가입불가
-//				return "noNick";
-//			}	
-//		}else {
-//			//기존 id존재 -> 가입불가
-//			return "dup";
-//		}
-		
 	}
 	
 	

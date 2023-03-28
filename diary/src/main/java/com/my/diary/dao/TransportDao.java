@@ -22,10 +22,6 @@ public class TransportDao extends SqlSessionDaoSupport{
 		return this.getSqlSession().selectList("transport.getTransportAll",map);
 	}
 
-	/*
-	 * public List<Transport> getTransportAllSup(HashMap<String, Object> map){
-	 * return this.getSqlSession().selectList("transport.getTransportAllSup",map); }
-	 */
 	public List<Transport> getTransByIdx(Transport transport) {
 		return this.getSqlSession().selectList("transport.getTransByIdx", transport);
 	}

@@ -145,7 +145,8 @@ function initPost(){
     	 var p3 = new Promise(function(resolve, reject){
              var value = $(item).val();
              
-             data['more_photos_desc'].unshift(value);
+             data['more_photos_desc'].push(value);
+             
              resolve();
     	 });
     	 

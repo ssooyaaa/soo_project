@@ -45,14 +45,8 @@
 	<input type="hidden" id="up-mydiary-idx" value="${mydiary_idx}"/>
 	
 		<div class="write-header" id="write-header">
-	<!-- 	<div class="write-header-content">
-				<i class="fa-regular fa-calendar write-calendar"></i>
-				<input type="text" class="write-date" id="write-date" placeholder="년.월.일(ex.2022.08.19)">
-				<i class="fa-solid fa-cloud-sun write-weather-icon"></i>
-				<input type="text" class="write-weather" id="write-weather" placeholder="(ex.맑았지만 너무 추웠음)">
-				<i class="fa-solid fa-location-dot write-location-icon"></i>
-				<input type="text" class="write-location" id="write-location" autocomplete="on" placeholder="국내-시,도/지역이름 or 해외-국가/도시">
-			</div> -->
+	
+	
 		</div>
 		
 		

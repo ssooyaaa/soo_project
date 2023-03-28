@@ -11,32 +11,9 @@
 }
 
 @font-face{
-	font-family:"cavb";
-	font-style:normal;
-	src:url(../fonts/CaveatBrush-Regular.ttf) format('truetype');
-}
-@font-face{
-	font-family:"gowun";
-	font-style:normal;
-	src:url(../fonts/GowunDodum-Regular.ttf) format('truetype');	
-}
-
-@font-face{
-	font-family:"mali";
-	font-style:normal;
-	src:url(../fonts/Mali-Regular.ttf) format('truetype');
-}
-
-@font-face{
 	font-family:"godik";
 	font-style:normal;
 	src:url(../fonts/godic.otf) format('truetype');
-}
-
-@font-face{
-	font-family:"maru";
-	font-style:normal;
-	src:url(../fonts/MaruBuri-Regular.ttf) format('truetype');
 }
 
 :root{
@@ -196,11 +173,11 @@ header .log-del:hover > span{
 .home-container .typed-out{
 	height:120px;
 	color:#fff;
-	font-size:50px;
+	font-size:60px;
 	font-weight:800;
 	font-family:maru;
 	position:absolute;
-	right:40px;
+	right:20px;
 	bottom:30px;
 	overflow:hidden;
 	white-space:nowrap;
@@ -211,7 +188,7 @@ header .log-del:hover > span{
 
 @keyframes typing{
 	from {width:0}
-	to {width:30%}
+	to {width:40%}
 }
 
 .home-domestic-name{

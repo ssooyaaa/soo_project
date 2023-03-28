@@ -25,7 +25,7 @@
 
 .mydiary-name{
 	color:#fff;
-	font-family:mali;
+	font-family:comf;
 	font-size:90px;
 	font-weight:900;
 }
@@ -92,8 +92,8 @@
 }
 
 .mydiary-content-main-img{
-	max-width:220px;
-	max-height:220px;
+	width:220px;
+	height:220px;
 	object-fit:cover;
 	margin-left:5%;
 	margin-top:15px;

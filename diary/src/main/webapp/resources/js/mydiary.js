@@ -1,5 +1,36 @@
-
+	
 $(document).ready(function(){
+	
+	var user_idx = $('#map-user-idx').val();
+	
+	//구글맵
+	$.ajax({
+		url:'./mydiary/getNation',
+		type:'get',
+		data:{user_idx:user_idx},
+		dataType:'json',
+		success:function(list){
+			var addressArray = new Array; //주소지 배열
+			var contentArray = new Array; //마커 내용 배열
+			
+			$.each(list, function(index,item){
+				addressArray.push(item.nation);
+				contentArray.push(item.nation);
+			});
+			
+			var mapOptions = {
+					center: { lat: 30.316487, lng: 155.199099 },
+				    zoom: 2	
+			}
+			map = new google.maps.Map(document.getElementById("googleMap"),
+					mapOptions);
+			var marker = null;
+			
+			for(var i=0;i<addressArray.length;i++){
+				addMarker(map,addressArray[i],contentArray[i]);
+			}
+		}
+	})
 	
 	//다이어리 작성하기 버튼
 	$('.mydiary-write').on('click',function() {
@@ -25,6 +56,43 @@ $(document).ready(function(){
 	searchDiary();
 		
 });
+
+
+
+//구글맵 마커등록
+function addMarker(map, address, content){
+	var geocoder = new google.maps.Geocoder();
+	geocodeAddress(geocoder,map);
+	  
+	  function geocodeAddress(geocoder, resultMap){
+		  
+		  geocoder.geocode({'address':address},function(result, status){
+			 
+			  if(status==google.maps.GeocoderStatus.OK){
+				  resultMap.setCenter(result[0].geometry.location);
+				  resultMap.setZoom(2);
+				  
+				 
+				  var infowindow = new google.maps.InfoWindow({
+					  content : content
+				  });
+				  
+				  var marker = new google.maps.Marker({
+					  map:resultMap,
+					  position:result[0].geometry.location
+				  });
+				  
+				  var marker
+				  
+				  google.maps.event.addListener(marker,'click',function(){
+					  infowindow.open(map, marker);
+				  });
+			  }else{
+				  alert('Map 등록에 실패했습니다.');
+			  }
+		  })
+	  }
+}
 
 
 //다이어리 검색

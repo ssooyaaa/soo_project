@@ -1,5 +1,6 @@
 package com.my.diary.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,7 +8,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -125,6 +125,17 @@ public class MydiaryController {
 		return mydiaryContents;
 	}
 	
+	
+	//Map-마커표시
+	@RequestMapping(value="/getNation", method=RequestMethod.GET)
+	public @ResponseBody List<Mydiary> getNation(
+				@RequestParam(value="user_idx") int user_idx
+			){
+		
+		List<Mydiary> nationList = mydiaryDao.getNation(user_idx);
+		
+		return nationList;
+	}
 	
 	
 	

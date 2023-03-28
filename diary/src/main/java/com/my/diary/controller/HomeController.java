@@ -37,14 +37,7 @@ public class HomeController {
 		return "login";
 	}
 	
-	/*
-	 * @RequestMapping(value = "/checkMydiary", method = RequestMethod.GET)
-	 * public @ResponseBody String myDiary(Model model, HttpSession session) {
-	 * 
-	 * User loginUser = (User)session.getAttribute("loginUser");
-	 * 
-	 * if(loginUser==null) { return "fail"; }else { return "ok"; } }
-	 */
+	
 	@RequestMapping(value = "/mydiary", method = RequestMethod.GET)
 	public String mydiary(Model model,HttpSession session) {
 		
@@ -112,38 +105,6 @@ public class HomeController {
 		return "photo_abroad";
 	}
 	
-	/*
-	 * //다이어리 더보기
-	 * 
-	 * @RequestMapping(value="/detail", method=RequestMethod.GET) public String
-	 * datail(Model model,
-	 * 
-	 * @RequestParam(value="mydiary_idx") int mydiary_idx ) {
-	 * 
-	 * //다이어리 더보기 //1.다이어리 본문 Mydiary mydiary = new Mydiary();
-	 * mydiary.setMydiary_idx(mydiary_idx);
-	 * 
-	 * Mydiary mydiaryInfo = mydiaryDao.getMydiaryByIdx(mydiary);
-	 * 
-	 * model.addAttribute("mydiary",mydiaryInfo);
-	 * 
-	 * 
-	 * //2.more photos
-	 * 
-	 * 
-	 * //3.tips-transport Transport transport = new Transport();
-	 * transport.setMydiary_idx(mydiary_idx);
-	 * 
-	 * List<Transport> transInfo = transportDao.getTransByIdx(transport);
-	 * 
-	 * if(transInfo!=null) { model.addAttribute("transList",transInfo); } else {
-	 * model.addAttribute("transList",null); }
-	 * 
-	 * 
-	 * return "detail";
-	 * 
-	 * }
-	 */	
 	
 	//다이어리 더보기
 	@RequestMapping(value="/detail", method=RequestMethod.GET)

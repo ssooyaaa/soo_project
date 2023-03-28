@@ -43,6 +43,10 @@ public class MydiaryDao extends SqlSessionDaoSupport{
 	public int delMydiary(Mydiary my) {
 		return this.getSqlSession().delete("mydiary.delMydiary",my);
 	}
+	
+	public List<Mydiary> getNation(int i){
+		return this.getSqlSession().selectList("mydiary.getNation",i);
+	}
 
 			
 }
