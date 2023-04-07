@@ -1,0 +1,9 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="apiKey">
+
+	<select id="getApiKey" parameterType="apiKey" resultType="String">
+		SELECT api_key_value FROM api_key
+		WHERE api_key_name=#{api_key_name}
+	</select>
+
+</mapper>
