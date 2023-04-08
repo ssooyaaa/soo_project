@@ -1,6 +1,5 @@
 package com.my.diary.controller;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -13,19 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.code.geocoder.Geocoder;
-import com.google.code.geocoder.GeocoderRequestBuilder;
-import com.google.code.geocoder.model.GeocodeResponse;
-import com.google.code.geocoder.model.GeocoderRequest;
-import com.google.code.geocoder.model.GeocoderResult;
-import com.google.code.geocoder.model.GeocoderStatus;
-import com.google.code.geocoder.model.LatLng;
 import com.my.diary.dao.AbroadDao;
 import com.my.diary.dao.AccomodationDao;
 import com.my.diary.dao.DomesticDao;
@@ -33,6 +24,7 @@ import com.my.diary.dao.EatDao;
 import com.my.diary.dao.EtcDao;
 import com.my.diary.dao.MydiaryDao;
 import com.my.diary.dao.PhotosDao;
+import com.my.diary.dao.PhotosDescDao;
 import com.my.diary.dao.TransportDao;
 import com.my.diary.vo.Abroad;
 import com.my.diary.vo.Accomodation;
@@ -41,6 +33,7 @@ import com.my.diary.vo.Eat;
 import com.my.diary.vo.Etc;
 import com.my.diary.vo.Mydiary;
 import com.my.diary.vo.Photos;
+import com.my.diary.vo.PhotosDesc;
 import com.my.diary.vo.Transport;
 import com.my.diary.vo.User;
 
@@ -56,6 +49,9 @@ public class WriteController {
 	
 	@Resource(name="PhotosDao")
 	private PhotosDao photosDao;
+	
+	@Resource(name="PhotosDescDao")
+	private PhotosDescDao photosDescDao;
 	
 	@Resource(name="TransportDao")
 	private TransportDao transportDao;
@@ -74,6 +70,7 @@ public class WriteController {
 	
 	@Resource(name="DomesticDao")
 	private DomesticDao domesticDao;
+	
 	
 	
 	@SuppressWarnings("unchecked")
@@ -112,6 +109,7 @@ public class WriteController {
 			String sight_desc = (String)map.get("sight_desc");
 			
 			List<Integer> sequenceList = (List<Integer>)map.get("sequence");
+			List<Integer> sequenceDescList = (List<Integer>)map.get("sequence_desc");
 			
 			//mydiary 저장
 			Mydiary newMydiary = new Mydiary();
@@ -140,12 +138,27 @@ public class WriteController {
 			String new_mydiary_nation = newMydiary.getNation();
 			System.out.println(new_mydiary_nation);
 			
+			
+			//PhotosDesc 저장
+			for(int i=0;i<explainTextList.size();i++) {
+				
+				PhotosDesc newPhDesc = new PhotosDesc();
+				Integer sequence = sequenceDescList.get(i);
+				String explain_text = explainTextList.get(i);
+				
+				newPhDesc.setMydiary_idx(new_mydiary_idx);
+				newPhDesc.setSequence(sequence);
+				newPhDesc.setExplain_text(explain_text);
+				
+				photosDescDao.addPhotosDesc(newPhDesc);
+			}
+			
+			
 			//Photos 저장
 			for(int i=0;i<photosList.size();i++) {
 				
 				Photos newPhotos = new Photos();
 				String photos_url = photosList.get(i);
-				String explain_text = explainTextList.get(i);
 				Integer sequence = sequenceList.get(i);
 				
 				/*
@@ -155,82 +168,100 @@ public class WriteController {
 				newPhotos.setMydiary_idx(new_mydiary_idx);
 				newPhotos.setPhotos(photos_url);
 				newPhotos.setSequence(sequence);
-				newPhotos.setExplain_text(explain_text);
 							
 				
 				photosDao.addPhotos(newPhotos);
 			}
-		
+			
 			
 			//tips-transport저장
-			for(int i=0;i<transportList.size();i++) {
+			if(new_mydiary_nation==null||new_mydiary_nation=="") {
 				
-				Transport newTransport = new Transport();
-				String tips_transport = transportList.get(i);
-			
-				/*
-				 * System.out.println(tips_transport); 
-				 * System.out.println(new_mydiary_nation);
-				 */
+			} else {
+				for(int i=0;i<transportList.size();i++) {
+					
+					Transport newTransport = new Transport();
+					String tips_transport = transportList.get(i);
 				
-				newTransport.setMydiary_idx(new_mydiary_idx);
-				newTransport.setUser_idx(loginUser_idx);
-				newTransport.setNation(new_mydiary_nation);
-				newTransport.setTips_transport(tips_transport);
-				
-				transportDao.addTransport(newTransport);
-				
+					/*
+					 * System.out.println(tips_transport); 
+					 * System.out.println(new_mydiary_nation);
+					 */
+					
+					newTransport.setMydiary_idx(new_mydiary_idx);
+					newTransport.setUser_idx(loginUser_idx);
+					newTransport.setNation(new_mydiary_nation);
+					newTransport.setTips_transport(tips_transport);
+					
+					transportDao.addTransport(newTransport);
+					
+				}
 			}
+			
 			
 			//tips-accomodation저장
-			for(int i=0;i<accomodationList.size();i++) {
+			if(new_mydiary_nation==null||new_mydiary_nation=="") {
 				
-				Accomodation newAccomodation = new Accomodation();
-				String tips_accomodation = accomodationList.get(i);
-				
-				newAccomodation.setMydiary_idx(new_mydiary_idx);
-				newAccomodation.setUser_idx(loginUser_idx);
-				newAccomodation.setNation(new_mydiary_nation);
-				newAccomodation.setTips_accomodation(tips_accomodation);
-				
-				accomodationDao.addAccomodation(newAccomodation);
-				
+			}else {
+				for(int i=0;i<accomodationList.size();i++) {
+					
+					Accomodation newAccomodation = new Accomodation();
+					String tips_accomodation = accomodationList.get(i);
+					
+					newAccomodation.setMydiary_idx(new_mydiary_idx);
+					newAccomodation.setUser_idx(loginUser_idx);
+					newAccomodation.setNation(new_mydiary_nation);
+					newAccomodation.setTips_accomodation(tips_accomodation);
+					
+					accomodationDao.addAccomodation(newAccomodation);
+					
+				}
 			}
+			
 			
 			//tips-eat저장
-			for(int i=0;i<eatList.size();i++) {
+			if(new_mydiary_nation==null||new_mydiary_nation=="") {
 				
-				Eat newEat = new Eat();
-				String tips_eat = eatList.get(i);
-				
-				newEat.setMydiary_idx(new_mydiary_idx);
-				newEat.setUser_idx(loginUser_idx);
-				newEat.setNation(new_mydiary_nation);
-				newEat.setTips_eat(tips_eat);
-				
-				eatDao.addEat(newEat);
-				
+			}else {
+				for(int i=0;i<eatList.size();i++) {
+					
+					Eat newEat = new Eat();
+					String tips_eat = eatList.get(i);
+					
+					newEat.setMydiary_idx(new_mydiary_idx);
+					newEat.setUser_idx(loginUser_idx);
+					newEat.setNation(new_mydiary_nation);
+					newEat.setTips_eat(tips_eat);
+					
+					eatDao.addEat(newEat);
+					
+				}
 			}
 			
+			
 			//tips-etc저장
-			for(int i=0;i<etcList.size();i++) {
+			if(new_mydiary_nation==null||new_mydiary_nation=="") {
 				
-				Etc newEtc = new Etc();
-				String tips_etc = etcList.get(i);
-				
-				newEtc.setMydiary_idx(new_mydiary_idx);
-				newEtc.setUser_idx(loginUser_idx);
-				newEtc.setNation(new_mydiary_nation);
-				newEtc.setTips_etc(tips_etc);
-				
-				etcDao.addEtc(newEtc);
+			}else {
+				for(int i=0;i<etcList.size();i++) {
+					
+					Etc newEtc = new Etc();
+					String tips_etc = etcList.get(i);
+					
+					newEtc.setMydiary_idx(new_mydiary_idx);
+					newEtc.setUser_idx(loginUser_idx);
+					newEtc.setNation(new_mydiary_nation);
+					newEtc.setTips_etc(tips_etc);
+					
+					etcDao.addEtc(newEtc);
+				}
 			}
+			
 			
 			//abroad또는domestic Table에 저장
 			if(sight_img == null || sight_img == "" || 
 					sight_desc == null || sight_desc == ""|| 
 					nation == null || nation =="") {
-				System.out.println("nothing");
 			} else {
 				//1.abroad에 할지 domestic에 할지 선택
 				String savedAbroad = newMydiary.getAbroad();
@@ -273,8 +304,8 @@ public class WriteController {
 			
 			//트랜잭션 rollback(모두 되돌리기)
 			transactionManager.rollback(status);
-			
-			System.out.println(e.getMessage());
+			e.printStackTrace();
+			System.out.println(e.getStackTrace());
 			
 			return "fail";
 		} 

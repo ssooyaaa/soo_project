@@ -28,11 +28,11 @@
 	<script src="./resources/js/config.js"></script>
 	
 	<!--구글Map -->
-	<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl4McvgZHCttbQLX2o3ypXNJv8BqyoSeY&callback=initMap&v=weekly"
+	 <script
+      src="https://maps.googleapis.com/maps/api/js?key=Appkey&callback=initMap&v=weekly"
       defer
     ></script>
-	
+	 
 	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 
@@ -52,7 +52,7 @@
 		<%@ include file="/WEB-INF/views/include/header.jsp" %>
 		
 	<input type="hidden" id="map-user-idx" value="${loginUser.user_idx}"/>
-	<
+	
 	
 	<div class="mydiary-body">
 		<img class="mydiary-img" src="./resources/image/diary-body.jpg"/>
@@ -69,7 +69,7 @@
 			<i class="fa-solid fa-magnifying-glass glass" id="search-glass"></i>
 		</div>
 		
-		<div style="width:100%;border-bottom:4px solid var(--color-main);">
+		<div id="forMap" style="width:100%;border-bottom:4px solid var(--color-main);">
 			<div id="googleMap" style="width:90%;height:500px;
 			margin-left:5%;margin-top:20px;margin-bottom:20px;"></div>
 		</div>

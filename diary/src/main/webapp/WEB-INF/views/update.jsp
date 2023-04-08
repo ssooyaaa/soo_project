@@ -111,9 +111,9 @@
 				<input type="button" class="tips-add-button" id="button-add-transport" value="추가"/>
 				<input type="text" class="tips-content-add" id="tips-add-transport"/>
 		
-				<div class="tips-list-transport" id="tips-list-transport"></div>
+				
 			</div>
-			
+			<div class="tips-list-transport" id="tips-list-transport"></div>
 			
 			
 			
@@ -125,9 +125,10 @@
 				
 				<input type="button" class="tips-add-button" id="button-add-accomodation" value="추가"/>
 				<input type="text" class="tips-content-add" id="tips-add-accomodation" placeholder="  숙소명 or 위치를 함께 적어주세요"/>
-				<div class="tips-list-accomodation" id="tips-list-accomodation"></div>				
+								
 				
 			</div>
+			<div class="tips-list-accomodation" id="tips-list-accomodation"></div>
 			
 			
 			
@@ -138,10 +139,11 @@
 				
 				<input type="button" class="tips-add-button" id="button-add-eat" value="추가"/>
 				<input type="text" class="tips-content-add" id="tips-add-eat" placeholder="  가게명 or 위치를 함께 적어주세요"/>
-				<div class="tips-list-eat" id="tips-list-eat"></div>
 				
 				
 			</div>
+			<div class="tips-list-eat" id="tips-list-eat"></div>
+			
 			
 			
 			<div class="write-tips-sub" id="write-tips-sight">
@@ -159,9 +161,10 @@
 				
 				<input type="button" class="tips-add-button" id="button-add-etc" value="추가"/>
 				<input type="text" class="tips-content-add" id="tips-add-etc"/>
-				<div class="tips-list-etc" id="tips-list-etc"></div>
 				
 			</div>
+			<div class="tips-list-etc" id="tips-list-etc"></div>
+			
 			
 		</div>
 		

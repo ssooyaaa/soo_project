@@ -312,6 +312,13 @@ function MorePhotos(mydiary_idx){
 		type:'get',
 		data:{mydiary_idx:mydiary_idx},
 		success:function(list){
+			
+			var sortingField = 'sequence';
+			
+			list.sort(function(a,b){
+				return a[sortingField] - b[sortingField];
+			});
+			
 			console.log(list);
 			
 			$.each(list,function(index,item){

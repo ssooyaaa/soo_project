@@ -62,31 +62,41 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/tips", method = RequestMethod.GET)
-	public String tips_transport(Model model) {
+	public String chatGPT(Model model) {
 		
 		model.addAttribute("header","tips");
+		return "chatGPT";
+	}
+	
+	@RequestMapping(value = "/tips-transport", method = RequestMethod.GET)
+	public String tips_transport(Model model) {
+		
+		
 		model.addAttribute("tips_menu","transport");
 		return "tips_transport";
 	}
 	
 	@RequestMapping(value = "/tips-accomodation", method = RequestMethod.GET)
-	public String tips_accomodation(Model model) {
+	public String tips_accomodation(Model model, @RequestParam(value="nation") String nation) {
 		
 		model.addAttribute("tips_menu","accomodation");
+		model.addAttribute("nation",nation);
 		return "tips_accomodation";
 	}
 	
 	@RequestMapping(value = "/tips-eat", method = RequestMethod.GET)
-	public String tips_eat(Model model) {
+	public String tips_eat(Model model, @RequestParam(value="nation") String nation) {
 		
 		model.addAttribute("tips_menu","eat");
+		model.addAttribute("nation",nation);
 		return "tips_eat";
 	}
 	
 	@RequestMapping(value = "/tips-etc", method = RequestMethod.GET)
-	public String tips_etc(Model model) {
+	public String tips_etc(Model model, @RequestParam(value="nation") String nation) {
 		
 		model.addAttribute("tips_menu","etc");
+		model.addAttribute("nation",nation);
 		return "tips_etc";
 	}
 	

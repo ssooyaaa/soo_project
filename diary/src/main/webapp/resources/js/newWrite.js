@@ -82,8 +82,10 @@ function initPost(){
       'sight_img':'', //이미지 url
       'sight_desc':'',
       
-      'sequence':[]
+      'sequence':[],
+      'sequence_desc':[]
    }
+   
    
    $('#save-button').click(function(){
       
@@ -127,11 +129,14 @@ function initPost(){
             uploadFileAndGetUrl('photos',file)
             .then(function(url){
                data['more_photos'].push(url);
+               
+               resolve();
                data['sequence'].push(index);
 
-               resolve();
+               
 
             });
+            
          });
          
          promiseArr.push(p2);
@@ -148,6 +153,7 @@ function initPost(){
              data['more_photos_desc'].push(value);
              
              resolve();
+             data['sequence_desc'].push(index);
     	 });
     	 
     	 promiseArr.push(p3);
@@ -222,6 +228,9 @@ function initPost(){
       
       
       Promise.all(promiseArr).then((values) => {
+    	 
+    	  
+    	 console.log('===data===');
          console.log(data);
          
          
@@ -316,7 +325,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-transport').val('');
 	});
 	
 	$('#button-add-accomodation').on('click',function(){
@@ -331,7 +340,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-accomodation').val('');
 	});
 	
 	$('#button-add-eat').on('click',function(){
@@ -346,7 +355,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-eat').val('');
 	});
 
 	$('#button-add-etc').on('click',function(){
@@ -361,7 +370,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		var etc = $('#tips-add-etc').val('');
 	});
 }
 

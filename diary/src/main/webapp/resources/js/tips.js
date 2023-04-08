@@ -8,16 +8,16 @@ $(document).ready(function(){
 		
 		if(page=='transport'){
 			
-			location.href='./tips';
+			location.href='./tips-transport?nation='
 			
 		}else if(page=='accomodation'){
-			location.href='./tips-accomodation';
+			location.href='./tips-accomodation?nation='+$('#search').val();
 			
 		}else if(page=='eat'){
-			location.href='./tips-eat';
+			location.href='./tips-eat?nation='+$('#search').val();
 			
 		}else{
-			location.href='./tips-etc';
+			location.href='./tips-etc?nation='+$('#search').val();
 		};
 	});
 	

@@ -56,7 +56,7 @@ public class MydiaryController {
 		map.put("cnt", cnt);
 		
 		List<Mydiary> mydiaryList = mydiaryDao.getMydiaryChunk(map);
-
+		
 		return mydiaryList;
 		
 	}

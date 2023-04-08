@@ -57,6 +57,10 @@
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
     
+    <bean id="PhotosDescDao" class="com.my.diary.dao.PhotosDescDao">
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
     <bean id="TransportDao" class="com.my.diary.dao.TransportDao">
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
@@ -110,6 +114,10 @@
     </bean>
     
     <bean id="AbroadCommentDao" class="com.my.diary.dao.AbroadCommentDao">
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+    <bean id="ApiKeyDao" class="com.my.diary.dao.ApiKeyDao">
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
     

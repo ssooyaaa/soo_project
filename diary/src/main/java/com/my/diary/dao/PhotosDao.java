@@ -16,6 +16,10 @@ public class PhotosDao extends SqlSessionDaoSupport{
 		return this.getSqlSession().selectList("photos.getPhotosByIdx",photos);
 	}
 	
+	public int updatePhotosDesc(Photos photos) {
+		return this.getSqlSession().update("photos.updatePhotosDesc",photos);
+	}
+	
 	public int getCountByIdx(Photos photos) {
 		return this.getSqlSession().selectOne("photos.getCountByIdx",photos);
 	}

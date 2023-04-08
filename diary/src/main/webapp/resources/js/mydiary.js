@@ -87,8 +87,9 @@ function addMarker(map, address, content){
 				  google.maps.event.addListener(marker,'click',function(){
 					  infowindow.open(map, marker);
 				  });
+				  
 			  }else{
-				  alert('Map 등록에 실패했습니다.');
+				  alert('나라/지역이름이 올바르지않아 지도에 불러오지 못했습니다.');
 			  }
 		  })
 	  }
@@ -98,6 +99,7 @@ function addMarker(map, address, content){
 //다이어리 검색
 function searchDiary(){
 	$('#search-glass').on('click',function(){
+		$('#forMap').hide();
 		$('#pagination-demo').twbsPagination('destroy');
 		
 		var nation = $('#search').val();
@@ -219,8 +221,8 @@ function pagination(){
 					cnt:countInOnePage
 				},
 				success:function(list){
+					
 					console.log(list);
-			
 					$('#mydiary-container').empty();
 					
 					$.each(list,function(index,item){

@@ -60,9 +60,7 @@ function uploadFileAndGetUrl(path,file){
 	  	 
 	    }else{
 	  	  ref.put(file).then(function(snapshot){ //이미지 upload
-	  		   console.log(file);
 	  	         ref.getDownloadURL().then(function(url){ //이미지 주소받기
-	  	            console.log(url);
 	  	        	 resolve(url);
 	  	         }).catch(function(err){console.log(err)});
 	  	         
@@ -85,6 +83,7 @@ function morePhotos(mydiary_idx){
 		type:'get',
 		data:{mydiary_idx:mydiary_idx},
 		success:function(count){
+			console.log(count);
 			countPhoto=count+1;
 		},
 		error:function(err){}
@@ -138,7 +137,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-transport').val('');
 	});
 	
 	$('#button-add-accomodation').on('click',function(){
@@ -153,7 +152,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-accomodation').val('');
 	});
 	
 	$('#button-add-eat').on('click',function(){
@@ -168,7 +167,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-eat').val('');
 	});
 
 	$('#button-add-etc').on('click',function(){
@@ -183,7 +182,7 @@ function moreTips(){
 		);
 		
 		$('.tips-remove-button').on('click',removeList);
-		
+		$('#tips-add-etc').val('');
 	});
 }
 
@@ -389,12 +388,24 @@ function updateAbroad(mydiary_idx){
 		data:{mydiary_idx:mydiary_idx},
 		success:function(item){
 			console.log(item);
-			$('#write-tips-sight').empty();
-			$('#location-filebox').empty();
 			if(item==null || item=="" || item=="undefined"){
 				console.log('abroad-nothing');
+				$('#write-tips-sight').empty();
+				$('#location-filebox').empty();
+				$('#write-tips-sight').append(
+						`<span class="write-tips-subname">
+							<i class="fa-solid fa-square-check"></i>
+						숨은 명소</span>
+						<input type="text" class="tips-location" id="tips-location" placeholder="(딱 1군데만!) 추천하고싶은 곳의 정확한 위치를 적어주세요 (ex.OO에서 나와서 OO쪽으로 가는길에...)"/>`
+					);
+					$('#location-filebox').append(
+						`<label for="location-img">이미지 첨부</label>
+						<input type="file" id="location-img" accept="image/*"/>`
+					);
 				
 			}else{
+				$('#write-tips-sight').empty();
+				$('#location-filebox').empty();
 				$('#write-tips-sight').append(
 					`<span class="write-tips-subname">
 						<i class="fa-solid fa-square-check"></i>
@@ -425,6 +436,8 @@ function updateDomestic(mydiary_idx){
 			console.log(item);
 			if(item==null || item=="" || item=="undefined"){
 				console.log('domestic-nothing');
+				$('#write-tips-sight').empty();
+				$('#location-filebox').empty();
 				$('#write-tips-sight').append(
 						`<span class="write-tips-subname">
 							<i class="fa-solid fa-square-check"></i>
@@ -436,6 +449,8 @@ function updateDomestic(mydiary_idx){
 						<input type="file" id="location-img" accept="image/*"/>`
 					);
 			}else{
+				$('#write-tips-sight').empty();
+				$('#location-filebox').empty();
 				$('#write-tips-sight').append(
 					`<span class="write-tips-subname">
 						<i class="fa-solid fa-square-check"></i>
@@ -465,11 +480,18 @@ function updatePhotos(mydiary_idx){
 		success:function(list){
 			console.log(list);
 			
+			var sortingField = 'sequence';
+			
+			list.sort(function(a,b){
+				return a[sortingField] - b[sortingField];
+			});
+			
 			$.each(list,function(index,item){
 				$('#plus-more-photos').append(
 						`<div class="plus-del-photos">
 							  <input type="file" class="more-photos" id="more-photos" style="display:none"/>
-			                  <input type="text" style="width:245px; margin-left:30px;" id="more-photos-url" class="more-photos-url" value="${item.photos}"/>
+			                  <input type="hidden" style="width:245px; margin-left:30px;" id="more-photos-url" class="more-photos-url" value="${item.photos}"/>
+			                  <img src="${item.photos}" style="margin-left:70px;margin-bottom:10px;width:150px;height:150px;"/>
 			                  <i class="fa-solid fa-angles-right"></i>
 				              <input type="text" class="explain-photos" value="${item.explain_text}" id="explain-photos" placeholder="사진 추가 설명"/>
 				              <input type="button" class="btn-delete-photos" style="margin-bottom:10px;" value="삭제"/>
@@ -549,7 +571,8 @@ function modify(){
 			      'sight_img':'', //이미지 url
 			      'sight_desc':'',
 			      
-			      'sequence':[]
+			      'sequence':[],
+			      'sequence_desc':[]
 			      
 			   }
 			   
@@ -595,21 +618,32 @@ function modify(){
 				 
 				  if($('#more-photos').length>0){
 					  console.log('있음');
+					   
 					  if($('.more-photos')[0].files[0]!=null || $('.more-photos')[0].files[0]!=undefined){
+						  
+						  var newPlusArr=[];
 						  
 						  $.each($('.more-photos'),function(index,item){
 							  	
 								var file = $(item)[0].files[0];
 								
-								uploadFileAndGetUrl('photos',file)
-								.then(function(url){
-									data['more_photos'].push(url);
-									
-									data['sequence'].push(index);
-									resolve();
-									
-								})
+								var newPlusUrl = new Promise(function(rrr,jjj){
+									uploadFileAndGetUrl('photos',file)
+									.then(function(url){
+										data['more_photos'].push(url);
+										console.log(url);
+										data['sequence'].push(index);
+										rrr();
+									})
+								});
+								
+								newPlusArr.push(newPlusUrl);
+								
 							}); 
+						  
+						  Promise.all(newPlusArr).then((values) => {
+							  resolve(); //p2 에 대응하는 resolve();
+						  });
 						  
 					  }else{
 						 
@@ -640,7 +674,7 @@ function modify(){
 								  var plusUrl = new Promise(function(rrr,jjj){
 									  uploadFileAndGetUrl('photos',file)
 							            .then(function(url){
-							            	console.log(url);
+							            	
 							               data['more_photos'].push(url);
 							               data['sequence'].push(index);
 							               console.log('파일추가');
@@ -682,7 +716,12 @@ function modify(){
 				 var p3 = new Promise(function(resolve, reject){
 			         var value = $(item).val();
 			         data['more_photos_desc'].push(value);
+			         data['sequence_desc'].push(index);
+			         
 			         resolve();
+			         
+			         
+			         
 				 });
 				 
 				 promiseArr.push(p3);
@@ -762,6 +801,7 @@ function modify(){
 			  
 			  
 			  Promise.all(promiseArr).then((values) => {
+				 console.log('=================data=============');
 			     console.log(data);
 			     
 			     

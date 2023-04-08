@@ -20,7 +20,8 @@
 		<typeAlias alias="User" type="com.my.diary.vo.User" /> 
 		
 		<typeAlias alias="Mydiary" type="com.my.diary.vo.Mydiary" />
-		<typeAlias alias="Photos" type="com.my.diary.vo.Photos" /> 
+		<typeAlias alias="Photos" type="com.my.diary.vo.Photos" />
+		<typeAlias alias="PhotosDesc" type="com.my.diary.vo.PhotosDesc" /> 
 		
 		<typeAlias alias="Transport" type="com.my.diary.vo.Transport" />
 		<typeAlias alias="Accomodation" type="com.my.diary.vo.Accomodation" />
@@ -40,6 +41,8 @@
 		
 		<typeAlias alias="DomesticComment" type="com.my.diary.vo.DomesticComment" />
 		<typeAlias alias="AbroadComment" type="com.my.diary.vo.AbroadComment" />
+		
+		<typeAlias alias="ApiKey" type="com.my.diary.vo.ApiKey" />
 		
 	</typeAliases>
 	

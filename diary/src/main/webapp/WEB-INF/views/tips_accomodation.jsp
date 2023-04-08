@@ -51,7 +51,7 @@
 				<span class="tips-subname">- 숙소</span>
 				<div class="tips-search">
 				<i class="fa-solid fa-location-dot"></i>
-				<input class="search" id="search" type="search" placeholder="검색 (나라이름)"/>
+				<input class="search" value="${nation}" id="search" type="search" placeholder="검색 (나라이름)"/>
 				<i class="fa-solid fa-magnifying-glass glass" id="search-glass"></i>
 				</div>
 			</div>

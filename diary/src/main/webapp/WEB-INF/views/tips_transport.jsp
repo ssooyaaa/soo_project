@@ -23,6 +23,7 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="./resources/js/tips-transport.js"></script>
+	<script src="./resources/js/chatGPT.js"></script>
 	
 	<!-- //페이지네이션 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js" 
@@ -41,8 +42,11 @@
 		
 	
 	<div class="tips-body">
+	
 		
 		<%@ include file="/WEB-INF/views/include/tips_menu.jsp" %>
+		
+		
 		
 		<div class="tips-content">
 			<div class="tips-body-title">
@@ -52,7 +56,7 @@
 				<span class="tips-subname">- 교통</span>
 				<div class="tips-search">
 					<i class="fa-solid fa-location-dot"></i>
-					<input class="search" id="search" type="search" placeholder="검색 (나라이름)"/>
+					<input class="search" value="${nation}" id="search" type="search" placeholder="검색 (나라이름)"/>
 					<i class="fa-solid fa-magnifying-glass glass" id="search-glass"></i>
 				</div>
 			</div>

@@ -8,6 +8,8 @@ public class Photos {
 	private int mydiary_idx=0;
 	private String photos=null;
 	private int sequence=0;
+	
+	//photos_desc
 	private String explain_text=null;
 
 	
