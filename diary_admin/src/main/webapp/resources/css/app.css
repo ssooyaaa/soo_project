@@ -456,7 +456,7 @@ table thead .ph-report-desc{
 }
 
 table thead .ph-img{
-	width:240px;
+	width:170px;
 }
 
 table thead .ph-contents{
@@ -479,4 +479,11 @@ table thead .ph-contents{
 .more-user .return-btn:hover{
 	color:var(--color-main);
 	font-weight:800;
+}
+
+.report-img{
+	width:150px;
+	height:150px;
+	display:flex;
+	justify-content:center;
 }

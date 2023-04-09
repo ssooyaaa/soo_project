@@ -55,7 +55,7 @@ function getPhotosAll(){
 									      <td id="phreport-idx" scope="row" style="text-align:center;">${item.phreport_idx}</td>
 									      <td style="text-align:center;">${item.user_idx}</td>
 									      <td>${item.report_desc}</td>
-									      <td>${item.domestic_sight_img}</td>
+									      <td><img class="report-img" src="${item.domestic_sight_img}"/></td>
 									      <td>[국내]${item.domestic_sight_desc}</td>
 										  <td style="text-align:center;" id="user-del-btn">수정</td>
 									    </tr>`
@@ -66,7 +66,7 @@ function getPhotosAll(){
 									      <td id="phreport-idx" scope="row" style="text-align:center;">${item.phreport_idx}</td>
 									      <td style="text-align:center;">${item.user_idx}</td>
 									      <td>${item.report_desc}</td>
-									      <td>${item.domestic_sight_img}</td>
+									      <td><img class="report-img" src="${item.domestic_sight_img}"/></td>
 									      <td>[국내]${item.domestic_sight_desc}</td>
 										  <td style="text-align:center;" id="user-complete-btn">완료</td>
 									    </tr>`
@@ -79,7 +79,7 @@ function getPhotosAll(){
 									      <td id="phreport-idx" scope="row" style="text-align:center;">${item.phreport_idx}</td>
 									      <td style="text-align:center;">${item.user_idx}</td>
 									      <td>${item.report_desc}</td>
-									      <td>${item.abroad_sight_img}</td>
+									      <td><img class="report-img" src="${item.abroad_sight_img}"/></td>
 									      <td>[해외]${item.abroad_sight_desc}</td>
 										  <td style="text-align:center;" id="user-del-btn">수정</td>
 									    </tr>`
@@ -90,7 +90,7 @@ function getPhotosAll(){
 									      <td id="phreport-idx" scope="row" style="text-align:center;">${item.phreport_idx}</td>
 									      <td style="text-align:center;">${item.user_idx}</td>
 									      <td>${item.report_desc}</td>
-									      <td>${item.abroad_sight_img}</td>
+									      <td><img class="report-img" src="${item.abroad_sight_img}"/></td>
 									      <td>[해외]${item.abroad_sight_desc}</td>
 										  <td style="text-align:center;" id="user-complete-btn">완료</td>
 									    </tr>`
