@@ -14,7 +14,7 @@
 	crossorigin="anonymous">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/com_eat.js"></script>
+	<script src="./resources/js/com_eat.js"></script>
 	
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>
 	<link rel="stylesheet" href="./resources/css/comment.css"/>

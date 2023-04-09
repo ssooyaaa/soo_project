@@ -19,8 +19,6 @@
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>
 	<link rel="stylesheet" href="./resources/css/login.css"/>
 
-	<script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
-
 	
 </head>
 <body>

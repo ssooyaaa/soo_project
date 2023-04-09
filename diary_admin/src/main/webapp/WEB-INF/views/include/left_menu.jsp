@@ -15,7 +15,7 @@
 	<link rel="stylesheet"  href="./resources/css/all.min.css"/>
 	<link rel="stylesheet" href="./resources/css/comment.css"/>
 	
-	<script src="${pageContext.request.contextPath}/resources/js/header.js"></script>
+	<script src="./resources/js/header.js"></script>
 	<script src="./resources/js/comment.js"></script>
 	<script src="./resources/js/left-menu.js"></script>
 	

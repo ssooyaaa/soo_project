@@ -24,7 +24,7 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
 	
-	<script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
+	<script src="./resources/js/home.js"></script>
 	
 </head>
 <body>
