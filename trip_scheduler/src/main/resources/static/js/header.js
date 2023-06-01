@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	
-	
+	$('.main-name').click(function(){
+		location.href='./';
+	});
 	
 });
 

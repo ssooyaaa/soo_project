@@ -17,4 +17,16 @@ public class HomeController {
 		
 		return "newList";
 	}
+	
+	@GetMapping("/allList")
+	public String allList() {
+		
+		return "allList";
+	}
+	
+	@GetMapping("/tripExpenses")
+	public String tripExpenses() {
+		
+		return "tripExpenses";
+	}
 }

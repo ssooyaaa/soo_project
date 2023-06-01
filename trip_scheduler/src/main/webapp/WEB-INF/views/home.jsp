@@ -36,11 +36,11 @@
 			<div class="menu-name">새일정짜기</div>
 		</div>
 		<div class="menu">
-			<i class="fa-solid fa-list list"></i>
+			<i class="fa-solid fa-list list" id="allList"></i>
 			<div class="menu-name">일정리스트</div>
 		</div>
 		<div class="menu" style="margin-right:70px;">
-			<i class="fa-solid fa-wallet wallet"></i>
+			<i class="fa-solid fa-wallet wallet" id="tripExpenses"></i>
 			<div class="menu-name">여행경비</div>
 		</div>
 		

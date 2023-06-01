@@ -4,4 +4,12 @@ $(document).ready(function(){
 		location.href='./newList';
 	});
 	
+	$('#allList').click(function(){
+		location.href='./allList';
+	});
+	
+	$('#tripExpenses').click(function(){
+		location.href='./tripExpenses';
+	});
+	
 });

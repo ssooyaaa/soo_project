@@ -32,6 +32,7 @@ header .main-name{
 	font-size:40px;
 	color:var(--color-main);
 	margin-left:350px;
+	cursor:pointer;
 }
 
 header i{
