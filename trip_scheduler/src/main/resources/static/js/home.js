@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	$('#newList').click(function(){
-		location.href='./newList';
+		location.href='./newTitle';
 	});
 	
 	$('#allList').click(function(){

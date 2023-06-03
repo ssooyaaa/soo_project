@@ -112,6 +112,37 @@ header i:hover{
 	cursor:pointer;
 }
 
+.plus-member-btn #member-down{
+	display:block;
+}
+
+.plus-member-btn #member-up{
+	display:none;
+}
+
+.member-menu{
+	display:none;
+}
+
+.member-list{
+	height:60px;
+	margin-left:60px;
+	margin-right:60px;
+	background:#fff;
+	display:flex;
+	align-items:center;
+	font-size:19px;
+}
+
+.member-accept{
+	height:60px;
+	margin-left:60px;
+	background:#fff;
+	display:flex;
+	align-items:center;
+	font-size:19px;
+}
+
 .schedule-list-btn{
 	height:8%;
 	margin-left:30px;

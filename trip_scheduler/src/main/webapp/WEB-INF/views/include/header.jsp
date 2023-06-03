@@ -48,10 +48,17 @@
 				<div class="home-btn">
 					홈
 				</div>
+				
 				<div class="plus-member-btn">
 					<span>친구관리</span>
-					<i class="fa-solid fa-angle-down"></i>
+					<i class="fa-solid fa-angle-down" id="member-down"></i>
+					<i class="fa-solid fa-angle-up" id="member-up"></i>
 				</div>
+				<div class="member-menu">
+					<div class="member-list">친구리스트</div>
+					<div class="member-accept">친구알림</div>
+				</div>
+				
 				<div style="background:#E0DDDD; height:2%;"></div>
 				<div class="schedule-list-btn">
 					<span>일정리스트</span>

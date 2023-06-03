@@ -12,6 +12,12 @@ public class HomeController {
 		return "home";
 	}
 	
+	@GetMapping("/newTitle")
+	public String newTitle() {
+		
+		return "newTitle";
+	}
+	
 	@GetMapping("/newList")
 	public String newList() {
 		
