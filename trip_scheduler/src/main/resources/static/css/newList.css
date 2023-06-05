@@ -151,3 +151,174 @@
 	border-radius:5px;
 	cursor:pointer;
 }
+
+.newList-main{
+	width:90%;
+	margin-left:5%;
+	margin-top:50px;
+	padding-bottom:50px;
+	border-bottom:3px solid #E0DDDD;
+}
+
+.newList-title{
+	font-family:home-name;
+	font-size:50px;
+}
+
+.newList-date{
+	font-size:20px;
+	color: #424949;
+}
+
+.newList-friends{
+	font-size:20px;
+	color: #424949;
+	margin-top:10px;
+}
+
+.newList-schedule{
+	width:90%;
+	margin-left:5%;
+	
+}
+
+.day{
+	margin-top:50px;
+	font-size:20px;
+	font-weight:900;
+}
+
+.add-schedule{
+	width:85%;
+	height:130px;
+	margin-left:7.5%;
+	margin-top:30px;
+	display:flex;
+	align-items:center;
+	flex-direction:row;
+	box-shadow:10px 10px 10px #E0DDDD;
+	border:5px solid var(--color-main);
+	border-radius:10px;
+	transition:1s;
+	cursor:pointer;
+}
+
+.start-end-time{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-left:20px;
+	font-size:20px;
+	font-family:home-name;
+}
+
+.schedule-info{
+	font-size:25px;
+	margin-left:30px;
+	font-weight:900;
+}
+
+.info-money{
+	margin-top:20px;
+	font-size:15px;
+}
+
+.write-schedule{
+	width:85%;
+	margin-left:7.5%;
+	margin-top:50px;
+	font-size:17px;
+	border:3px solid #E0DDDD;
+	border-radius:10px;
+	padding:20px 20px;
+}
+
+.time>input{
+	width:100px;
+	margin-right:5px;
+	border:1px solid #1e1e1e;
+	text-align:center;
+}
+
+.location{
+	margin-top:20px;
+}
+
+.location>input{
+	width:85%;
+	margin-left:10px;
+	border:none;
+	border-bottom:1px solid #1e1e1e;
+}
+
+.money{
+	margin-top:20px;
+}
+
+.money>input{
+	margin-left:10px;
+	border:1px solid #1e1e1e;
+}
+
+.write-btn{
+	margin-top:50px;
+	width:60%;
+	margin-left:20%;
+	display:flex;
+	justify-content:space-between;
+}
+
+.write-btn>span{
+	border-radius:10px;
+	padding:7px 50px;
+	background:#E0DDDD;
+	font-weight:900;
+	cursor:pointer;
+}
+
+.update-schedule{
+	width:85%;
+	margin-left:7.5%;
+	margin-top:50px;
+	font-size:17px;
+	border:3px solid #E0DDDD;
+	border-radius:10px;
+	padding:20px 20px;
+}
+
+.location>.write-location{
+	margin-left:10px;
+}
+
+.update-btn{
+	margin-top:50px;
+	width:70%;
+	margin-left:15%;
+	display:flex;
+	justify-content:space-between;
+}
+
+.update-btn>span{
+	border-radius:10px;
+	padding:7px 50px;
+	background:#E0DDDD;
+	font-weight:900;
+	cursor:pointer;
+}
+
+.day-btn{
+	margin-top:50px;
+	font-size:17px;
+	display:flex;
+	justify-content:space-between;
+	width:85%;
+	margin-left:7.5%;
+}
+
+.day-btn>span{
+	border:3px solid #E0DDDD;
+	border-radius:10px;
+	padding:5px 100px;
+	cursor:pointer;
+	margin-bottom:50px;
+}
