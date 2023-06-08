@@ -19,4 +19,16 @@ public class HomeController {
 		
 		return "login";
 	}
+	
+	@RequestMapping(value ="/membership", method = RequestMethod.GET)
+	public String membership() {
+		
+		return "membership";
+	}
+	
+	@RequestMapping(value="/membershipForm", method=RequestMethod.GET)
+	public String membershipForm() {
+		
+		return "membershipForm";
+	}
 }

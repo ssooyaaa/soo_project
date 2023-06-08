@@ -90,109 +90,114 @@
 		</div>
 		
 		<div class="recent-projects">
-			<div class="col-6">
-				<div class="recent-project">
-					<div class="project-type">
-						<span class="type">개발</span>
-						<span class="type">JAVA/JSP</span>
-					</div>
-					<div class="project-name">
-						[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
-					</div>
-					<div class="project-deadline">
-						<span style="margin-right:5px;">기간</span>
-						<span>2023-06-12 ~ 2024-12-31</span>
-					</div>
-					<div class="project-info">
-						<div class="info">
-							<span class="info-type">근무형태</span>
-							<span class="info-more">정규</span>
-							<span style="margin-right:3px;">|</span>
+			<div class="row">
+			
+				<div class="col-6" style="display:flex;">
+					<div class="recent-project">
+						<div class="project-type">
+							<span class="type">개발</span>
+							<span class="type">JAVA/JSP</span>
 						</div>
-						<div class="info">
-							<span class="info-type">근무지</span>
-							<span class="info-more">경기 수원시 영통구</span>
-							<span style="margin-right:3px;">|</span>
+						<div class="project-name">
+							[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
 						</div>
-						<div class="info">
-							<span class="info-type">단가</span>
-							<span class="info-more">3,400~5,000만원</span>
+						<div class="project-deadline">
+							<span style="margin-right:5px;">기간</span>
+							<span>2023-06-12 ~ 2024-12-31</span>
+						</div>
+						<div class="project-info">
+							<div class="info">
+								<span class="info-type">근무형태</span>
+								<span class="info-more">정규</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">근무지</span>
+								<span class="info-more">경기 수원시 영통구</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">단가</span>
+								<span class="info-more">3,400~5,000만원</span>
+							</div>
 						</div>
 					</div>
+					
 				</div>
 				
-			</div>
-			
-			<div class="col-6">
-				<div class="recent-project">
-					<div class="project-type">
-						<span class="type">개발</span>
-						<span class="type">JAVA/JSP</span>
-					</div>
-					<div class="project-name">
-						[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
-					</div>
-					<div class="project-deadline">
-						<span style="margin-right:5px;">기간</span>
-						<span>2023-06-12 ~ 2024-12-31</span>
-					</div>
-					<div class="project-info">
-						<div class="info">
-							<span class="info-type">근무형태</span>
-							<span class="info-more">정규</span>
-							<span style="margin-right:3px;">|</span>
+				<div class="col-6">
+					<div class="recent-project">
+						<div class="project-type">
+							<span class="type">개발</span>
+							<span class="type">JAVA/JSP</span>
 						</div>
-						<div class="info">
-							<span class="info-type">근무지</span>
-							<span class="info-more">경기 수원시 영통구</span>
-							<span style="margin-right:3px;">|</span>
+						<div class="project-name">
+							[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
 						</div>
-						<div class="info">
-							<span class="info-type">단가</span>
-							<span class="info-more">3,400~5,000만원</span>
+						<div class="project-deadline">
+							<span style="margin-right:5px;">기간</span>
+							<span>2023-06-12 ~ 2024-12-31</span>
+						</div>
+						<div class="project-info">
+							<div class="info">
+								<span class="info-type">근무형태</span>
+								<span class="info-more">정규</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">근무지</span>
+								<span class="info-more">경기 수원시 영통구</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">단가</span>
+								<span class="info-more">3,400~5,000만원</span>
+							</div>
 						</div>
 					</div>
+					
 				</div>
 				
-			</div>
-			
-			<div class="col-6">
-				<div class="recent-project">
-					<div class="project-type">
-						<span class="type">개발</span>
-						<span class="type">JAVA/JSP</span>
-					</div>
-					<div class="project-name">
-						[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
-					</div>
-					<div class="project-deadline">
-						<span style="margin-right:5px;">기간</span>
-						<span>2023-06-12 ~ 2024-12-31</span>
-					</div>
-					<div class="project-info">
-						<div class="info">
-							<span class="info-type">근무형태</span>
-							<span class="info-more">정규</span>
-							<span style="margin-right:3px;">|</span>
+				<div class="col-6">
+					<div class="recent-project">
+						<div class="project-type">
+							<span class="type">개발</span>
+							<span class="type">JAVA/JSP</span>
 						</div>
-						<div class="info">
-							<span class="info-type">근무지</span>
-							<span class="info-more">경기 수원시 영통구</span>
-							<span style="margin-right:3px;">|</span>
+						<div class="project-name">
+							[초급/백엔드/정규직/수원(광교)] AI 솔루션 개발
 						</div>
-						<div class="info">
-							<span class="info-type">단가</span>
-							<span class="info-more">3,400~5,000만원</span>
+						<div class="project-deadline">
+							<span style="margin-right:5px;">기간</span>
+							<span>2023-06-12 ~ 2024-12-31</span>
+						</div>
+						<div class="project-info">
+							<div class="info">
+								<span class="info-type">근무형태</span>
+								<span class="info-more">정규</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">근무지</span>
+								<span class="info-more">경기 수원시 영통구</span>
+								<span style="margin-right:3px;">|</span>
+							</div>
+							<div class="info">
+								<span class="info-type">단가</span>
+								<span class="info-more">3,400~5,000만원</span>
+							</div>
 						</div>
 					</div>
+					
 				</div>
 				
+				
+			
 			</div>
-			
-			
-			
-		
+	
 		</div>
+		
+		
 		
 		<div class="more-projects-btn">+ 더보기</div>
 		

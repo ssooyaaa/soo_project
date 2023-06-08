@@ -67,6 +67,16 @@ header{
 	cursor:pointer;
 }
 
+.logout{
+	width:100%;
+	display:flex;
+	justify-content:end;
+	align-items:center;
+	font-size:15px;
+	font-weight:600;
+	cursor:pointer;
+}
+
 .main-banner{
 	width:100%;
 	height:calc(100% - 120px);

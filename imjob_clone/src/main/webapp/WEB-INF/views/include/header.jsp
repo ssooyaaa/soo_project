@@ -1,5 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,11 +33,23 @@
 					<span class="add-member">프리랜서등록</span>
 					<span class="commissioned">정규직의뢰</span>
 				</div>
-				<div class="membership">
-					<span class="login-btn" style="padding-right:5px">로그인</span>
-					<span style="color:#D5D9D9;"> | </span>
-					<span class="membership-btn" style="padding-left:5px">회원가입</span>
-				</div>
+				
+				<!--<c:if test="${empty sessionScope.loginUser}">-->
+					<div class="membership">
+						<span class="login-btn" style="padding-right:5px">로그인</span>
+						<span style="color:#D5D9D9;"> | </span>
+						<span class="membership-btn" style="padding-left:5px">회원가입</span>
+					</div>
+				<!--</c:if>-->
+				
+				
+				<!--<c:if test="${not empty sessionScope.loginUser}">
+					<div class="logout">
+						<span class="logout-btn">로그아웃</span>
+					</div>
+				</c:if>-->
+				
+				
 			</div>
 		</div>
 	</header>
