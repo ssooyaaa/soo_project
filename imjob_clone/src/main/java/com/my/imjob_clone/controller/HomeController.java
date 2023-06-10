@@ -31,4 +31,22 @@ public class HomeController {
 		
 		return "membershipForm";
 	}
+	
+	@RequestMapping(value="/newWork", method=RequestMethod.GET)
+	public String newWork() {
+		
+		return "newWork";
+	}
+	
+	@RequestMapping(value="/projectList", method=RequestMethod.GET)
+	public String projectList() {
+		
+		return "projectList";
+	}
+	
+	@RequestMapping(value="/commission", method=RequestMethod.GET)
+	public String commission() {
+		
+		return "commission";
+	}
 }
