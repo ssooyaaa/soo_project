@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@
 			</div>
 			
 			<div class="check">
-				<input type="checkbox" class="term-check"/>
+				<input type="checkbox" class="term-check" id="term-check"/>
 				<span>회원이용약관에 동의합니다.</span>
 			</div>
 			
@@ -141,7 +141,7 @@
 			</div>
 			
 			<div class="check">
-				<input type="checkbox" class="personal-info-check"/>
+				<input type="checkbox" class="personal-info-check" id="personal-info-check"/>
 				<span>개인정보 수집 및 이용안내에 동의합니다.</span>
 			</div>
 			

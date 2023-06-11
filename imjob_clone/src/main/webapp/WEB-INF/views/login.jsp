@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -44,8 +44,8 @@
 						<span>비밀번호</span>
 					</div>
 					<div class="input">
-						<input />
-						<input />
+						<input type="text" id="input-id"/>
+						<input type="password" id="input-pw"/>
 					</div>
 					<div class="login-box-btn">로그인</div>
 				</div>

@@ -1,12 +1,21 @@
 package com.my.imjob_clone.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.my.imjob_clone.vo.User;
+
 @Controller
 public class HomeController {
+	
+	void setUserSession(HttpSession s, Model m) {
+		User loginUser = (User)s.getAttribute("loginUser");
+		m.addAttribute("loginUser", loginUser);
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -44,9 +53,21 @@ public class HomeController {
 		return "projectList";
 	}
 	
+	@RequestMapping(value="/registerFreelancer", method=RequestMethod.GET)
+	public String registerFreelancer() {
+		
+		return "registerFreelancer";
+	}
+	
 	@RequestMapping(value="/commission", method=RequestMethod.GET)
 	public String commission() {
 		
 		return "commission";
+	}
+	
+	@RequestMapping(value="/findMember", method=RequestMethod.GET)
+	public String findMember() {
+		
+		return "findMember";
 	}
 }

@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>MembershipForm</title>
+
+	<!-- 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="./resources/js/membership.js"></script>
@@ -57,7 +60,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td>
-							<input type="text"/>
+							<input type="text" id="user-name"/>
 							<span style="color:#112579;font-size:13px;">+최대 50자까지 입력가능</span>
 						</td>
 					</tr>
@@ -68,9 +71,12 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td>
-							<input type="text"/>
+							<input type="text" id="user-id"/>
 							<button class="double-check-id" style="font-size:13px;border-radius:5px;border:1px solid #99A3A4;">중복확인</button>
-							<span style="color:#112579;font-size:13px;">+영문자로 시작하는 4~15자의 영문소문자,숫자조합</span>
+							<span id="id-info" style="color:#112579;font-size:13px;">+영문자로 시작하는 4~15자의 영문소문자,숫자조합</span>
+							
+							<span id="id-ok" style="display:none;color:green;font-size:13px;">사용 가능한 아이디입니다.</span>
+							<span id="id-no" style="display:none;color:red;font-size:13px;">사용 불가능한 아이디입니다.</span>
 						</td>
 					</tr>
 					
@@ -80,7 +86,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td>
-							<input type="text"/>
+							<input type="password" id="user-pw"/>
 							<span style="color:#112579;font-size:13px;">+4~15자의 영문자, 숫자조합</span>
 						</td>
 					</tr>
@@ -91,7 +97,17 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td>
-							<input type="text"/>
+							<input type="password" id="user-pw-doubleCheck"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="gray-bg">
+							<span>이메일</span>
+							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
+						</td>
+						<td>
+							<input type="text" id="user-email" style="width:30%;"/>
 						</td>
 					</tr>
 					
@@ -100,9 +116,30 @@
 							<span>전화번호</span>
 						</td>
 						<td>
-							<input type="text" style="width:70px;"/>  -
-							<input type="text" style="width:70px;"/>  -
-							<input type="text" style="width:70px;"/>
+							<input type="text" id="user-phoneNum-first" style="width:70px;"/>  -
+							<input type="text" id="user-phoneNum-second" style="width:70px;"/>  -
+							<input type="text" id="user-phoneNum-last" style="width:70px;"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="gray-bg">
+							<span>주소</span>
+							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
+						</td>
+						<td style="display:flex;flex-direction:column;padding:5px 0;">
+							<div style="margin-bottom:3px;">
+								<input type="text" id="user-zipcode" style="width:70px;"/>
+								<button class="zipcode-btn" style="font-size:13px;border-radius:5px;border:1px solid #99A3A4;">우편번호찾기</button>
+							</div>
+							
+							<input type="text" id="user-address" style="width:50%;margin-bottom:3px;"/>
+							
+							<div>
+								<input type="text" id="user-address-more" style="width:50%;"/>
+								<span style="color:#112579;font-size:13px;">+나머지 상세주소</span>
+							</div>
+							
 						</td>
 					</tr>
 					
