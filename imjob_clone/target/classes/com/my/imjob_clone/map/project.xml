@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project">	
+	
+	<select id="getCount" resultType="Integer">
+		SELECT COUNT(*) FROM project
+	</select>
+	
+	<select id="getProjectAll" parameterType="HashMap" resultType="Project">
+		SELECT * FROM project
+		ORDER BY project_idx DESC
+		LIMIT #{start},#{cnt}
+	</select>
+
+</mapper>
