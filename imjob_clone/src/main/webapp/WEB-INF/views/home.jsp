@@ -8,6 +8,7 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="./resources/js/home.js"></script>
+	<script src="./resources/js/projectList.js"></script>
 	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 

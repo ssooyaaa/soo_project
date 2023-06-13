@@ -44,23 +44,23 @@
 		
 		<div class="project-search-condition">
 			<div class="search-type">
-				<input type="checkbox"/>
+				<input type="checkbox" name="sh_check" id="sh_check" value="기획"/>
 				<span>기획</span>
-				<input type="checkbox"/>
+				<input type="checkbox" name="sh_check" id="sh_check" value="디자인"/>
 				<span>디자인</span>
-				<input type="checkbox"/>
+				<input type="checkbox" name="sh_check" id="sh_check" value="퍼블리셔"/>
 				<span>퍼블리셔</span>
-				<input type="checkbox"/>
+				<input type="checkbox" name="sh_check" id="sh_check" value="개발"/>
 				<span>개발</span>
 			</div>
 			<div class="keyword-box">
-				<select name="keyword-mode">
-					<option >선택</option>
-					<option value="subject">프로젝트 제목</option>
+				<select name="keyword-mode" id="keyword-mode">
+					<option value="">선택</option>
+					<option value="title">프로젝트 제목</option>
 					<option value="content">프로젝트 내용</option>
 				</select>
-				<input type="text"/>
-				<button>검색</button>
+				<input type="text" id="keyword"/>
+				<button class="search-btn">검색</button>
 			</div>
 		</div>
 		

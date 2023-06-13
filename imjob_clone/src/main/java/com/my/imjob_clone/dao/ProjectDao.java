@@ -16,5 +16,17 @@ public class ProjectDao extends SqlSessionDaoSupport{
 	public List<Project> getProjectAll(HashMap<String,Object> map){
 		return this.getSqlSession().selectList("project.getProjectAll",map);
 	}
+	
+	public Project getProjectByIdx(int i) {
+		return this.getSqlSession().selectOne("project.getProjectByIdx",i);
+	}
 
+	
+	public int searchProjectCount(HashMap<String, Object> map){
+		return this.getSqlSession().selectOne("project.searchProjectCount",map);
+	}
+	
+	public List<Project> searchProjectList(HashMap<String,Object> map){
+		return this.getSqlSession().selectList("project.searchProjectList",map);
+	}
 }

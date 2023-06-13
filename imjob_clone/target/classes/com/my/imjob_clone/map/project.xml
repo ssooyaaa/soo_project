@@ -10,5 +10,68 @@
 		ORDER BY project_idx DESC
 		LIMIT #{start},#{cnt}
 	</select>
+	
+	<select id="getProjectByIdx" parameterType="Integer" resultType="Project">
+		SELECT * FROM project
+		WHERE project_idx=#{project_idx}
+	</select>
+	
+
+	<select id="searchProjectCount" parameterType="HashMap" resultType="Integer">
+		SELECT COUNT(*) FROM project
+		<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR">
+			<if test="checkArray.size != 0">
+				AND field IN
+				<foreach item="item" index="index" collection="checkArray" open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+			
+			<if test="keyword != null and keyword != ''">
+				<choose>
+					<when test="selectOption != null and selectOption != ''">
+						<choose>
+							<when test="'title'.equals(selectOption)">
+								AND title LIKE CONCAT('%', #{keyword}, '%')
+							</when>
+							<when test="'content'.equals(selectOption)">
+								AND content LIKE CONCAT('%', #{keyword}, '%')
+							</when>
+						</choose>
+					</when>
+				</choose>
+			</if>
+		</trim>		
+	</select>
+	
+	
+	<select id="searchProjectList" parameterType="HashMap" resultType="Project">
+		SELECT * FROM project
+		<trim prefix="WHERE" suffixOverrides="WHERE" prefixOverrides="AND | OR">
+			<if test="checkArray.size != 0">
+				AND field IN
+				<foreach item="item" index="index" collection="checkArray" open="(" separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+			
+			<if test="keyword != null and keyword != ''">
+				<choose>
+					<when test="selectOption != null and selectOption != ''">
+						<choose>
+							<when test="'title'.equals(selectOption)">
+								AND title LIKE CONCAT('%', #{keyword}, '%')
+							</when>
+							<when test="'content'.equals(selectOption)">
+								AND content LIKE CONCAT('%', #{keyword}, '%')
+							</when>
+						</choose>
+					</when>
+				</choose>
+			</if>
+		</trim>
+		ORDER BY project_idx DESC
+		LIMIT #{start}, #{cnt}		
+	</select>
 
 </mapper>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.imjob_clone.vo.User;
 
@@ -69,5 +70,16 @@ public class HomeController {
 	public String findMember() {
 		
 		return "findMember";
+	}
+	
+	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	public String detail(
+			@RequestParam(value="project_idx") int project_idx,
+			Model model
+			) {
+		
+		model.addAttribute("project_idx",project_idx);
+		
+		return "detail";
 	}
 }

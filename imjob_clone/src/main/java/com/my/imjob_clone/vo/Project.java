@@ -10,6 +10,8 @@ public class Project {
 	private String type=null;
 	private String duration=null;
 	private String price=null;
+	private String content=null;
+	
 	public int getProject_idx() {
 		return project_idx;
 	}
@@ -57,6 +59,12 @@ public class Project {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 	

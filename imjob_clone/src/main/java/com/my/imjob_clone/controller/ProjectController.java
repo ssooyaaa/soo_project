@@ -1,11 +1,13 @@
 package com.my.imjob_clone.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,6 +45,60 @@ public class ProjectController {
 		map.put("cnt", cnt);
 		
 		List<Project> projectList = projectDao.getProjectAll(map);
+		
+		return projectList;
+	}
+	
+	@RequestMapping(value="/getProjectByIdx", method=RequestMethod.GET)
+	public @ResponseBody Project getProjectByIdx(
+			@RequestParam(value="project_idx") int project_idx
+			) {
+		
+		Project project = projectDao.getProjectByIdx(project_idx);
+		
+		return project;
+	}
+	
+	
+	@RequestMapping(value="/searchProjectCount", method=RequestMethod.POST)
+	public @ResponseBody int searchProjectCount(
+			@RequestBody HashMap<String,Object> map
+			){
+		
+		List<String> checkArray = (List<String>)map.get("checkArray");
+		String selectOption = (String)map.get("selectOption");
+		String keyword = (String)map.get("keyword");
+		
+		
+		map.put("checkArray", checkArray);
+		map.put("selectOption", selectOption);
+		map.put("keyword", keyword);
+		
+		
+		int count = projectDao.searchProjectCount(map);
+		
+		return count;
+	}
+	
+	
+	@RequestMapping(value="/searchProjectList", method=RequestMethod.POST)
+	public @ResponseBody List<Project> searchProjectList(
+			@RequestParam(value="checkArray") List<String> checkArray,
+			@RequestParam(value="selectOption") String selectOption,
+			@RequestParam(value="keyword") String keyword,
+			@RequestParam(value="start") int start,
+			@RequestParam(value="cnt") int cnt
+			){
+		
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		
+		map.put("checkArray", checkArray);
+		map.put("selectOption", selectOption);
+		map.put("keyword", keyword);
+		map.put("start", start);
+		map.put("cnt", cnt);
+		
+		List<Project> projectList = projectDao.searchProjectList(map);
 		
 		return projectList;
 	}
