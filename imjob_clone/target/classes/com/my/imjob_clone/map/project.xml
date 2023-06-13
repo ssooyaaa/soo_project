@@ -71,7 +71,7 @@
 			</if>
 		</trim>
 		ORDER BY project_idx DESC
-		LIMIT #{start}, #{cnt}		
+		LIMIT #{start},#{cnt}		
 	</select>
 
 </mapper>

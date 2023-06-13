@@ -83,20 +83,22 @@ public class ProjectController {
 	
 	@RequestMapping(value="/searchProjectList", method=RequestMethod.POST)
 	public @ResponseBody List<Project> searchProjectList(
-			@RequestParam(value="checkArray") List<String> checkArray,
-			@RequestParam(value="selectOption") String selectOption,
-			@RequestParam(value="keyword") String keyword,
-			@RequestParam(value="start") int start,
-			@RequestParam(value="cnt") int cnt
+			@RequestBody HashMap<String,Object> map
 			){
 		
-		HashMap<String,Object> map = new HashMap<String,Object>();
+		List<String> checkArray = (List<String>)map.get("checkArray");
+		String selectOption = (String)map.get("selectOption");
+		String keyword = (String)map.get("keyword");
+		int start = (Integer)map.get("start");
+		int cnt = (Integer)map.get("cnt");
+		
 		
 		map.put("checkArray", checkArray);
 		map.put("selectOption", selectOption);
 		map.put("keyword", keyword);
 		map.put("start", start);
 		map.put("cnt", cnt);
+		
 		
 		List<Project> projectList = projectDao.searchProjectList(map);
 		

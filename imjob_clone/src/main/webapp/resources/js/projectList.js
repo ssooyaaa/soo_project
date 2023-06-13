@@ -118,7 +118,9 @@ function getCheckbox(){
 		var data={
 			'checkArray':[],
 			'selectOption':'',
-			'keyword':''
+			'keyword':'',
+			'start':0,
+			'cnt':8
 		}
 		
 		$('input:checkbox[name=sh_check]:checked').each(function() { // 체크된 체크박스의 value 값
@@ -136,22 +138,26 @@ function getCheckbox(){
 		
 		data['keyword'] = $('#keyword').val();
 		
+		
+		
+		$('#pagination-project').twbsPagination('destroy');
+		$('#projectList').empty();
+		
 		var totalPages=0;
 		var countInOnePage=8;
 		
-		$('#pagination-project').twbsPagination('destroy');
 		
 		$.ajax({
 			url:'./project/searchProjectCount',
 			type:'post',
 			contentType:'application/json;charset=UTF-8',
 			data:JSON.stringify(data),
+			async:false,
 			success:function(count){
 				totalPages=Math.ceil(count/countInOnePage);
 			},
 			error:function(){}
 		});
-		
 		
 		
 		$('#pagination-project').twbsPagination({
@@ -163,19 +169,14 @@ function getCheckbox(){
 			last:'>>',
 			onPageClick:function(event, page){
 				
+				data['start'] = (page-1)*data['cnt'];
+				
 				$.ajax({
-					url:'./project/getProjectList',
+					url:'./project/searchProjectList',
 					type:'post',
-					data:{
-						checkArray:checkArray,
-						selectOption:selectOption,
-						keyword:keyword,
-						start:(page-1)*countInOnePage,
-						cnt:countInOnePage
-					},
+					contentType:'application/json;charset=UTF-8',
+					data:JSON.stringify(data),
 					success:function(list){
-						
-						$('#projectList').empty();
 						
 						$.each(list, function(index,item){
 							
