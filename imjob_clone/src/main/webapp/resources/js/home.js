@@ -11,6 +11,43 @@ $(document).ready(function(){
 		location.href='./membership';
 	});
 	
+	
+	//프로젝트-프로그래밍(개발)
+	$('#search-programming').click(function(){
+		
+		var children = $('#search-programming').children();
+		var field = children.eq(1).val();
+		
+		location.href='./checkedList?field='+field;
+	});
+	
+	//프로젝트-웹기획
+	$('#search-planning').click(function(){
+		
+		var children = $('#search-planning').children();
+		var field = children.eq(1).val();
+		
+		location.href='./checkedList?field='+field;
+	});
+	
+	//프로젝트-퍼블리싱
+	$('#search-publishing').click(function(){
+		
+		var children = $('#search-publishing').children();
+		var field = children.eq(1).val();
+		
+		location.href='./checkedList?field='+field;
+	});
+	
+	//프로젝트-디자인
+	$('#search-design').click(function(){
+		
+		var children = $('#search-design').children();
+		var field = children.eq(1).val();
+		
+		location.href='./checkedList?field='+field;
+	});
+	
 	//더보기버튼
 	var listIndex=0;
 	var listCount=8;

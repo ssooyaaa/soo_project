@@ -29,4 +29,12 @@ public class ProjectDao extends SqlSessionDaoSupport{
 	public List<Project> searchProjectList(HashMap<String,Object> map){
 		return this.getSqlSession().selectList("project.searchProjectList",map);
 	}
+	
+	public int getCheckedCount(String s) {
+		return this.getSqlSession().selectOne("project.getCheckedCount",s);
+	}
+	
+	public List<Project> getCheckedAll(HashMap<String, Object> map){
+		return this.getSqlSession().selectList("project.getCheckedAll",map);
+	}
 }

@@ -82,4 +82,15 @@ public class HomeController {
 		
 		return "detail";
 	}
+	
+	@RequestMapping(value="/checkedList" ,method=RequestMethod.GET)
+	public String checkedList(
+			@RequestParam(value="field") String field,
+			Model model
+			) {
+		
+		model.addAttribute("field",field);
+		
+		return "projectList";
+	}
 }

@@ -54,6 +54,7 @@ function checkId(){
 		var id = $('#user-id').val();
 		
 		if(id==''){
+			
 			alert('아이디를 입력해주세요.');
 		}else{
 			if(id.length>=4 && id.length<=15){
@@ -141,22 +142,28 @@ function addUser(){
 								});
 							}else{
 								alert('주소를 기입해주세요.');
+								$('#user-zipcode').focus();
 							}
 						}else{
 							alert('이메일을 기입해주세요.');
+							$('#user-email').focus();
 						}
 						
 					}else{
 						alert('비밀번호가 불일치합니다.');
+						$('#user-pw').focus();
 					}
 				}else{
 					alert('비밀번호는 4~15자의 영문자, 숫자조합만 가능합니다.');
+					$('#user-pw').focus();
 				}
 			}else{
 				alert('id중복 확인해주세요.');
+				$('#user-id').focus();
 			}
 		}else{
 			alert('이름을 올바르게 기입해주세요');
+			$('#user-name').focus();
 		}
 		
 	});

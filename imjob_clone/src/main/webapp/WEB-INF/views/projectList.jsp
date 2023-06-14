@@ -34,6 +34,8 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
 	<%@ include file="/WEB-INF/views/include/banner.jsp" %>
+	
+	<input type="hidden" id="map-field" value="${field}"/>
 
 	<div class="projectList-container">
 		<div class="membership-title" style="display:flex;align-items:center;margin-bottom:20px;">
@@ -44,13 +46,13 @@
 		
 		<div class="project-search-condition">
 			<div class="search-type">
-				<input type="checkbox" name="sh_check" id="sh_check" value="기획"/>
+				<input type="checkbox" name="sh_check" id="sh_check1" value="기획"/>
 				<span>기획</span>
-				<input type="checkbox" name="sh_check" id="sh_check" value="디자인"/>
+				<input type="checkbox" name="sh_check" id="sh_check2" value="디자인"/>
 				<span>디자인</span>
-				<input type="checkbox" name="sh_check" id="sh_check" value="퍼블리셔"/>
+				<input type="checkbox" name="sh_check" id="sh_check3" value="퍼블리셔"/>
 				<span>퍼블리셔</span>
-				<input type="checkbox" name="sh_check" id="sh_check" value="개발"/>
+				<input type="checkbox" name="sh_check" id="sh_check4" value="개발"/>
 				<span>개발</span>
 			</div>
 			<div class="keyword-box">

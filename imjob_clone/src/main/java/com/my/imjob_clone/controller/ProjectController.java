@@ -104,4 +104,38 @@ public class ProjectController {
 		
 		return projectList;
 	}
+	
+	
+	@RequestMapping(value="/getCheckedCount", method=RequestMethod.GET)
+	public @ResponseBody int getCheckedCount(
+			@RequestParam(value="field") String field
+			) {
+		
+		int count = projectDao.getCheckedCount(field);
+		
+		return count;
+	}
+	
+	
+	@RequestMapping(value="/getCheckedAll", method=RequestMethod.GET)
+	public @ResponseBody List<Project> getCheckedAll(
+			@RequestParam(value="field") String field,
+			@RequestParam(value="start") int start,
+			@RequestParam(value="cnt") int cnt
+			){
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("field", field);
+		map.put("start", start);
+		map.put("cnt", cnt);
+		
+		List<Project> checkedList = projectDao.getCheckedAll(map);
+		
+		return checkedList;
+	}
+	
+	
 }
+
+

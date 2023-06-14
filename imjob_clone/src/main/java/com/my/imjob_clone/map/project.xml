@@ -73,5 +73,18 @@
 		ORDER BY project_idx DESC
 		LIMIT #{start},#{cnt}		
 	</select>
+	
+	
+	<select id="getCheckedCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM project
+		WHERE field=#{field}
+	</select>
+	
+	<select id="getCheckedAll" parameterType="HashMap" resultType="Project">
+		SELECT * FROM project
+		WHERE field=#{field}
+		ORDER BY project_idx DESC
+		LIMIT #{start},#{cnt}
+	</select>
 
 </mapper>
