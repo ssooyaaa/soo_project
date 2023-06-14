@@ -10,7 +10,6 @@
 <title>Commission</title>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="./resources/js/newWork.js"></script>
 	
 	<script type="text/javascript" src="./resources/dist/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>

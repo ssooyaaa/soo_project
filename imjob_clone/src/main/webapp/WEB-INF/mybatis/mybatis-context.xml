@@ -51,6 +51,9 @@
     <bean id="ProjectDao" class="com.my.imjob_clone.dao.ProjectDao">
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
+    <bean id="NewWorkDao" class="com.my.imjob_clone.dao.NewWorkDao">
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
    
    	
     

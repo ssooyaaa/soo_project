@@ -18,7 +18,8 @@
 	<!-- VO 등록 -->
 	<typeAliases>
 		<typeAlias alias="User" type="com.my.imjob_clone.vo.User" />
-		<typeAlias alias="Project" type="com.my.imjob_clone.vo.Project" /> 
+		<typeAlias alias="Project" type="com.my.imjob_clone.vo.Project" />
+		<typeAlias alias="NewWork" type="com.my.imjob_clone.vo.NewWork" /> 
 		
 	</typeAliases>
 	

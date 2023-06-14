@@ -11,6 +11,7 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="./resources/js/newWork.js"></script>
+	
 	<script type="text/javascript" src="./resources/dist/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	
@@ -118,7 +119,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td>
-							<input type="text" style="width:50%;"/>
+							<input type="text" id="newWork-title" style="width:50%;"/>
 						</td>
 					</tr>
 				</tbody>
@@ -143,7 +144,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td style="width:25%;">
-							<input type="text" style="width:110%;"/>
+							<input type="text" id="newWork-company" style="width:110%;"/>
 						</td>
 					</tr>
 					
@@ -153,7 +154,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td style="width:100px;">
-							<input type="text"/>
+							<input type="text" id="newWork-head"/>
 						</td>
 						
 						<td class="gray-bg" style="border-top: 1px solid #99A3A4;">
@@ -161,9 +162,9 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td style="border-top: 1px solid #99A3A4;">
-							<input type="text" style="width:50px;"/>  -
-							<input type="text" style="width:50px;"/>  -
-							<input type="text" style="width:50px;"/>
+							<input type="text" id="newWork-phone1" style="width:50px;"/>  -
+							<input type="text" id="newWork-phone2" style="width:50px;"/>  -
+							<input type="text" id="newWork-phone3" style="width:50px;"/>
 						</td>
 					</tr>
 					
@@ -173,9 +174,9 @@
 							<span>전화번호</span>
 						</td>
 						<td style="width:25%;">
-							<input type="text" style="width:50px;"/>  -
-							<input type="text" style="width:50px;"/>  -
-							<input type="text" style="width:50px;"/>
+							<input type="text" id="newWork-num1" style="width:50px;"/>  -
+							<input type="text" id="newWork-num2" style="width:50px;"/>  -
+							<input type="text" id="newWork-num3" style="width:50px;"/>
 						</td>
 						
 						<td class="gray-bg" style="border-top: 1px solid #99A3A4;">
@@ -183,7 +184,7 @@
 							<span style="color:#E67E22;font-weight:700;padding-left:0;">V</span>
 						</td>
 						<td style="border-top: 1px solid #99A3A4;">
-							<input type="text" style="width:70%;"/>
+							<input type="text" id="newWork-email" style="width:70%;"/>
 						</td>
 					</tr>
 					
@@ -216,7 +217,7 @@
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	
 	
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		var oEditors = [];
 		$(function(){
 		      nhn.husky.EZCreator.createInIFrame({
@@ -239,7 +240,7 @@
 		 
 		 
 		 
-	</script>
+	</script> -->
 				
 	
 

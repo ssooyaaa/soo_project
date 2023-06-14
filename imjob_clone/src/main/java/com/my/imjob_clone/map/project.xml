@@ -12,8 +12,18 @@
 	</select>
 	
 	<select id="getProjectByIdx" parameterType="Integer" resultType="Project">
-		SELECT * FROM project
-		WHERE project_idx=#{project_idx}
+		SELECT p.title, 
+			p.field,
+			p.detail_field,
+			p.location,
+			p.type,
+			p.duration,
+			p.price,
+			n.content
+		FROM project AS p
+		LEFT OUTER JOIN newWork AS n
+			ON p.title = n.title
+		WHERE p.project_idx=#{project_idx}
 	</select>
 	
 

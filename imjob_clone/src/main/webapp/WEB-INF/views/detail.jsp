@@ -36,7 +36,10 @@
 		
 		<div class="detail-info-box">
 			<span>상세설명</span>
-			<div class="detail-info"></div>
+			<div class="detail-info">
+			
+			
+			</div>
 		</div>
 		
 		<div class="btn-box">
