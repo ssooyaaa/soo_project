@@ -3,6 +3,7 @@ package com.my.imjob_clone.vo;
 public class Project {
 
 	private int project_idx=0;
+	private int newWork_idx=0;
 	private String title=null;
 	private String field=null;
 	private String detail_field=null;
@@ -10,6 +11,7 @@ public class Project {
 	private String type=null;
 	private String duration=null;
 	private String price=null;
+	private String content=null;
 	
 	
 	public int getProject_idx() {
@@ -17,6 +19,13 @@ public class Project {
 	}
 	public void setProject_idx(int project_idx) {
 		this.project_idx = project_idx;
+	}
+	
+	public int getNewWork_idx() {
+		return newWork_idx;
+	}
+	public void setNewWork_idx(int newWork_idx) {
+		this.newWork_idx = newWork_idx;
 	}
 	public String getTitle() {
 		return title;
@@ -60,6 +69,11 @@ public class Project {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	
 }

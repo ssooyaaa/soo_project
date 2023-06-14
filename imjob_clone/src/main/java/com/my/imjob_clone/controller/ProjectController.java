@@ -55,7 +55,7 @@ public class ProjectController {
 			) {
 		
 		Project project = projectDao.getProjectByIdx(project_idx);
-		System.out.println(project);
+		
 		return project;
 	}
 	

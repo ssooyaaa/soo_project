@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="getProjectByIdx" parameterType="Integer" resultType="Project">
-		SELECT p.title, 
+		SELECT p.title,
 			p.field,
 			p.detail_field,
 			p.location,
@@ -22,7 +22,7 @@
 			n.content
 		FROM project AS p
 		LEFT OUTER JOIN newWork AS n
-			ON p.title = n.title
+			ON p.newWork_idx = n.newWork_idx
 		WHERE p.project_idx=#{project_idx}
 	</select>
 	

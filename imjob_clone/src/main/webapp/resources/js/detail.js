@@ -22,7 +22,7 @@ function showMoreInfo(project_idx){
 		type:'get',
 		data:{'project_idx':project_idx},
 		success:function(item){
-			console.log(item);
+			
 			$('.detail-container').prepend(
 				`<div class="detail-title">
 					${item.title}
