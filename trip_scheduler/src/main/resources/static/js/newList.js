@@ -29,4 +29,14 @@ $(document).ready(function(){
 	$('.update-cancel').click(function(){
 		$('.update-schedule').hide();
 	});
+	
+	//메모추가클릭
+	$('.add-memo-btn').click(function(){
+		$('.day-memo').show();
+	});
+	
+	//메모닫기-저장-닫기
+	$('.memo-close').click(function(){
+		$('.day-memo').hide();
+	});
 });

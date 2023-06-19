@@ -186,6 +186,7 @@
 	margin-top:50px;
 	font-size:20px;
 	font-weight:900;
+	position:relative;
 }
 
 .add-schedule{
@@ -200,7 +201,6 @@
 	border:5px solid var(--color-main);
 	border-radius:10px;
 	transition:1s;
-	cursor:pointer;
 }
 
 .start-end-time{
@@ -216,11 +216,23 @@
 	font-size:25px;
 	margin-left:30px;
 	font-weight:900;
+	width:75%;
 }
 
 .info-money{
 	margin-top:20px;
 	font-size:15px;
+}
+
+.edit-remove>i{
+	font-size:25px;
+	color:#EE8A58;
+	cursor:pointer;
+}
+
+.edit-remove:hover{
+	transform:translateX(-20px);
+	transition-duration:2s;
 }
 
 .write-schedule{
@@ -231,6 +243,7 @@
 	border:3px solid #E0DDDD;
 	border-radius:10px;
 	padding:20px 20px;
+	display:none;
 }
 
 .time>input{
@@ -281,9 +294,10 @@
 	margin-left:7.5%;
 	margin-top:50px;
 	font-size:17px;
-	border:3px solid #E0DDDD;
+	border:3px solid #EE8A58;
 	border-radius:10px;
 	padding:20px 20px;
+	display:none;
 }
 
 .location>.write-location{
@@ -301,9 +315,10 @@
 .update-btn>span{
 	border-radius:10px;
 	padding:7px 50px;
-	background:#E0DDDD;
+	background:#EE8A58;
 	font-weight:900;
 	cursor:pointer;
+	color:#fff;
 }
 
 .day-btn{
@@ -321,4 +336,94 @@
 	padding:5px 100px;
 	cursor:pointer;
 	margin-bottom:50px;
+}
+
+.day-memo{
+	position:absolute;
+	width:100%;
+	height:95%;
+	top:50px;
+	left:0;
+	border:2px solid #1e1e1e;
+	background:#fff;
+	overflow-y:auto;
+	padding:10px;
+	display:none;
+}
+
+.day-memo::-webkit-scrollbar {
+    width:13px;
+}
+
+.day-memo::-webkit-scrollbar-thumb {
+    background:var(--color-main); /* 스크롤바 색상 */
+    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+    min-height:100px; /* 스크롤바 막대 최소 높이 */
+}
+
+.day-memo::-webkit-scrollbar-track {
+    background: rgba(220, 20, 60, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.memo-days-close{
+	width:100%;
+	padding:10px 20px;
+	font-size:30px;
+}
+
+.memo-days-close > span{
+	font-family:home-name;
+}
+
+.memo-days-close > i{
+	margin-left:80%;
+	cursor:pointer;
+}
+
+.write-memo{
+	font-size:17px;
+	margin-left:30px;
+}
+
+.write-memo > input{
+	padding-left:10px;
+	border:none;
+	border-bottom:2px solid var(--color-main);
+	width:90%;
+}
+
+.write-memo > .memo-btn{
+	padding:0 5px;
+	color:var(--color-main);
+	font-size:20px;
+	cursor:pointer;
+}
+
+.memo-list{
+	margin-top:20px;
+	margin-left:30px;
+	font-weight:500;
+	font-size:17px;
+}
+
+.memo{
+	display:flex;
+	align-items:center;
+	margin-bottom:20px;
+}
+
+.memo > .nickname{
+	width:100px;
+	margin-right:10px;
+	margin-left:20px;
+}
+
+.memo > .memo-des{
+	width:450px;
+}
+
+.memo > .memo-del{
+	margin-left:10px;
+	color:#707B7C;
+	cursor:pointer;
 }
