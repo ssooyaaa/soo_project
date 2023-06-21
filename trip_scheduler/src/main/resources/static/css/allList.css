@@ -1,0 +1,45 @@
+.allList-main{
+	width:90%;
+	margin-top:50px;
+	margin-left:5%;
+}
+
+.allList-calendar{
+	width:100%;
+	padding:20px 30px;
+	background:gray;
+}
+
+.allList-item{
+	width:90%;
+	margin-left:5%;
+	margin-top:30px;
+	border:2px solid #E0DDDD;
+	border-radius:20px;
+	padding:20px 30px;
+	cursor:pointer;
+}
+
+.allList-item:hover{
+	border:2px solid var(--color-main);
+}
+
+.allList-title{
+	font-family:home-name;
+	font-size:40px;
+	color:var(--color-main);
+}
+
+.allList-date{
+	font-size:20px;
+	width:100%;
+	display:flex;
+	margin-top:10px;
+}
+
+.allList-friends{
+	font-size:20px;
+	margin-top:10px;
+	width:100%;
+	display:flex;
+}
