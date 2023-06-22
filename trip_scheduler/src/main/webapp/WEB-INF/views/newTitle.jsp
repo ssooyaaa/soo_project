@@ -33,9 +33,9 @@
 		<div class="newTitle-date">
 			<span class="date">여행 일정</span>
 			<div class="date-start-end">
-				<input class="date-start" placeholder="시작날짜(YYYY.MM.DD)"/>
+				<input type="date" class="date-start"/>
 				<span>  ~  </span>
-				<input class="date-end" placeholder="종료날짜(YYYY.MM.DD)"/>
+				<input type="date" class="date-end"/>
 			</div>
 		</div>
 		<div class="newTitle-with">

@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 	
 	//일정클릭-삭제/수정가능
-	$('.add-schedule').click(function(){
+	$('.edit-remove').click(function(){
 		$('.update-schedule').show();
 	});
 	

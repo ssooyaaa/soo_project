@@ -27,8 +27,29 @@
 
 	<div class="allList-main">
 	
-		<div class="allList-calendar">
+		<div class="move-page-btn">
+			<div>
+				<i class="fa-regular fa-hand-point-left"></i>
+				<button class="move-newTitle">새일정짜기</button>
+			</div>
+			<div>
+				<button class="move-expense">여행경비</button>
+				<i class="fa-regular fa-hand-point-right"></i>
+			</div>
 			
+		</div>
+		
+		
+		<div class="allListTitle">
+			<span>여행리스트</span>
+			
+		</div>
+		
+		<div class="select-list">
+			<select name="date-mode" id="date-mode">
+					<option value="">최신날짜순</option>
+					<option value="old">오래된날짜순</option>
+			</select>
 		</div>
 	
 	

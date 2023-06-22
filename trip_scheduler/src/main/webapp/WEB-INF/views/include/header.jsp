@@ -18,6 +18,13 @@
 	
 	<link rel="stylesheet"  href="css/all.min.css"/>
 	<link rel="stylesheet" href="css/app.css"/>
+	
+	
+	<!-- //페이지네이션 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js" 
+	integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
 
 </head>
 <body>

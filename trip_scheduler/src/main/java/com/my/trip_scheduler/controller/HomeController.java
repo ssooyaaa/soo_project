@@ -35,4 +35,10 @@ public class HomeController {
 		
 		return "tripExpenses";
 	}
+	
+	@GetMapping("/receipt")
+	public String receipt() {
+		
+		return "receipt";
+	}
 }

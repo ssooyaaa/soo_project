@@ -30,9 +30,19 @@
 		<div class="newList-title">태국여행 with Family</div>
 		<div class="newList-date">2023.06.05-2023.06.06</div>
 		<div class="newList-friends">
-			<span>최쑤 /</span>
-			<span>sooyaa /</span>
-			<span>chiossoo /</span>
+			<div class="newList-friend">
+				<i class="fa-solid fa-circle-minus"></i>
+				<span>최쑤</span>
+			</div>
+			<div class="newList-friend">
+				<i class="fa-solid fa-circle-minus"></i>
+				<span>ssooyaaa</span>
+			</div>
+			<div class="newList-friend">
+				<i class="fa-solid fa-circle-minus"></i>
+				<span>choisso</span>
+			</div>
+			
 		</div>
 	</div>
 	
@@ -106,7 +116,7 @@
 				
 				<div class="day-memo">
 					<div class="memo-days-close">
-						<span>DAY 1</span>
+						<span class="memo-days">DAY 1</span>
 						<i class="fa-solid fa-xmark memo-close"></i>
 					</div>
 					
@@ -148,6 +158,54 @@
 							
 						</div>
 						
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
+						<div class="memo">
+							<input type="checkbox"/>
+							<span class="nickname">ssooyaaa</span>
+							<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdfsfsdfdfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+							
+						</div>
 						<div class="memo">
 							<input type="checkbox"/>
 							<span class="nickname">ssooyaaa</span>

@@ -1,4 +1,4 @@
-.allList-main{
+.expenses-main{
 	width:90%;
 	margin-top:30px;
 	margin-left:5%;
@@ -18,12 +18,12 @@
 	border:none;
 }
 
-.move-expense{
+.move-allList{
 	background:#fff;
 	border:none;
 }
 
-.allListTitle{
+.expensesTitle{
 	width:100%;
 	text-align:center;
 	font-family:home-name;
@@ -36,7 +36,7 @@
 	width:95%;
 }
 
-.allList-item{
+.expenses-item{
 	width:90%;
 	margin-left:5%;
 	margin-top:20px;
@@ -46,26 +46,33 @@
 	cursor:pointer;
 }
 
-.allList-item:hover{
+.expenses-item:hover{
 	border:2px solid var(--color-main);
 }
 
-.allList-title{
+.expenses-title{
 	font-family:home-name;
 	font-size:40px;
 	color:var(--color-main);
 }
 
-.allList-date{
+.expenses-date{
 	font-size:20px;
 	width:100%;
 	display:flex;
 	margin-top:10px;
 }
 
-.allList-friends{
-	font-size:20px;
-	margin-top:10px;
+.total-expenses{
+	font-size:22px;
+	margin-top:20px;
 	width:100%;
 	display:flex;
+	justify-content:right;
+	font-family:home-name;
+}
+
+.nation-price{
+	color:var(--color-main);
+	margin-left:20px;
 }
