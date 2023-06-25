@@ -193,6 +193,38 @@
 	
 }
 
+.advance-price{
+	margin-top:50px;
+	font-size:15px;
+	font-weight:900;
+}
+
+.advance-title{
+	font-size:18px;
+}
+
+.advance-title > i{
+	font-size:20px;
+	cursor:pointer;
+}
+
+.advance-list{
+	width:85%;
+	margin-left:7.5%;
+	border:3px solid var(--color-main);
+	border-radius:10px;
+	padding:20px 20px;
+	margin-top:30px;
+}
+
+.advance-item{
+	display:flex;
+}
+
+.advance-item-price{
+	margin-left:10px;
+}
+
 .day{
 	margin-top:50px;
 	font-size:20px;

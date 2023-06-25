@@ -47,6 +47,24 @@
 	</div>
 	
 	<div class="newList-schedule">
+	
+		<div class="advance-price">
+			<div class="advance-title">
+				<span>사전경비</span>
+				<i class="fa-solid fa-circle-plus"></i>
+			</div>
+			<div class="advance-list">
+				<div class="advance-item">
+					<span>비행기값 :</span>
+					<div class="advance-item-price">
+						<i class="fa-solid fa-won-sign"></i>
+ 						<span>1,000,000</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
 		<div class="newList-day">
 			<div class="day">DAY1
 				
