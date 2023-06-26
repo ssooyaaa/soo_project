@@ -27,6 +27,26 @@
 	font-size:20px;
 }
 
+.adv-price{
+	padding-bottom:50px;
+}
+
+.adv-list{
+	width:90%;
+	margin-left:5%;
+	margin-top:20px;
+}
+
+.adv-items{
+	width:100%;
+	margin-top:10px;
+	display:flex;
+}
+
+.adv-items > span{
+	width:80%;
+}
+
 .day{
 	padding-bottom:50px;
 }

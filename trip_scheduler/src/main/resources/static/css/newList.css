@@ -213,16 +213,67 @@
 	margin-left:7.5%;
 	border:3px solid var(--color-main);
 	border-radius:10px;
-	padding:20px 20px;
+	padding:0 20px;
 	margin-top:30px;
 }
 
 .advance-item{
 	display:flex;
+	margin-top:20px;
+	margin-bottom:20px;
 }
 
 .advance-item-price{
 	margin-left:10px;
+	width:80%;
+}
+
+.del-advance{
+	cursor:pointer;
+	padding-top:5px;
+}
+
+.add-ad-content{
+	display:none;
+}
+
+.add-advance{
+	width:85%;
+	margin-left:7.5%;
+	border:3px solid #E0DDDD;
+	border-radius:10px;
+	margin-top:30px;
+	display:flex;
+	align-items:center;
+	padding:20px 20px;
+}
+
+.price-list{
+	margin-left:10px;
+}
+
+.price-list > select{
+	height:27px;
+}
+
+.advance-add-price{
+	border:none;
+	border-bottom:1px solid #1e1e1e;
+	margin-left:10px;
+}
+
+.add-advance-btn{
+	border:none;
+	margin-left:10px;
+	border-radius:10px;
+	padding:5px 5px;
+}
+
+.cancel-advance-btn{
+	border:none;
+	margin-left:5px;
+	border-radius:10px;
+	padding:5px 5px;
 }
 
 .day{

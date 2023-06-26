@@ -39,6 +39,29 @@
 		
 		
 		<div class="days">
+		
+			<div class="adv-price">
+				<div style="font-weight:800;font-size:22px;">사전경비</div>
+				<div class="adv-list">
+					<div class="adv-items">
+						<span>비행기값</span>
+						<div class="price">
+							<i class="fa-solid fa-won-sign"></i>
+	 						<span>5,000</span>
+						</div>
+					</div>
+					
+					<div class="adv-items">
+						<span>비행기값</span>
+						<div class="price">
+							<i class="fa-solid fa-won-sign"></i>
+	 						<span>5,000</span>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
 			
 			<div class="day">
 				<div style="font-weight:800;font-size:22px;">DAY1</div>

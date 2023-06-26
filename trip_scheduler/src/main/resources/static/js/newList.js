@@ -1,5 +1,28 @@
 $(document).ready(function(){
 	
+	//사전경비추가
+	$('#add-ad').click(function(){
+		$('.add-ad-content').show();
+	});
+	
+	//사전경비-저장
+	$('.add-advance-btn').click(function(){
+		$('.add-ad-content').hide();
+	});
+	
+	
+	//사전경비-취소
+	$('.cancel-advance-btn').click(function(){
+		$('.add-ad-content').hide();
+	});
+	
+	
+	//사정경비-작성삭제
+	$('.del-advance').click(function(){
+		this.parentElement.remove();
+	});
+	
+	
 	//일정추가버튼
 	$('.add-schedule-btn').click(function(){
 		$('.write-schedule').show();

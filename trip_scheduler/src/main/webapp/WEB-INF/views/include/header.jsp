@@ -69,7 +69,9 @@
 				<div style="background:#E0DDDD; height:2%;"></div>
 				<div class="schedule-list-btn">
 					<span>일정리스트</span>
-					<i class="fa-solid fa-angle-down"></i>
+				</div>
+				<div class="expense-list-btn">
+					<span>여행경비</span>
 				</div>
 				<div style="background:#E0DDDD; height:74%;"></div>
 			</div>

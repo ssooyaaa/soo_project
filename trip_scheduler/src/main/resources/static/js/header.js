@@ -27,6 +27,23 @@ $(document).ready(function(){
 		$('#member-down').show();
 	});
 	
+	
+	//일정리스트
+	$('.schedule-list-btn').click(function(){
+		location.href="./allList";
+	});
+	
+	//여행경비
+	$('.expense-list-btn').click(function(){
+		location.href="./tripExpenses";
+	});
+	
+	
+	//로그인
+	$('.side-login-btn').click(function(){
+		location.href='./login';
+	});
+	
 });
 
 
