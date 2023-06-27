@@ -239,7 +239,7 @@ header i:hover{
 	height:100%;
 }
 
-.main-name{
+.home-name{
 	font-family:home-name;
 	font-weight:400;
 	font-size:40px;
@@ -278,7 +278,7 @@ header i:hover{
 .login-id{
 	width:100%;
 	padding:10px 20px;
-	border-radius:10px;
+	border-radius:5px;
 	border:1px solid #707B7C;
 	margin-bottom:10px;
 }
@@ -286,9 +286,13 @@ header i:hover{
 .login-pw{
 	width:100%;
 	padding:10px 20px;
-	border-radius:10px;
+	border-radius:5px;
 	border:1px solid #707B7C;
-	margin-bottom:20px;
+	margin-bottom:30px;
+}
+
+.container > input::placeholder{
+	color:#707B7C;
 }
 
 .login-btn{
@@ -350,5 +354,132 @@ header i:hover{
 	padding:20px;
 	color:#fff;
 	font-weight:900;
+	background:#E0DDDD;
 }
 
+.next-join-container{
+	width:50%;
+	height:100%;
+	margin-left:25%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	font-size:20px;
+}
+
+.home-name-next{
+	font-family:home-name;
+	font-weight:400;
+	font-size:40px;
+	color:var(--color-main);
+	cursor:pointer;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.next-join-title{
+	text-align:center;
+	font-weight:900;
+}
+
+.join-items{
+	margin-top:30px;
+	width:100%;
+	display:flex;
+	flex-direction:column;
+}
+
+.join-items > .join-item{
+	color:#707B7C;
+	font-size:17px;
+	font-weight:900;
+}
+
+.join-items > input{
+	width:100%;
+	margin-top:10px;
+	border-radius:5px;
+	border:1px solid #E0DDDD;
+	padding:5px 10px;
+}
+
+.join-items > input::placeholder{
+	color:#E0DDDD;
+}
+
+.join-btn{
+	margin-top:40px;
+	border-radius:10px;
+	border:none;
+	padding:20px;
+	color:#fff;
+	font-weight:900;
+	background:var(--color-main);
+}
+
+.red{
+	margin-left:15px;
+	color:red;
+	font-size:15px;
+	display:none;
+}
+
+
+.pwReset-container{
+	width:60%;
+	height:80%;
+	margin-left:20%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+
+.pwReset-title{
+	font-weight:900;
+	font-size:28px;
+}
+
+.pwReset-subTitle{
+	font-size:17px;
+	color:#707B7C;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.pwReset-container > input{
+	width:100%;
+	margin-top:20px;
+	border-radius:5px;
+	border:1px solid #E0DDDD;
+	padding:5px 10px;
+	font-size:20px;
+}
+
+.pwReset-container > input::placeholder{
+	color:#E0DDDD;
+}
+
+.pwResetBtn{
+	width:100%;
+	font-size:20px;
+	margin-top:40px;
+	border-radius:10px;
+	border:none;
+	padding:20px 0px;
+	color:#fff;
+	font-weight:900;
+	background:var(--color-main);
+}
+
+.pwResetNewBtn{
+	width:100%;
+	font-size:20px;
+	margin-top:40px;
+	border-radius:10px;
+	border:none;
+	padding:20px 0px;
+	color:#fff;
+	font-weight:900;
+	background:var(--color-main);
+}

@@ -53,4 +53,16 @@ public class HomeController {
 		
 		return "join";
 	}
+	
+	@GetMapping("/pwReset")
+	public String pwReset() {
+		
+		return "pwReset";
+	}
+	
+	@GetMapping("/pwResetNew")
+	public String pwResetNew() {
+		
+		return "pwResetNew";
+	}
 }

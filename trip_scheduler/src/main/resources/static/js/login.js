@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	
 	//홈화면이동
-	$('.main-name').click(function(){
+	$('.home-name').click(function(){
 		location.href='./';
 	});
 	
 	//비밀번호 재설정 버튼
 	$('#update-pw-btn').click(function(){
-		alert('재설정');
+		location.href='./pwReset';
 	});
 	
 	//회원가입버튼

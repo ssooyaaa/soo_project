@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Pw Reset New</title>
 
 	<meta name="viewport" content="width=640, user-scalable=yes">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="js/login.js"></script>
+	<script src="js/pwReset.js"></script>
 	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 
@@ -18,26 +18,17 @@
 	
 	<link rel="stylesheet"  href="css/all.min.css"/>
 	<link rel="stylesheet" href="css/app.css"/>
-	
+
 </head>
 <body>
-	
-	<div class="login-container">
-		<div class="home-name">J처럼.</div>
-		<div class="container">
-			<div class="kakao-login">카카오톡으로 로그인</div>
-			<div class="or-login">또는</div>
-			<input type="text" class="login-id" placeholder="아이디"/>
-			<input type="text" class="login-pw" placeholder="패스워드"/>
-			
-			<button class="login-btn">로그인</button>
-			
-			<div class="pw-membership">
-				<span id="update-pw-btn" style="border-right:1px solid #707B7C;">비밀번호 재설정</span>
-				<span id="membership-btn">회원가입</span>
-			</div>
-		</div>
+
+	<div class="pwReset-container">
+		<span class="pwReset-title">새비밀번호 설정</span>
+		<span class="pwReset-subTitle">새로운 비밀번호를 입력해주세요.</span>
+		<input type="text" placeholder="새비밀번호(영문자,숫자포함 최소 8자 이상)"/>
+		<input type="text" placeholder="새비밀번호 확인"/>
 		
+		<button class="pwResetNewBtn">비밀번호 변경</button>
 	</div>
 
 </body>

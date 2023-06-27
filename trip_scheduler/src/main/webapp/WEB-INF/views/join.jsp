@@ -22,8 +22,8 @@
 </head>
 <body>
 
-	<div class="join-container">
-		<span class="join-title">J처럼 이용약관</span>
+	<div class="join-container" style="display:none">
+		<span class="join-title">이용약관</span>
 		<div class="check">
 			<input id="allCheck" name="join-check" type="checkbox" onclick="allCheck()"/>
 			<span style="font-weight:900;">전체 동의</span>
@@ -58,6 +58,40 @@
 		<button class="join-next">다음</button>
 		
 	</div>
+	
+	
+	<div class="next-join-container">
+		<div class="home-name-next">J처럼.</div>
+		<span class="next-join-title">회원가입</span>
+		<div class="join-items">
+			<span class="join-item">아이디</span>
+			<input id="join-id" type="text" placeholder="아이디를 입력해주세요."/>
+			<span id="none-id" class="red">아이디를 입력해주세요.</span>
+			<span class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
+			<span class="red">사용불가 : 동일한 아이디가 존재합니다.</span>
+		</div>
+		<div class="join-items">
+			<span class="join-item">비밀번호</span>
+			<input type="text" placeholder="비밀번호를 입력해주세요."/>
+			<span class="red">비밀번호를 입력해주세요.</span>
+			<span class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
+			<span class="red">사용불가 : 영문,숫자을 조합해주세요.</span>
+		</div>
+		<div class="join-items">
+			<span class="join-item">비밀번호 확인</span>
+			<input type="text" placeholder="비밀번호를 입력해주세요."/>
+			<span class="red">비밀번호가 일치하지 않습니다.</span>
+		</div>
+		<div class="join-items">
+			<span class="join-item">닉네임</span>
+			<input type="text" placeholder="닉네임을 입력해주세요."/>
+			<span class="red">닉네임을 입력해주세요.</span>
+		</div>
+		
+		<button class="join-btn">가입하기</button>
+	</div>	
+	
+	
 	
 </body>
 </html>

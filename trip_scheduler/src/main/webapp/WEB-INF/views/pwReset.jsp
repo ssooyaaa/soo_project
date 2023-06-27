@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Pw Reset</title>
 
 	<meta name="viewport" content="width=640, user-scalable=yes">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="js/login.js"></script>
+	<script src="js/pwReset.js"></script>
 	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
 	rel="stylesheet" 
@@ -21,23 +21,14 @@
 	
 </head>
 <body>
-	
-	<div class="login-container">
-		<div class="home-name">J처럼.</div>
-		<div class="container">
-			<div class="kakao-login">카카오톡으로 로그인</div>
-			<div class="or-login">또는</div>
-			<input type="text" class="login-id" placeholder="아이디"/>
-			<input type="text" class="login-pw" placeholder="패스워드"/>
-			
-			<button class="login-btn">로그인</button>
-			
-			<div class="pw-membership">
-				<span id="update-pw-btn" style="border-right:1px solid #707B7C;">비밀번호 재설정</span>
-				<span id="membership-btn">회원가입</span>
-			</div>
-		</div>
+
+	<div class="pwReset-container">
+		<span class="pwReset-title">비밀번호 재설정</span>
+		<span class="pwReset-subTitle">회원가입 시 등록한 아이디와 이메일 주소를 입력해 주세요.</span>
+		<input type="text" placeholder="아이디"/>
+		<input type="text" placeholder="이메일 주소"/>
 		
+		<button class="pwResetBtn">확인</button>
 	</div>
 
 </body>
