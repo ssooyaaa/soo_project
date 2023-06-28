@@ -63,7 +63,10 @@
 				</div>
 				<div class="member-menu">
 					<div class="member-list">친구리스트</div>
-					<div class="member-accept">친구알림</div>
+					<div class="member-accept">
+						<span>친구요청알림</span>
+						<span class="alarm-count">3</span>
+					</div>
 				</div>
 				
 				<div style="background:#E0DDDD; height:2%;"></div>

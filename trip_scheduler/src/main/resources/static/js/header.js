@@ -28,6 +28,17 @@ $(document).ready(function(){
 	});
 	
 	
+	//친구리스트
+	$('.member-list').click(function(){
+		location.href='./memberList';
+	});
+	
+	
+	//친구알림
+	$('.member-accept').click(function(){
+		location.href='./memberAlarm';
+	});
+	
 	//일정리스트
 	$('.schedule-list-btn').click(function(){
 		location.href="./allList";

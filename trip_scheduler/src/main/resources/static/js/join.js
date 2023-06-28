@@ -54,11 +54,8 @@ function allCheck(){
 //가입하기버튼
 function joinMember(){
 	
-	var id = $('#join-id').val();
-	
-	//아이디체크
-	if(id.length==1){
-		$('#none-id').show();
-	}
+	$('.join-btn').click(function(){
+		alert('가입');
+	});
 	
 }

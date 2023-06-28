@@ -83,6 +83,11 @@
 			<span class="red">비밀번호가 일치하지 않습니다.</span>
 		</div>
 		<div class="join-items">
+			<span class="join-item">이메일 주소</span>
+			<input type="text" placeholder="이메일 주소를 입력해주세요."/>
+			<span class="red">이메일 주소를 입력해주세요.</span>
+		</div>
+		<div class="join-items">
 			<span class="join-item">닉네임</span>
 			<input type="text" placeholder="닉네임을 입력해주세요."/>
 			<span class="red">닉네임을 입력해주세요.</span>

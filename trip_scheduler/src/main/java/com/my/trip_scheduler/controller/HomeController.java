@@ -65,4 +65,17 @@ public class HomeController {
 		
 		return "pwResetNew";
 	}
+	
+	@GetMapping("/memberList")
+	public String memberList() {
+		
+		return "memberList";
+	}
+	
+	@GetMapping("/memberAlarm")
+	public String memberAlarm() {
+		
+		return "memberAlarm";
+	}
+	
 }
