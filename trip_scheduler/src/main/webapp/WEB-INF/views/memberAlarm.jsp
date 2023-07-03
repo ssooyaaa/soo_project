@@ -29,7 +29,7 @@
 	
 		<div class="alarm-list">
 			<div class="alarm-item">
-				<span>ssooyaa</span>
+				<span id="alarm-id">ssooyaa</span>
 				<button id="accept-member" style="background:#3BEA3E;">수락</button>
 				<button id="reject-member" style="background:#FA5945;">거절</button>
 			</div>

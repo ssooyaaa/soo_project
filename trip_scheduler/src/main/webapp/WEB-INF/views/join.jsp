@@ -67,30 +67,37 @@
 			<span class="join-item">아이디</span>
 			<input id="join-id" type="text" placeholder="아이디를 입력해주세요."/>
 			<span id="none-id" class="red">아이디를 입력해주세요.</span>
-			<span class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
-			<span class="red">사용불가 : 동일한 아이디가 존재합니다.</span>
+			<span id="least-id" class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
+			<span id="same-id" class="red">사용불가 : 동일한 아이디가 존재합니다.</span>
+			<span id="ok-id" class="green">사용가능한 아이디입니다.</span>
 		</div>
 		<div class="join-items">
 			<span class="join-item">비밀번호</span>
-			<input type="text" placeholder="비밀번호를 입력해주세요."/>
-			<span class="red">비밀번호를 입력해주세요.</span>
-			<span class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
-			<span class="red">사용불가 : 영문,숫자을 조합해주세요.</span>
+			<input id="join-pw" type="text" placeholder="비밀번호를 입력해주세요."/>
+			<span id="none-pw" class="red">비밀번호를 입력해주세요.</span>
+			<span id="least-pw" class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
+			<span id="comb-pw" class="red">사용불가 : 영문,숫자을 조합해주세요.</span>
+			<span id="ok-pw" class="green">사용가능한 비밀번호입니다.</span>
 		</div>
 		<div class="join-items">
 			<span class="join-item">비밀번호 확인</span>
-			<input type="text" placeholder="비밀번호를 입력해주세요."/>
-			<span class="red">비밀번호가 일치하지 않습니다.</span>
+			<input id="join-re-pw" type="text" placeholder="비밀번호를 입력해주세요."/>
+			<span id="no-same-pw" class="red">비밀번호가 일치하지 않습니다.</span>
+			<span id="ok-re-pw" class="green">비밀번호가 일치합니다.</span>
 		</div>
 		<div class="join-items">
 			<span class="join-item">이메일 주소</span>
-			<input type="text" placeholder="이메일 주소를 입력해주세요."/>
-			<span class="red">이메일 주소를 입력해주세요.</span>
+			<input id="join-email" type="text" placeholder="이메일 주소를 입력해주세요."/>
+			<span id="none-email" class="red">이메일 주소를 입력해주세요.</span>
+			<span id="not-correct-email" class="red">이메일 주소를 올바르게 입력해주세요.</span>
+			<span id="ok-email" class="green">사용가능한 이메일주소입니다.</span>
 		</div>
 		<div class="join-items">
 			<span class="join-item">닉네임</span>
-			<input type="text" placeholder="닉네임을 입력해주세요."/>
-			<span class="red">닉네임을 입력해주세요.</span>
+			<input id="join-nickname" type="text" placeholder="닉네임을 입력해주세요."/>
+			<span id="none-nickname" class="red">닉네임을 입력해주세요.</span>
+			<span id="same-nickname" class="red">사용불가 : 동일한 닉네임이 존재합니다.</span>
+			<span id="ok-nickname" class="green">사용가능한 닉네임입니다.</span>
 		</div>
 		
 		<button class="join-btn">가입하기</button>

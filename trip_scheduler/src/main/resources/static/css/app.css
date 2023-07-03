@@ -435,6 +435,13 @@ header i:hover{
 	display:none;
 }
 
+.green{
+	margin-left:15px;
+	color:#45F022;
+	font-size:15px;
+	display:none;
+}
+
 
 .pwReset-container{
 	width:60%;
