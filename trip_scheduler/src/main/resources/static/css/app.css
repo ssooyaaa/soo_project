@@ -478,6 +478,12 @@ header i:hover{
 	color:#E0DDDD;
 }
 
+.pw-red{
+	display:flex;
+	justify-content:start;
+	width:100%;
+}
+
 .pwResetBtn{
 	width:100%;
 	font-size:20px;

@@ -25,8 +25,19 @@
 	<div class="pwReset-container">
 		<span class="pwReset-title">비밀번호 재설정</span>
 		<span class="pwReset-subTitle">회원가입 시 등록한 아이디와 이메일 주소를 입력해 주세요.</span>
-		<input type="text" placeholder="아이디"/>
-		<input type="text" placeholder="이메일 주소"/>
+		<input id ="pwReset-id" type="text" placeholder="아이디"/>
+		<div class="pw-red">
+			<span id="none-id" class="red">아이디를 입력해주세요.</span>
+		</div>
+		
+		
+		
+		<input id ="pwReset-email" type="text" placeholder="이메일 주소"/>
+		<div class="pw-red">
+			<span id="none-email" class="red">이메일 주소를 입력해주세요.</span>
+			<span id="not-correct-email" class="red">이메일 주소를 올바르게 입력해주세요.</span>
+		</div>
+			
 		
 		<button class="pwResetBtn">확인</button>
 	</div>

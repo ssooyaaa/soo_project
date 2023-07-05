@@ -28,7 +28,7 @@
 			<div class="kakao-login">카카오톡으로 로그인</div>
 			<div class="or-login">또는</div>
 			<input type="text" class="login-id" placeholder="아이디"/>
-			<input type="text" class="login-pw" placeholder="패스워드"/>
+			<input type="password" class="login-pw" placeholder="패스워드"/>
 			
 			<button class="login-btn">로그인</button>
 			
