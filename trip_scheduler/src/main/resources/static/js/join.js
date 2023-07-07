@@ -54,7 +54,10 @@ function allCheck(){
 //가입전체크
 function checkMember(){
 	
-	var inputid = '';
+	var inputId = '';
+	var inputPw = '';
+	var inputEmail = '';
+	var inputNick = '';
 	
 	//id체크
 	$('#join-id').focusout(function(){
@@ -77,7 +80,7 @@ function checkMember(){
 			$('#least-id').hide();
 			$('#ok-id').show();
 			
-			inputid = $('#join-id').val();
+			inputId = $('#join-id').val();
 		}
 	});
 	
@@ -112,6 +115,8 @@ function checkMember(){
 				}else{
 					$('#no-same-pw').hide();
 					$('#ok-re-pw').show();
+					
+					inputPw = $('#join-pw').val();
 				}
 			});
 			
@@ -136,6 +141,8 @@ function checkMember(){
 			$('#none-email').hide();
 			$('#not-correct-email').hide();
 			$('#ok-email').show();
+			
+			inputEmail = $('#join-email').val();
 		}else{
 			$('#none-email').hide();
 			$('#ok-email').hide();
@@ -156,12 +163,33 @@ function checkMember(){
 			$('#none-nickname').hide();
 			$('#same-nickname').hide();
 			$('#ok-nickname').show();
+			
+			inputNick = $('#join-nickname').val();
 		}
 	});
 	
 	
 	$('.join-btn').click(function(){
-		console.log(inputid);
+		
+		$.ajax({
+			url:'./user/addUser',
+			type:'post',
+			data:{
+				'id':inputId,
+				'pw':inputPw,
+				'email':inputEmail,
+				'nickname':inputNick
+			},
+			success:function(res){
+				if(res=='ok'){
+					alert('회원가입이 완료되었습니다. 로그인 후 사용해주세요.');
+					
+				}else{
+					alert('회원가입에 실패했습니다.')
+				}
+			},
+			error:function(){}
+		});
 	});
 	
 	
