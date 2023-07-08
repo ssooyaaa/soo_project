@@ -15,4 +15,12 @@ public class UserService {
 	public int addUser(User user) {
 		return userDao.addUser(user);
 	}
+	
+	public String getUserById(String id) {
+		return userDao.getUserById(id);
+	}
+	
+	public String getUserByNick(String nick) {
+		return userDao.getUserByNick(nick); 
+	}
 }

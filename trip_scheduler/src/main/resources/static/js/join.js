@@ -75,12 +75,28 @@ function checkMember(){
 			$('#ok-id').hide();
 			$('#least-id').show();
 		}else{
-			$('#none-id').hide();
-			$('#same-id').hide();
-			$('#least-id').hide();
-			$('#ok-id').show();
 			
-			inputId = $('#join-id').val();
+			$.ajax({
+				url:'./user/getUserById',
+				type:'get',
+				data:{'id':id},
+				success:function(userId){
+					if(userId==null||userId==''){
+						$('#none-id').hide();
+						$('#same-id').hide();
+						$('#least-id').hide();
+						$('#ok-id').show();
+						
+						inputId = $('#join-id').val();
+					}else{
+						$('#none-id').hide();
+						$('#least-id').hide();
+						$('#ok-id').hide();
+						$('#same-id').show();
+					}
+				}
+			});
+			
 		}
 	});
 	
@@ -160,36 +176,59 @@ function checkMember(){
 			$('#ok-nickname').hide();
 			$('#none-nickname').show();
 		}else{
-			$('#none-nickname').hide();
-			$('#same-nickname').hide();
-			$('#ok-nickname').show();
 			
-			inputNick = $('#join-nickname').val();
+			$.ajax({
+				url:'./user/getUserByNick',
+				type:'get',
+				data:{'nick':nickname},
+				success:function(userNick){
+					if(userNick==null||userNick==''){
+						$('#none-nickname').hide();
+						$('#same-nickname').hide();
+						$('#ok-nickname').show();
+						
+						inputNick = $('#join-nickname').val();
+					}else{
+						$('#none-nickname').hide();
+						$('#ok-nickname').hide();
+						$('#same-nickname').show();
+					}
+				}
+			});
+			
+					
 		}
 	});
 	
 	
 	$('.join-btn').click(function(){
 		
-		$.ajax({
-			url:'./user/addUser',
-			type:'post',
-			data:{
-				'id':inputId,
-				'pw':inputPw,
-				'email':inputEmail,
-				'nickname':inputNick
-			},
-			success:function(res){
-				if(res=='ok'){
-					alert('회원가입이 완료되었습니다. 로그인 후 사용해주세요.');
-					
-				}else{
-					alert('회원가입에 실패했습니다.')
-				}
-			},
-			error:function(){}
-		});
+		if(inputId=='' || inputPw=='' || inputEmail=='' || inputNick==''){
+			alert('모든 항목을 기입해주세요.');
+		}else{
+			
+			$.ajax({
+				url:'./user/addUser',
+				type:'post',
+				data:{
+					'id':inputId,
+					'pw':inputPw,
+					'email':inputEmail,
+					'nickname':inputNick
+				},
+				success:function(res){
+					if(res=='ok'){
+						alert('회원가입이 완료되었습니다. 로그인 후 사용해주세요.');
+						
+					}else{
+						alert('회원가입에 실패했습니다.')
+					}
+				},
+				error:function(){}
+			});
+			
+		}
+		
 	});
 	
 	

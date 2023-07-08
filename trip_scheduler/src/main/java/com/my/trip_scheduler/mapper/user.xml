@@ -10,4 +10,16 @@
 	</insert>
 
 
+	<select id="getUserById" parameterType="String" resultType="String">
+		SELECT id FROM user
+		WHERE id=#{id}
+	</select>
+	
+	
+	<select id="getUserByNick" parameterType="String" resultType="String">
+		SELECT nickname FROM user
+		WHERE nickname=#{nickname}
+	</select>
+	
+	
 </mapper>

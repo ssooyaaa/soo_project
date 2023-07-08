@@ -2,6 +2,7 @@ package com.my.trip_scheduler.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,5 +37,27 @@ public class UserController {
 		
 		return "ok";
 	}
+	
+	@GetMapping("/getUserById")
+	@ResponseBody
+	public String getUserById(
+			@RequestParam(value="id") String id
+			) {
+		
+		
+		String userId = userService.getUserById(id);
+		
+		return userId;
+	}
 
+	@GetMapping("/getUserByNick")
+	@ResponseBody
+	public String getUserByNick(
+			@RequestParam(value="nick") String nick
+			) {
+		
+		String userNick = userService.getUserByNick(nick);
+	
+		return userNick;
+	}
 }

@@ -15,4 +15,12 @@ public class UserDao {
 	public int addUser(User user) {
 		return s.insert("user.addUser",user);
 	}
+	
+	public String getUserById(String id) {
+		return s.selectOne("user.getUserById",id);
+	}
+	
+	public String getUserByNick(String nick) {
+		return s.selectOne("user.getUserByNick",nick);
+	}
 }
