@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<div class="pwReset-container">
+	<div class="pwReset-container" id="pwReset1">
 		<span class="pwReset-title">비밀번호 재설정</span>
 		<span class="pwReset-subTitle">회원가입 시 등록한 아이디와 이메일 주소를 입력해 주세요.</span>
 		<input id ="pwReset-id" type="text" placeholder="아이디"/>
@@ -40,6 +40,15 @@
 			
 		
 		<button class="pwResetBtn">확인</button>
+	</div>
+	
+	<div class="pwReset-container" id="pwReset2" style="display:none">
+		<span class="pwReset-title">새비밀번호 설정</span>
+		<span class="pwReset-subTitle">새로운 비밀번호를 입력해주세요.</span>
+		<input type="text" id="newPw" placeholder="새비밀번호(영문자,숫자포함 최소 8자 이상)"/>
+		<input type="text" id="newRePw" placeholder="새비밀번호 확인"/>
+		
+		<button class="pwResetNewBtn">비밀번호 변경</button>
 	</div>
 
 </body>

@@ -23,4 +23,16 @@ public class UserService {
 	public String getUserByNick(String nick) {
 		return userDao.getUserByNick(nick); 
 	}
+	
+	public User login(User user) {
+		return userDao.login(user);
+	}
+	
+	public User getUserByIdAndEmail(User user) {
+		return userDao.getUserByIdAndEmail(user);
+	}
+	
+	public int resetPw(User user) {
+		return userDao.resetPw(user);
+	}
 }

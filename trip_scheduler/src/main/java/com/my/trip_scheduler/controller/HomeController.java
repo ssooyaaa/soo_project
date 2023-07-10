@@ -60,11 +60,6 @@ public class HomeController {
 		return "pwReset";
 	}
 	
-	@GetMapping("/pwResetNew")
-	public String pwResetNew() {
-		
-		return "pwResetNew";
-	}
 	
 	@GetMapping("/memberList")
 	public String memberList() {

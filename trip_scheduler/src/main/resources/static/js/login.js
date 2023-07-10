@@ -15,9 +15,36 @@ $(document).ready(function(){
 		location.href='./join';
 	});
 	
+	
 	//로그인하기
-	$('.login-btn').click(function(){
-		alert('로그인');
-	});
+	login();
+	
+	
 	
 });
+
+
+//로그인하기
+function login(){
+	
+	$('.login-btn').click(function(){
+		
+		var id = $('.login-id').val();
+		var pw = $('.login-pw').val();
+				
+		$.ajax({
+			url:'./user/login',
+			type:'get',
+			data:{'id':id,
+				'pw':pw},
+			success:function(user){
+				if(user==''){
+					alert('가입된 회원이 없습니다.');
+				}else{
+					alert(user.nickname+'님 반갑습니다.');
+				}
+			},
+			error:function(){}
+		});
+	});
+};

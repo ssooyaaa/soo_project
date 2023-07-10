@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<div class="join-container" style="display:none">
+	<div class="join-container">
 		<span class="join-title">이용약관</span>
 		<div class="check">
 			<input id="allCheck" name="join-check" type="checkbox" onclick="allCheck()"/>

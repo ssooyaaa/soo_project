@@ -3,12 +3,6 @@ $(document).ready(function(){
 	//확인버튼
 	resetCheckPw();
 	
-	//비밀번호 변경 버튼
-	$('.pwResetNewBtn').click(function(){
-		location.replace('./login');
-	});
-	
-	
 });
 
 
@@ -52,13 +46,69 @@ function resetCheckPw(){
 	
 	
 	$('.pwResetBtn').click(function(){
-		console.log(inputId);
-		console.log(inputEmail);
 		
 		if(inputId=='' || inputEmail==''){
 			alert('아이디와 이메일을 올바르게 적어주세요.');
 		}else{
-			location.href='./pwResetNew';
+			
+			$.ajax({
+				url:'./user/getUserByIdAndEmail',
+				type:'get',
+				data:{
+					'id':inputId,
+					'email':inputEmail
+				},
+				success:function(res){
+					
+					if(res==null || res==''){
+						alert("존재하는 회원이 없습니다.");
+					}else{
+						
+						$('#pwReset1').hide();
+						$('#pwReset2').show();
+						
+						//비밀번호 재등록
+						$('.pwResetNewBtn').click(function(){
+							
+							var pw = $('#newPw').val();
+							var rePw = $('#newRePw').val();
+							
+							if(pw.length>=8 && pw.match(/([a-zA-Z].*[0-9])|([0-9].*[a-zA-Z])/)){
+								
+								if(pw==rePw){
+									
+									$.ajax({
+										url:'./user/resetPw',
+										type:'post',
+										data:{
+											'id':inputId,
+											'email':inputEmail,
+											'pw':pw
+										},
+										success:function(res){
+											if(res=="ok"){
+												alert("비밀번호가 변경되었습니다. 재로그인 후 사용해주세요.")
+											}else{
+												alert("비밀번호 변경에 실패하였습니다.");
+											}
+										},
+										error:function(err){}
+									});
+									
+								}else{
+									alert("비밀번호가 일치하지 않습니다.");
+								}
+								
+							}else{
+								alert('비밀번호를 올바르게 입력해주세요.');
+							}
+						});
+						
+					}
+				}
+			});
+			
+			
 		}
 		
 	});

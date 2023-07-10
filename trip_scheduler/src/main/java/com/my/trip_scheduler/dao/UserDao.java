@@ -23,4 +23,16 @@ public class UserDao {
 	public String getUserByNick(String nick) {
 		return s.selectOne("user.getUserByNick",nick);
 	}
+	
+	public User login(User user) {
+		return s.selectOne("user.login",user);
+	}
+	
+	public User getUserByIdAndEmail(User user) {
+		return s.selectOne("user.getUserByIdAndEmail",user);
+	}
+	
+	public int resetPw(User user) {
+		return s.update("user.resetPw",user);
+	}
 }
