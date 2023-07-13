@@ -10,6 +10,13 @@ $(document).ready(function(){
 	$('.home-btn').click(function(){
 		location.href='./';
 	});
+	
+	
+	//로그인X-친구관리-로그인 후 사용가능 알림
+	$('#plus-member-btn').click(function(){
+		alert('로그인 후 사용가능합니다.');
+		location.href='./login';
+	});
 
 	
 	//친구관리-메뉴 보이기
@@ -39,20 +46,55 @@ $(document).ready(function(){
 		location.href='./memberAlarm';
 	});
 	
-	//일정리스트
-	$('.schedule-list-btn').click(function(){
+	
+	
+	//로그인X-일정리스트
+	$('#schedule-list-btn').click(function(){
+		alert('로그인 후 사용가능합니다.');
+		location.href='./login';
+	});
+	
+	//로그인O-일정리스트
+	$('#go-schedule-list-btn').click(function(){
 		location.href="./allList";
 	});
 	
-	//여행경비
-	$('.expense-list-btn').click(function(){
+	
+	
+	//로그인X-여행경비
+	$('#expense-list-btn').click(function(){
+		alert('로그인 후 사용가능합니다.');
+		location.href='./login';
+	});
+	
+	//로그인O-여행경비
+	$('#go-expense-list-btn').click(function(){
 		location.href="./tripExpenses";
 	});
+	
+	
 	
 	
 	//로그인
 	$('.side-login-btn').click(function(){
 		location.href='./login';
+	});
+	
+	
+	//로그아웃
+	$('#logout-btn').click(function(){
+		
+		$.ajax({
+			url:'./user/logout',
+			type:'post',
+			data:{},
+			success:function(res){
+				if(res=='ok'){
+					location.replace('./');
+				}
+			},
+			error:function(){}
+		});
 	});
 	
 });

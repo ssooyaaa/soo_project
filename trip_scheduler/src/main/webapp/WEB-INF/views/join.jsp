@@ -73,7 +73,7 @@
 		</div>
 		<div class="join-items">
 			<span class="join-item">비밀번호</span>
-			<input id="join-pw" type="text" placeholder="비밀번호를 입력해주세요."/>
+			<input id="join-pw" type="password" placeholder="비밀번호를 입력해주세요."/>
 			<span id="none-pw" class="red">비밀번호를 입력해주세요.</span>
 			<span id="least-pw" class="red">사용불가 : 최소 8자 이상 입력해주세요.</span>
 			<span id="comb-pw" class="red">사용불가 : 영문,숫자을 조합해주세요.</span>
@@ -81,7 +81,7 @@
 		</div>
 		<div class="join-items">
 			<span class="join-item">비밀번호 확인</span>
-			<input id="join-re-pw" type="text" placeholder="비밀번호를 입력해주세요."/>
+			<input id="join-re-pw" type="password" placeholder="비밀번호를 입력해주세요."/>
 			<span id="no-same-pw" class="red">비밀번호가 일치하지 않습니다.</span>
 			<span id="ok-re-pw" class="green">비밀번호가 일치합니다.</span>
 		</div>

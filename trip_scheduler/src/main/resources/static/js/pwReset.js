@@ -88,6 +88,7 @@ function resetCheckPw(){
 										success:function(res){
 											if(res=="ok"){
 												alert("비밀번호가 변경되었습니다. 재로그인 후 사용해주세요.")
+												location.replace('./login');
 											}else{
 												alert("비밀번호 변경에 실패하였습니다.");
 											}

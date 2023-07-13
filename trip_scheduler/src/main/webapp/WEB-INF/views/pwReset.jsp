@@ -45,8 +45,8 @@
 	<div class="pwReset-container" id="pwReset2" style="display:none">
 		<span class="pwReset-title">새비밀번호 설정</span>
 		<span class="pwReset-subTitle">새로운 비밀번호를 입력해주세요.</span>
-		<input type="text" id="newPw" placeholder="새비밀번호(영문자,숫자포함 최소 8자 이상)"/>
-		<input type="text" id="newRePw" placeholder="새비밀번호 확인"/>
+		<input type="password" id="newPw" placeholder="새비밀번호(영문자,숫자포함 최소 8자 이상)"/>
+		<input type="password" id="newRePw" placeholder="새비밀번호 확인"/>
 		
 		<button class="pwResetNewBtn">비밀번호 변경</button>
 	</div>

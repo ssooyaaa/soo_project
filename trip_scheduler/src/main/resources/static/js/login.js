@@ -42,6 +42,7 @@ function login(){
 					alert('가입된 회원이 없습니다.');
 				}else{
 					alert(user.nickname+'님 반갑습니다.');
+					location.href='./';
 				}
 			},
 			error:function(){}

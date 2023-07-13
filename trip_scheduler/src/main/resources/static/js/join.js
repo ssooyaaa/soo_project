@@ -219,7 +219,7 @@ function checkMember(){
 				success:function(res){
 					if(res=='ok'){
 						alert('회원가입이 완료되었습니다. 로그인 후 사용해주세요.');
-						
+						location.replace('./login');
 					}else{
 						alert('회원가입에 실패했습니다.')
 					}

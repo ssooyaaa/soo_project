@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,26 +42,53 @@
 			<i class="fa-solid fa-xmark close-btn" onclick="hideSide()"></i>
 		</div>
 		<div class="login-side-menu">
-			<div class="side-main">
-				<div class="side-login-alert">
-					로그인 후 사용해주세요
-					<i class="fa-regular fa-face-smile-wink"></i>
+			<c:if test="${empty sessionScope.loginUser}">
+				<div class="side-main">
+					<div class="side-login-alert">
+						로그인 후 사용해주세요
+						<i class="fa-regular fa-face-smile-wink"></i>
+					</div>
+					<div class="side-login-btn">
+						로그인>
+					</div>
 				</div>
-				<div class="side-login-btn">
-					로그인>
+			</c:if>
+			
+			
+			<c:if test="${not empty sessionScope.loginUser}">
+				<div class="side-main">
+					<div class="side-login-alert">
+						<span>${loginUser.nickname}님 반갑습니다.</span>
+						<i class="fa-regular fa-face-smile-wink"></i>
+					</div>
+					<div class="side-login-btn" id="logout-btn">
+						로그아웃>
+					</div>
 				</div>
-			</div>
+			</c:if>
+			
+			
+			
 			
 			<div class="side-menu">
 				<div class="home-btn">
 					홈
 				</div>
 				
-				<div class="plus-member-btn">
-					<span>친구관리</span>
-					<i class="fa-solid fa-angle-down" id="member-down"></i>
-					<i class="fa-solid fa-angle-up" id="member-up"></i>
-				</div>
+				<c:if test="${not empty sessionScope.loginUser}">
+					<div class="plus-member-btn">
+						<span>친구관리</span>
+						<i class="fa-solid fa-angle-down" id="member-down"></i>
+						<i class="fa-solid fa-angle-up" id="member-up"></i>
+					</div>
+				</c:if>
+				
+				<c:if test="${empty sessionScope.loginUser}">
+					<div class="plus-member-btn" id="plus-member-btn">
+						<span>친구관리</span>
+					</div>
+				</c:if>
+				
 				<div class="member-menu">
 					<div class="member-list">친구리스트</div>
 					<div class="member-accept">
@@ -70,12 +98,39 @@
 				</div>
 				
 				<div style="background:#E0DDDD; height:2%;"></div>
-				<div class="schedule-list-btn">
-					<span>일정리스트</span>
-				</div>
-				<div class="expense-list-btn">
-					<span>여행경비</span>
-				</div>
+				
+				
+				
+				<c:if test="${not empty sessionScope.loginUser}">
+					<div class="schedule-list-btn" id="go-schedule-list-btn">
+						<span>일정리스트</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${empty sessionScope.loginUser}">
+					<div class="schedule-list-btn" id="schedule-list-btn">
+						<span>일정리스트</span>
+					</div>
+				</c:if>
+				
+				
+				
+				
+				<c:if test="${not empty sessionScope.loginUser}">
+					<div class="expense-list-btn" id="go-expense-list-btn">
+						<span>여행경비</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${empty sessionScope.loginUser}">
+					<div class="expense-list-btn" id="expense-list-btn">
+						<span>여행경비</span>
+					</div>
+				</c:if>
+				
+				
+				
+				
 				<div style="background:#E0DDDD; height:74%;"></div>
 			</div>
 		</div>

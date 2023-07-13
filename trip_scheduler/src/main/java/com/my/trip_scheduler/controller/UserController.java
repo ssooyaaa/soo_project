@@ -1,7 +1,10 @@
 package com.my.trip_scheduler.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,7 +76,8 @@ public class UserController {
 	@ResponseBody
 	public User login(
 			@RequestParam(value="id") String id,
-			@RequestParam(value="pw") String pw
+			@RequestParam(value="pw") String pw,
+			HttpSession s
 			) {
 		
 		User user = new User();
@@ -85,9 +89,22 @@ public class UserController {
 		if(getUser==null) {
 			return null;
 		}else {
+			s.setAttribute("loginUser", getUser);
+			
 			return getUser;
 		}
 		
+	}
+	
+	
+	//로그아웃
+	@PostMapping("/logout")
+	@ResponseBody
+	public String logout(HttpSession s) {
+		
+		s.invalidate();
+		
+		return "ok";
 	}
 	
 	

@@ -108,6 +108,10 @@ header i:hover{
 	justify-content:space-between;
 }
 
+#plus-member-btn{
+	cursor:pointer;
+}
+
 .plus-member-btn i{
 	cursor:pointer;
 }
