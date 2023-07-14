@@ -30,59 +30,13 @@
 		
 		<div class="search-member">
 			<input type="text" placeholder="친구찾기"/>
-			<i class="fa-solid fa-magnifying-glass"></i>
+			<i class="fa-solid fa-magnifying-glass" style="cursor:pointer;"></i>
 		</div>
 		
 		<div class="member-list">
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
 			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
 			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
 			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
-			
-			<div class="member-item">
-				<span>ssooyaaa</span>
-				<button class="del-member">삭제</button>
-			</div>
 		</div>
 	</div>
 

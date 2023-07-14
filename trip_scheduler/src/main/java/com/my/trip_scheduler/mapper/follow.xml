@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="follow">
+
+	
+	<!-- 승인된 친구목록  -->
+	<select id="getFollow" parameterType="Follow" resultType="String">
+		SELECT user.nickname
+		FROM user
+		INNER JOIN follow
+		ON (user.user_idx=follow.user_idx_1 OR user.user_idx=follow.user_idx_2)
+		WHERE user_idx_1=#{user_idx_1} OR user_idx_2=#{user_idx_2} AND fl_state="승인"
+	</select>
+
+</mapper>
