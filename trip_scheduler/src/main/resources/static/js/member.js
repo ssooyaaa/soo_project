@@ -6,6 +6,10 @@ $(document).ready(function(){
 	});
 	
 	
+	//친구 찾기
+	findUser();
+	
+	
 	//친구리스트-승인O
 	getFollow();
 	
@@ -16,6 +20,44 @@ $(document).ready(function(){
 	rejectMember();
 	
 });
+
+//친구 찾기
+function findUser(){
+	
+	$('#search-member').click(function(){
+		$('.request-item').empty();
+		$('.request-item').hide();
+		var id = $('#search-by-id').val();
+		
+		$.ajax({
+			url:'./user/getUserById',
+			type:'get',
+			data:{'id':id},
+			success:function(user){
+				if(user==''){
+					$('.request-member').append(
+						`<div class="request-item">
+							<span class="request-none">존재하는 회원이 없습니다.</span>
+						</div>`
+					);
+					$('.request-item').show();
+				}else{
+					$('.request-member').append(
+						`<div class="request-item">
+							<span>${user.id}</span>
+							<button class="request-btn">요청</button>
+						</div>`
+					);
+					$('.request-item').show();
+				}
+			}
+		});
+		$('.request-item').show();
+		
+	});
+	
+}
+
 
 //친구리스트-승인O
 function getFollow(){

@@ -80,8 +80,8 @@ function checkMember(){
 				url:'./user/getUserById',
 				type:'get',
 				data:{'id':id},
-				success:function(userId){
-					if(userId==null||userId==''){
+				success:function(user){
+					if(user==null||user==''){
 						$('#none-id').hide();
 						$('#same-id').hide();
 						$('#least-id').hide();

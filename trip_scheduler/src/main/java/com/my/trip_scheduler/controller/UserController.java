@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,14 +46,15 @@ public class UserController {
 	//회원가입-아이디중복확인
 	@GetMapping("/getUserById")
 	@ResponseBody
-	public String getUserById(
+	public User getUserById(
 			@RequestParam(value="id") String id
 			) {
 		
 		
-		String userId = userService.getUserById(id);
+		User user = userService.getUserById(id);
 		
-		return userId;
+		return user;
+		
 	}
 
 	

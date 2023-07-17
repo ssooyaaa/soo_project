@@ -10,7 +10,7 @@
 	</insert>
 
 	<!-- 회원가입-아이디중복확인 -->
-	<select id="getUserById" parameterType="String" resultType="String">
+	<select id="getUserById" parameterType="String" resultType="User">
 		SELECT id FROM user
 		WHERE id=#{id}
 	</select>
@@ -39,5 +39,6 @@
 		SET pw=MD5(#{pw})
 		WHERE id=#{id} AND email=#{email}
 	</update>
+	
 	
 </mapper>

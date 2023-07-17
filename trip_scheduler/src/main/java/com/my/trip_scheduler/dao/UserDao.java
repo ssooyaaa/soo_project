@@ -16,7 +16,7 @@ public class UserDao {
 		return s.insert("user.addUser",user);
 	}
 	
-	public String getUserById(String id) {
+	public User getUserById(String id) {
 		return s.selectOne("user.getUserById",id);
 	}
 	

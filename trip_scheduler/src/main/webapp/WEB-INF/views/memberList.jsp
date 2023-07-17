@@ -29,8 +29,14 @@
 		<span class="member-title">친구리스트</span>
 		
 		<div class="search-member">
-			<input type="text" placeholder="친구찾기"/>
-			<i class="fa-solid fa-magnifying-glass" style="cursor:pointer;"></i>
+			<input type="text" id="search-by-id" placeholder="친구찾기(아이디)"/>
+			<i class="fa-solid fa-magnifying-glass" id="search-member" style="cursor:pointer;"></i>
+		</div>
+		
+		<div class="request-member">
+			
+			
+			
 		</div>
 		
 		<div class="member-list">
