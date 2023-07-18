@@ -9,6 +9,8 @@ $(document).ready(function(){
 	//친구 찾기
 	findUser();
 	
+	//친구 찾기-요청
+	requestFollow();
 	
 	//친구리스트-승인O
 	getFollow();
@@ -33,8 +35,8 @@ function findUser(){
 			url:'./user/getUserById',
 			type:'get',
 			data:{'id':id},
-			success:function(user){
-				if(user==''){
+			success:function(item){
+				if(item==''){
 					$('.request-member').append(
 						`<div class="request-item">
 							<span class="request-none">존재하는 회원이 없습니다.</span>
@@ -44,7 +46,8 @@ function findUser(){
 				}else{
 					$('.request-member').append(
 						`<div class="request-item">
-							<span>${user.id}</span>
+							<span>${item.id}</span>
+							<span id="request-idx" style="display:none">${item.user_idx}</span>
 							<button class="request-btn">요청</button>
 						</div>`
 					);
@@ -56,6 +59,47 @@ function findUser(){
 		
 	});
 	
+}
+
+
+////친구 찾기-요청
+function requestFollow(){
+	
+	$(document).on('click','.request-btn',function(){
+		
+		var user_idx_2 = $('#request-idx').text();
+		
+		$.ajax({
+			url:'./follow/requestedFollow',
+			type:'get',
+			data:{
+				'user_idx':user_idx_2
+			},
+			success:function(user){
+				console.log(user);
+				if(user==null){
+					alert('요청');
+				}else{
+					alert('이미 친구리스트에 존재하거나, 승인 요청을 기다리는 중입니다.');
+				}
+			}
+		});
+		
+		/*$.ajax({
+			url:'./follow/requestFollow',
+			type:'post',
+			data:{'user_idx_2':user_idx_2},
+			success:function(res){
+				if(res=='ok'){
+					alert('요청되었습니다.');
+					location.replace('./memberList');
+				}else{
+					alert('요청에 실패했습니다.');
+				}
+			}
+		});*/
+		
+	});
 }
 
 
@@ -79,7 +123,7 @@ function getFollow(){
 					
 					$('.member-list').append(
 						`<div class="member-item">
-							<span>${item.nickname}</span>
+							<span>${item.id}</span>
 							<button class="del-member">삭제</button>
 						</div>`
 					);

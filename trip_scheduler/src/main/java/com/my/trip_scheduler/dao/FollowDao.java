@@ -15,7 +15,19 @@ public class FollowDao {
 	@Autowired
 	SqlSession s;
 	
-	public List<String> getFollow(Follow f){
+	public List<User> getFollow(Follow f){
 		return s.selectList("follow.getFollow",f);
+	}
+	
+	public int requestFollow(Follow f) {
+		return s.insert("follow.requestFollow",f);
+	}
+	
+	public User checkUserOne(Follow f) {
+		return s.selectOne("follow.checkUserOne",f);
+	}
+	
+	public User checkUserTwo(Follow f) {
+		return s.selectOne("follow.checkUserTwo",f);
 	}
 }

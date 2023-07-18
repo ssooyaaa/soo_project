@@ -15,7 +15,19 @@ public class FollowService {
 	@Autowired
 	FollowDao followDao;
 	
-	public List<String> getFollow(Follow f){
+	public List<User> getFollow(Follow f){
 		return followDao.getFollow(f);
+	}
+	
+	public int requestFollow(Follow f) {
+		return followDao.requestFollow(f);
+	}
+	
+	public User checkUserOne(Follow f) {
+		return followDao.checkUserOne(f);
+	}
+	
+	public User checkUserTwo(Follow f) {
+		return followDao.checkUserTwo(f);
 	}
 }

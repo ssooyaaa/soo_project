@@ -11,7 +11,7 @@
 
 	<!-- 회원가입-아이디중복확인 -->
 	<select id="getUserById" parameterType="String" resultType="User">
-		SELECT id FROM user
+		SELECT * FROM user
 		WHERE id=#{id}
 	</select>
 	
