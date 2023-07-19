@@ -40,4 +40,20 @@
 		WHERE user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2}
 	</select>
 
+
+	<!-- 친구알림리스트 숫자 카운트-->
+	<select id="getCountAlarm" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(*) FROM follow
+		WHERE user_idx_2=#{user_idx_2} AND fl_state="대기"
+	</select>	
+	
+	
+	<!-- 친구요청리스트-대기중 -->
+	<select id="requestedFollowList" parameterType="Integer" resultType="User">
+		SELECT *
+		FROM user
+		INNER JOIN follow
+		ON user.user_idx=follow.user_idx_1
+		WHERE user_idx_2=#{user_idx_2} AND fl_state="대기"
+	</select>	
 </mapper>

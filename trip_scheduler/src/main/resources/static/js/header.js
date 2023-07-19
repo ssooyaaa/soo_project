@@ -41,6 +41,7 @@ $(document).ready(function(){
 	});
 	
 	
+	
 	//친구알림
 	$('.member-accept').click(function(){
 		location.href='./memberAlarm';
@@ -103,6 +104,21 @@ $(document).ready(function(){
 //사이드메뉴-보이기
 function showSide(){
 	$('.login-side').css("visibility","visible");
+	
+	//친구알림 카운트
+	$.ajax({
+		url:'./follow/getCountAlarm',
+		type:'get',
+		data:{},
+		success:function(count){
+			if(count!=0){
+				$('.member-accept').append(
+					`<span class="alarm-count">${count}</span>`
+				);
+			}
+		}
+	});
+	
 }
 
 

@@ -93,7 +93,8 @@
 					<div class="member-list">친구리스트</div>
 					<div class="member-accept">
 						<span>친구요청알림</span>
-						<span class="alarm-count">3</span>
+						
+						
 					</div>
 				</div>
 				

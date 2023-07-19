@@ -28,17 +28,8 @@
 		<span class="member-title">친구요청</span>
 	
 		<div class="alarm-list">
-			<div class="alarm-item">
-				<span id="alarm-id">ssooyaa</span>
-				<button id="accept-member" style="background:#3BEA3E;">수락</button>
-				<button id="reject-member" style="background:#FA5945;">거절</button>
-			</div>
 			
-			<div class="alarm-item">
-				<span>ssooyaaa</span>
-				<button style="background:#3BEA3E;">수락</button>
-				<button style="background:#FA5945;">거절</button>
-			</div>
+			
 		
 		</div>
 	</div>

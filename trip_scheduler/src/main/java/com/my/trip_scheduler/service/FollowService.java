@@ -30,4 +30,12 @@ public class FollowService {
 	public User checkUserTwo(Follow f) {
 		return followDao.checkUserTwo(f);
 	}
+	
+	public int getCountAlarm(int idx) {
+		return followDao.getCountAlarm(idx);
+	}
+	
+	public List<User> requestedFollowList(int idx){
+		return followDao.requestedFollowList(idx);
+	}
 }

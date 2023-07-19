@@ -77,7 +77,7 @@
 	width:50px;
 	font-size:17px;
 	padding:5px 0;
-	background:#81CA6D;;
+	background:#81CA6D;
 	color:#fff;
 	font-weight:900;
 	border:none;
@@ -150,6 +150,8 @@
 	flex-direction:column;
 	align-items:start;
 	overflow-y:scroll;
+	border-top:1px solid #707B7C;
+	padding-top:30px;
 }
 
 /* 스크롤바의 폭 너비 */

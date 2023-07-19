@@ -15,6 +15,9 @@ $(document).ready(function(){
 	//친구리스트-승인O
 	getFollow();
 	
+	//친구요청리스트-대기중
+	requestedFollowList();
+	
 	//친구요청-수락
 	acceptMember();
 	
@@ -76,28 +79,29 @@ function requestFollow(){
 				'user_idx':user_idx_2
 			},
 			success:function(user){
-				console.log(user);
-				if(user==null){
-					alert('요청');
+				if(user==null ||user==''){
+					
+					$.ajax({
+						url:'./follow/requestFollow',
+						type:'post',
+						data:{'user_idx_2':user_idx_2},
+						success:function(res){
+							if(res=='ok'){
+								alert('요청되었습니다.');
+								location.replace('./memberList');
+							}else{
+								alert('요청에 실패했습니다.');
+							}
+						}
+					});
+					
 				}else{
 					alert('이미 친구리스트에 존재하거나, 승인 요청을 기다리는 중입니다.');
 				}
 			}
 		});
 		
-		/*$.ajax({
-			url:'./follow/requestFollow',
-			type:'post',
-			data:{'user_idx_2':user_idx_2},
-			success:function(res){
-				if(res=='ok'){
-					alert('요청되었습니다.');
-					location.replace('./memberList');
-				}else{
-					alert('요청에 실패했습니다.');
-				}
-			}
-		});*/
+		
 		
 	});
 }
@@ -133,6 +137,30 @@ function getFollow(){
 			
 			
 		}
+	});
+}
+
+
+//친구요청리스트-대기중
+function requestedFollowList(){
+	$.ajax({
+		url:'./follow/requestedFollowList',
+		type:'get',
+		data:{},
+		success:function(list){
+			
+			$.each(list,function(index,item){
+				$('.alarm-list').append(
+					`<div class="alarm-item">
+						<span id="alarm-id">${item.id}</span>
+						<button id="accept-member" style="background:#81CA6D;">수락</button>
+						<button id="reject-member" style="background:#FA5945;">거절</button>
+					</div>`
+				);
+			});
+			
+		},
+		error:function(err){}
 	});
 }
 

@@ -30,4 +30,13 @@ public class FollowDao {
 	public User checkUserTwo(Follow f) {
 		return s.selectOne("follow.checkUserTwo",f);
 	}
+	
+	public int getCountAlarm(int idx) {
+		return s.selectOne("follow.getCountAlarm",idx);
+	}
+	
+	public List<User> requestedFollowList(int idx){
+		return s.selectList("follow.requestedFollowList",idx);
+	}
 }
+

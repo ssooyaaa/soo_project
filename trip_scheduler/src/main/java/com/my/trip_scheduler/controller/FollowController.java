@@ -1,5 +1,6 @@
 package com.my.trip_scheduler.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -94,7 +95,6 @@ public class FollowController {
 		
 		User user2 = followService.checkUserTwo(f2);
 		
-		
 		if(user1==null && user2==null) {
 			return null;
 		}else if(user1==null) {
@@ -103,5 +103,34 @@ public class FollowController {
 			return user1;
 		}
 		
+	}
+	
+	
+	//친구알림 카운트
+	@GetMapping("/getCountAlarm")
+	@ResponseBody
+	public int getCountAlarm(HttpSession s) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		int count = followService.getCountAlarm(user_idx);
+		
+		return count;
+	}
+	
+	
+	//친구요청받은리스트-대기중
+	@GetMapping("/requestedFollowList")
+	@ResponseBody
+	public List<User> requestedFollowList(HttpSession s) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		List<User> followList = followService.requestedFollowList(user_idx);
+		
+		
+		return followList;
 	}
 }
