@@ -56,4 +56,13 @@
 		ON user.user_idx=follow.user_idx_1
 		WHERE user_idx_2=#{user_idx_2} AND fl_state="대기"
 	</select>	
+	
+	
+	<!-- 친구요청리스트-승인 -->
+	<update id="acceptFollow" parameterType="Follow">
+		UPDATE follow
+		SET fl_state="승인"
+		WHERE user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2}
+	</update>
+	
 </mapper>

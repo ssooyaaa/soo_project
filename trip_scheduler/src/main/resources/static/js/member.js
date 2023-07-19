@@ -153,6 +153,7 @@ function requestedFollowList(){
 				$('.alarm-list').append(
 					`<div class="alarm-item">
 						<span id="alarm-id">${item.id}</span>
+						<span id="alarm-user-idx" style="display:none;">${item.user_idx}</span>
 						<button id="accept-member" style="background:#81CA6D;">수락</button>
 						<button id="reject-member" style="background:#FA5945;">거절</button>
 					</div>`
@@ -173,13 +174,17 @@ function acceptMember(){
 		var parent = $(this).parent();
 		var children = parent.children();
 		
-		var id = children.eq(0).text();
-		
-		console.log(id);
-		
-		alert('수락');
+		var user_idx = children.eq(1).text();
 		
 		this.parentElement.remove();
+		
+		$.ajax({
+			url:'./follow/acceptFollow',
+			type:'post',
+			data:{'user_idx_1':user_idx},
+			success:function(res){},
+			error:function(err){}
+		});
 	});
 	
 }

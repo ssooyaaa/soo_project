@@ -38,5 +38,9 @@ public class FollowDao {
 	public List<User> requestedFollowList(int idx){
 		return s.selectList("follow.requestedFollowList",idx);
 	}
+	
+	public int acceptFollow(Follow f) {
+		return s.update("follow.acceptFollow",f);
+	}
 }
 

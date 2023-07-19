@@ -38,4 +38,8 @@ public class FollowService {
 	public List<User> requestedFollowList(int idx){
 		return followDao.requestedFollowList(idx);
 	}
+	
+	public int acceptFollow(Follow f) {
+		return followDao.acceptFollow(f);
+	}
 }

@@ -35,15 +35,22 @@ public class FollowController {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
 		int user_idx = loginUser.getUser_idx();
+		String loginUser_id = loginUser.getId();
 		
 		fl.setUser_idx_1(user_idx);
 		fl.setUser_idx_2(user_idx);
 		
 		List<User> flList = followService.getFollow(fl);
 		
+		
 		if(flList==null) {
 			return null;
 		}else {
+			for(int i=0;i<flList.size();i++) {
+				if(flList.get(i).getId().equals(loginUser_id)) {
+					flList.remove(i);
+				}
+			}
 			return flList;
 		}
 		
@@ -130,7 +137,27 @@ public class FollowController {
 		
 		List<User> followList = followService.requestedFollowList(user_idx);
 		
-		
 		return followList;
+	}
+	
+	
+	//친구요청리스트-승인
+	@PostMapping("/acceptFollow")
+	@ResponseBody
+	public String acceptFollow(
+			@RequestParam(value="user_idx_1") int user_idx_1,
+			HttpSession s
+			) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		Follow f = new Follow();
+		f.setUser_idx_1(user_idx_1);
+		f.setUser_idx_2(user_idx);
+		
+		followService.acceptFollow(f);
+		
+		return "ok";
 	}
 }
