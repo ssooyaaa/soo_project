@@ -131,6 +131,7 @@ function getFollow(){
 					$('.member-list').append(
 						`<div class="member-item">
 							<span>${item.id}</span>
+							<span style="display:none;">${item.user_idx}</span>
 							<button class="del-member">삭제</button>
 						</div>`
 					);
@@ -147,7 +148,29 @@ function getFollow(){
 //친구삭제
 function delFollow(){
 	$(document).on('click','.del-member',function(){
-		alert('삭제');
+		
+		var children = $(this).parent().children();
+		var user_idx = children.eq(1).text();
+		var id = children.eq(0).text();
+		console.log(user_idx);
+		
+		var con = confirm(id+'를 정말로 삭제하시겠습니까?');
+		
+		if(con==true){
+			$.ajax({
+				url:'./follow/delFollow',
+				type:'post',
+				data:{'user_idx_1':user_idx},
+				success:function(res){
+					if(res=='ok'){
+						location.replace('./memberList');
+					}
+				},
+				error:function(err){}
+			});
+		}
+		
+		
 	});
 }
 

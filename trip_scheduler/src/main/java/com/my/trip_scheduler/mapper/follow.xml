@@ -72,4 +72,13 @@
 		WHERE user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2}
 	</delete>
 	
+	
+	<!-- 친구삭제  -->
+	<delete id="delFollow" parameterType="Follow">
+		DELETE FROM follow
+		WHERE (user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2})
+				OR (user_idx_1=#{user_idx_2} AND user_idx_2=#{user_idx_1})
+	</delete>
+	
+	
 </mapper>

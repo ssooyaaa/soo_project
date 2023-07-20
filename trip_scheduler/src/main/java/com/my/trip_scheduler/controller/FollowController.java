@@ -42,17 +42,24 @@ public class FollowController {
 		
 		List<User> flList = followService.getFollow(fl);
 		
+		List<User> newFlList = new ArrayList<>();
+		
 		
 		if(flList==null) {
 			return null;
 		}else {
 			for(int i=0;i<flList.size();i++) {
 				if(flList.get(i).getId().equals(loginUser_id)) {
-					flList.remove(i);
+					continue;
+				}else {
+					newFlList.add(flList.get(i));
 				}
 			}
-			return flList;
+			
+			return newFlList;
 		}
+		
+		
 		
 	}
 	
@@ -179,6 +186,27 @@ public class FollowController {
 		
 		followService.rejectFollow(f);
 	
+		return "ok";
+	}
+	
+	
+	//친구삭제
+	@PostMapping("/delFollow")
+	@ResponseBody
+	public String delFollow(
+			@RequestParam(value="user_idx_1") int user_idx_1,
+			HttpSession s
+			) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		Follow f = new Follow();
+		f.setUser_idx_1(user_idx);
+		f.setUser_idx_2(user_idx_1);
+		
+		followService.delFollow(f);
+		
 		return "ok";
 	}
 }

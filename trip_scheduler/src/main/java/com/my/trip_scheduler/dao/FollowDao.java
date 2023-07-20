@@ -46,5 +46,9 @@ public class FollowDao {
 	public int rejectFollow(Follow f) {
 		return s.delete("follow.rejectFollow",f);
 	}
+	
+	public int delFollow(Follow f) {
+		return s.delete("follow.delFollow",f);
+	}
 }
 
