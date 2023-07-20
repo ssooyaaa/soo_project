@@ -42,5 +42,9 @@ public class FollowDao {
 	public int acceptFollow(Follow f) {
 		return s.update("follow.acceptFollow",f);
 	}
+	
+	public int rejectFollow(Follow f) {
+		return s.delete("follow.rejectFollow",f);
+	}
 }
 

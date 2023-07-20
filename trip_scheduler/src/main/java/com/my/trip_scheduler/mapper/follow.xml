@@ -65,4 +65,11 @@
 		WHERE user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2}
 	</update>
 	
+	
+	<!-- 친구요청리스트-거절 -->
+	<delete id="rejectFollow" parameterType="Follow">
+		DELETE FROM follow
+		WHERE user_idx_1=#{user_idx_1} AND user_idx_2=#{user_idx_2}
+	</delete>
+	
 </mapper>

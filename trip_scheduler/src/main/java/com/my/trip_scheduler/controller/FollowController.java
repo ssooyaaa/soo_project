@@ -160,4 +160,25 @@ public class FollowController {
 		
 		return "ok";
 	}
+	
+	
+	//친구요청리스트-거절
+	@PostMapping("/rejectFollow")
+	@ResponseBody
+	public String rejectFollow(
+			@RequestParam(value="user_idx_1") int user_idx_1,
+			HttpSession s
+			) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		Follow f = new Follow();
+		f.setUser_idx_1(user_idx_1);
+		f.setUser_idx_2(user_idx);
+		
+		followService.rejectFollow(f);
+	
+		return "ok";
+	}
 }

@@ -42,4 +42,8 @@ public class FollowService {
 	public int acceptFollow(Follow f) {
 		return followDao.acceptFollow(f);
 	}
+	
+	public int rejectFollow(Follow f) {
+		return followDao.rejectFollow(f);
+	}
 }

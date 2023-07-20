@@ -15,6 +15,9 @@ $(document).ready(function(){
 	//친구리스트-승인O
 	getFollow();
 	
+	//친구삭제
+	delFollow();
+	
 	//친구요청리스트-대기중
 	requestedFollowList();
 	
@@ -65,7 +68,7 @@ function findUser(){
 }
 
 
-////친구 찾기-요청
+//친구 찾기-요청
 function requestFollow(){
 	
 	$(document).on('click','.request-btn',function(){
@@ -141,6 +144,14 @@ function getFollow(){
 }
 
 
+//친구삭제
+function delFollow(){
+	$(document).on('click','.del-member',function(){
+		alert('삭제');
+	});
+}
+
+
 //친구요청리스트-대기중
 function requestedFollowList(){
 	$.ajax({
@@ -176,13 +187,15 @@ function acceptMember(){
 		
 		var user_idx = children.eq(1).text();
 		
-		this.parentElement.remove();
-		
 		$.ajax({
 			url:'./follow/acceptFollow',
 			type:'post',
 			data:{'user_idx_1':user_idx},
-			success:function(res){},
+			success:function(res){
+				if(res=='ok'){
+					location.replace('./memberAlarm');
+				}
+			},
 			error:function(err){}
 		});
 	});
@@ -194,16 +207,29 @@ function rejectMember(){
 	
 $(document).on('click','#reject-member',function(){
 		
+		var con = confirm('정말로 거절하시겠습니까?');
+			
 		var parent = $(this).parent();
 		var children = parent.children();
 		
-		var id = children.eq(0).text();
+		var user_idx = children.eq(1).text();
 		
-		console.log(id);
 		
-		alert('거절');
+		if(con==true){
+			$.ajax({
+				url:'./follow/rejectFollow',
+				type:'post',
+				data:{'user_idx_1':user_idx},
+				success:function(res){
+					if(res=='ok'){
+						location.replace('./memberAlarm');
+					}
+				}
+			});
+		}
 		
-		this.parentElement.remove();
+		
+		
 	});
 	
 }
