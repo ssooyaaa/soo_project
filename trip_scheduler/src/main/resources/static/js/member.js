@@ -152,7 +152,7 @@ function delFollow(){
 		var children = $(this).parent().children();
 		var user_idx = children.eq(1).text();
 		var id = children.eq(0).text();
-		console.log(user_idx);
+		
 		
 		var con = confirm(id+'를 정말로 삭제하시겠습니까?');
 		

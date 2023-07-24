@@ -67,15 +67,17 @@
 	margin-right:30px;
 	margin-top:20px;
 	margin-bottom:20px;
+	
 }
 
 .friend{
 	margin-left:10px;
-	margin-bottom:50px;
+	margin-bottom:20px;
 	padding:5px 10px;
 	border-radius:20px;
 	border:solid 2px #E0DDDD;
 	font-size:17px;
+	display:inline-block;
 }
 
 .friend-del{
@@ -143,7 +145,7 @@
 	width:80%;
 	padding:10px;
 	margin-left:10%;
-	margin-top:100px;
+	margin-top:30px;
 	background:var(--color-main);
 	text-align:center;
 	font-size:18px;

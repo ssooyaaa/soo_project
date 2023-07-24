@@ -63,31 +63,12 @@
 						<span class="friend-name">최쑤</span>
 						<i class="fa-solid fa-xmark friend-del"></i>
 					</span>			
+					<span class="friend">
+						<span class="friend-name">ssooyaaa</span>
+						<i class="fa-solid fa-xmark friend-del"></i>
+					</span>
 				</div>
 				
-				<div class="friends">
-					<span class="friend">
-						<span class="friend-name">ssooyaaa</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">ssooyaaa</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					
-				</div>
 			</div>
 			
 			
@@ -98,49 +79,12 @@
 				친구목록
 			</div>
 			<div class="all-friends">
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
-				<div class="all-friend">
-					<span class="all-name">최쑤</span>
-					<input class="friend-cb" type="checkbox"/>
-				</div>
+				
 				
 				
 			</div>
+			
+			
 			<div class="friends-sel-btn">완료</div>
 		</div>
 		
