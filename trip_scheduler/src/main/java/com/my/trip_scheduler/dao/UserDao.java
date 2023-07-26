@@ -35,4 +35,8 @@ public class UserDao {
 	public int resetPw(User user) {
 		return s.update("user.resetPw",user);
 	}
+	
+	public User getUserByIdx(User user) {
+		return s.selectOne("user.getUserByIdx",user);
+	}
 }

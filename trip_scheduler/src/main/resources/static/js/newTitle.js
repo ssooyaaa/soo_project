@@ -8,21 +8,21 @@ $(document).ready(function(){
 	$('.friends-sel-btn').click(function(){
 		$('.all-friends-list').hide();
 		
-		var friendsIdxList = new Array();
+		var friendsList = [];
 		var checkList = $("input[name='friend-cb']");
 		
 		for(var i=0;i<checkList.length;i++){
 			if(checkList[i].checked){
-				console.log(checkList[i]);
+				
 				var friend = checkList[i].closest('div');
-				console.log(friend);
 				
 				var user_idx = $(friend).children().eq(1).text();
-				console.log(user_idx);
 				
-				friendsIdxList.push(user_idx);
+				friendsList.push(user_idx);
 			}
 		}
+		
+		
 		
 	});
 	

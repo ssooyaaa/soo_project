@@ -41,4 +41,10 @@
 	</update>
 	
 	
+	<!-- 유저(idx)로 가져오기 -->
+	<select id="getUserByIdx" parameterType="User" resultType="User">
+		SELECT * FROM user
+		WHERE user_idx=#{user_idx}
+	</select>
+	
 </mapper>

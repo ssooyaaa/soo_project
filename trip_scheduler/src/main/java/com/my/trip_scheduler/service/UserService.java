@@ -35,4 +35,8 @@ public class UserService {
 	public int resetPw(User user) {
 		return userDao.resetPw(user);
 	}
+	
+	public User getUserByIdx(User user) {
+		return userDao.getUserByIdx(user);
+	}
 }
