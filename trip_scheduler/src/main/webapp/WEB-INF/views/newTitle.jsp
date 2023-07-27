@@ -43,30 +43,10 @@
 			<span class="friends-plus">친구추가</span>
 			<div class="friends-list">
 				<div class="friends">
-					<span class="friend">
-						<span class="friend-name">ssooyaaa</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">ssooyaaa</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
-					<span class="friend">
-						<span class="friend-name">최쑤</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>			
-					<span class="friend">
-						<span class="friend-name">ssooyaaa</span>
-						<i class="fa-solid fa-xmark friend-del"></i>
-					</span>
+					
+					
+					
+					
 				</div>
 				
 			</div>

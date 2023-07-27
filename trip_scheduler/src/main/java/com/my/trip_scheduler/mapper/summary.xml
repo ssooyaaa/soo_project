@@ -1,5 +1,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="summary">
 
+	<!-- 새일정짜기(summary) -->
+	<insert id="addSummary" parameterType="Summary">
+		INSERT INTO summary
+		(name, start_date, end_date)
+		VALUES
+		(#{name}, #{start_date}, #{end_date})
+	</insert>
+	
+	<!-- 새일정짜기(summary_follow)추가 -->
+	<insert id="addSmFl" parameterType="Summary">
+		INSERT INTO summary
+		(sm_fl_idx)
+		VALUES
+		(#{sm_fl_idx})
+	</insert>
+
 
 </mapper>

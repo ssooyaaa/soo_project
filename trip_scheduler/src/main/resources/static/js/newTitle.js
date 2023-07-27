@@ -5,30 +5,12 @@ $(document).ready(function(){
 	
 	
 	//친구리스트 완료버튼
-	$('.friends-sel-btn').click(function(){
-		$('.all-friends-list').hide();
-		
-		var friendsList = [];
-		var checkList = $("input[name='friend-cb']");
-		
-		for(var i=0;i<checkList.length;i++){
-			if(checkList[i].checked){
-				
-				var friend = checkList[i].closest('div');
-				
-				var user_idx = $(friend).children().eq(1).text();
-				
-				friendsList.push(user_idx);
-			}
-		}
-		
-		
-		
-	});
+	completeFriends();
+	
 	
 	
 	//친구제외
-	$('.friend-del').click(function(){
+	$(document).on('click','.friend-del',function(){
 		this.parentElement.remove();
 	});
 	
@@ -38,7 +20,13 @@ $(document).ready(function(){
 		var title = $('.title-typing').val();
 		var start = $('.date-start').val();
 		var end = $('.date-end').val();
-		console.log(title);
+		
+		
+		if(title=='' || start=='' || end==''){
+			alert('이름과 일정을 입력해주세요.');
+		}else{
+			console.log('확인');
+		}
 		//location.href='./newList';
 	});
 });
@@ -76,5 +64,46 @@ function plusFriends(){
 			}
 		});
 		$('.all-friends-list').show();
+	});
+}
+
+
+//친구리스트 완료버튼
+function completeFriends(){
+	$('.friends-sel-btn').click(function(){
+		$('.all-friends-list').hide();
+		
+		var friendsList = [];
+		var checkList = $("input[name='friend-cb']");
+		
+		for(var i=0;i<checkList.length;i++){
+			if(checkList[i].checked){
+				
+				var friend = checkList[i].closest('div');
+				
+				var user_idx = $(friend).children().eq(1).text();
+				friendsList.push(user_idx);
+			}
+		}
+		
+		$.ajax({
+			url:'./schedule/getUserByIdx',
+			type:'post',
+			contentType: 'application/json;charset=UTF-8',
+	       	data : JSON.stringify(friendsList),
+	       	success:function(list){
+	       		
+	       		$.each(list,function(index,item){
+	       			$('.friends').append(
+	       				`<span class="friend">
+							<span class="friend-name">${item.id}</span>
+							<span style="display:none">${item.user_idx}</span>
+							<i class="fa-solid fa-xmark friend-del"></i>
+						</span>`
+	       			);
+	       		});
+	       	}
+		});
+		
 	});
 }
