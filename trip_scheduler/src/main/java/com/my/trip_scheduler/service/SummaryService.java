@@ -16,7 +16,4 @@ public class SummaryService {
 		return summaryDao.addSummary(sum);
 	}
 	
-	public int addSmFl(Summary sum) {
-		return summaryDao.addSmFl(sum);
-	}
 }

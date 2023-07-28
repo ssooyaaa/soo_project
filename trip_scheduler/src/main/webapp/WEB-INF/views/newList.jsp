@@ -348,6 +348,8 @@
 			
 			
 		</div>
+		
+		<button class="save-btn">저장</button>
 	</div>
 	
 	

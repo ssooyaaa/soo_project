@@ -65,13 +65,12 @@ public class ScheduleController {
 			Model model
 			) {
 		
-		//sm-fl테이블 먼저 저장 후, idx가져옴
+		//summary테이블 먼저 저장 후, idx가져옴
 		
 		Summary newSum = new Summary();
 		newSum.setName(name);
 		newSum.setStart_date(start_date);
 		newSum.setEnd_date(end_date);
-		
 		
 		
 		return "ok";
