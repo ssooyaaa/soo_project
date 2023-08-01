@@ -5,14 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.my.trip_scheduler.service.SummaryFollowService;
 import com.my.trip_scheduler.service.SummaryService;
 import com.my.trip_scheduler.service.UserService;
 import com.my.trip_scheduler.vo.Summary;
@@ -25,7 +24,7 @@ public class ScheduleController {
 	@Autowired
 	UserService userService;
 	SummaryService summaryService;
-	
+	SummaryFollowService smflService;
 	
 	//새일정짜기-summary-친구추가 
 	@PostMapping("/getUserByIdx")
@@ -55,23 +54,22 @@ public class ScheduleController {
 	
 	
 	//새일정짜기-summary
-	@Transactional
 	@PostMapping("/addSummary")
 	@ResponseBody
 	public String addSummary(
-			@RequestParam(value="title") String name,
-			@RequestParam(value="start") String start_date,
-			@RequestParam(value="end") String end_date,
-			Model model
+			@RequestParam(value="name") String name,
+			@RequestParam(value="start_date") String start_date,
+			@RequestParam(value="end_date") String end_date
 			) {
 		
 		//summary테이블 먼저 저장 후, idx가져옴
 		
-		Summary newSum = new Summary();
-		newSum.setName(name);
-		newSum.setStart_date(start_date);
-		newSum.setEnd_date(end_date);
+		Summary newSummary = new Summary();
+		newSummary.setName(name);
+		newSummary.setStart_date(start_date);
+		newSummary.setEnd_date(end_date);
 		
+		summaryService.addSummary(newSummary);
 		
 		return "ok";
 	}

@@ -17,15 +17,31 @@ $(document).ready(function(){
 	
 	//작성완료
 	$('.complete-btn').click(function(){
-		var title = $('.title-typing').val();
-		var start = $('.date-start').val();
-		var end = $('.date-end').val();
+		var name = $('.title-typing').val();
+		var start_date = $('.date-start').val();
+		var end_date = $('.date-end').val();
 		
 		
-		if(title=='' || start=='' || end==''){
+		if(name=='' || start_date=='' || end_date==''){
 			alert('이름과 일정을 입력해주세요.');
 		}else{
-			console.log('확인');
+			$.ajax({
+				url:'./schedule/addSummary',
+				type:'post',
+				data:{'name':name,
+					'start_date':start_date,
+					'end_date':end_date},
+					success:function(res){
+						if(res=='ok'){
+							console.log('summary 저장');
+						}else{
+							console.log('실패');
+						}
+					},
+					error:function(err){}
+			});
+			
+			
 		}
 		//location.href='./newList';
 	});

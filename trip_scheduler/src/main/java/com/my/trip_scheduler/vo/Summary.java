@@ -7,7 +7,6 @@ public class Summary {
 	private String start_date=null;
 	private String end_date=null;
 	
-	
 	public int getSm_idx() {
 		return sm_idx;
 	}
@@ -32,5 +31,7 @@ public class Summary {
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
+	
+	
 	
 }
