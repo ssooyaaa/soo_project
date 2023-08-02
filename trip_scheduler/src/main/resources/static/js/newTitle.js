@@ -17,9 +17,10 @@ $(document).ready(function(){
 	
 	//작성완료
 	$('.complete-btn').click(function(){
-		var name = $('.title-typing').val();
-		var start_date = $('.date-start').val();
-		var end_date = $('.date-end').val();
+		
+		var name = $('#name').val();
+		var start_date = $('#date-start').val();
+		var end_date = $('#date-end').val();
 		
 		
 		if(name=='' || start_date=='' || end_date==''){
@@ -28,17 +29,19 @@ $(document).ready(function(){
 			$.ajax({
 				url:'./schedule/addSummary',
 				type:'post',
-				data:{'name':name,
+				data :{
+					'name':name,
 					'start_date':start_date,
-					'end_date':end_date},
-					success:function(res){
-						if(res=='ok'){
-							console.log('summary 저장');
-						}else{
-							console.log('실패');
-						}
-					},
-					error:function(err){}
+					'end_date':end_date
+				},
+				success:function(res){
+					if(res=='ok'){
+						console.log('summary 저장');
+					}else{
+						console.log('실패');
+					}
+				},
+				error:function(err){}
 			});
 			
 			

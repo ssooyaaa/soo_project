@@ -28,14 +28,14 @@
 	<div class="newTitle-container">
 		<div class="newTitle-title">
 			<span class="title">여행 이름</span>
-			<input class="title-typing" placeholder="여행 스타일을 적어주세요."/>
+			<input id="name" class="title-typing" placeholder="여행 스타일을 적어주세요."/>
 		</div>
 		<div class="newTitle-date">
 			<span class="date">여행 일정</span>
 			<div class="date-start-end">
-				<input type="date" class="date-start"/>
+				<input type="date" class="date-start" id="date-start"/>
 				<span>  ~  </span>
-				<input type="date" class="date-end"/>
+				<input type="date" class="date-end" id="date-end"/>
 			</div>
 		</div>
 		<div class="newTitle-with">

@@ -2,7 +2,7 @@
 <mapper namespace="summary">
 
 	<!-- 새일정짜기(summary) -->
-	<insert id="addSummary" parameterType="Summary">
+	<insert id="addSummary" parameterType="Summary"  useGeneratedKeys="true" keyProperty="sm_idx">
 		INSERT INTO summary
 		(name, start_date, end_date)
 		VALUES

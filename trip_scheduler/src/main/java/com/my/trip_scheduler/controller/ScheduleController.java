@@ -23,7 +23,11 @@ public class ScheduleController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
 	SummaryService summaryService;
+	
+	@Autowired
 	SummaryFollowService smflService;
 	
 	//새일정짜기-summary-친구추가 
@@ -60,9 +64,8 @@ public class ScheduleController {
 			@RequestParam(value="name") String name,
 			@RequestParam(value="start_date") String start_date,
 			@RequestParam(value="end_date") String end_date
+			
 			) {
-		
-		//summary테이블 먼저 저장 후, idx가져옴
 		
 		Summary newSummary = new Summary();
 		newSummary.setName(name);
@@ -70,6 +73,9 @@ public class ScheduleController {
 		newSummary.setEnd_date(end_date);
 		
 		summaryService.addSummary(newSummary);
+		
+		//summary테이블 먼저 저장 후, idx가져옴
+		int new_sm_idx = newSummary.getSm_idx();
 		
 		return "ok";
 	}
