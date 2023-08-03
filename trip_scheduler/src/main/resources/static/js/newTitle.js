@@ -22,9 +22,26 @@ $(document).ready(function(){
 		var start_date = $('#date-start').val();
 		var end_date = $('#date-end').val();
 		
+		start_date = new Date(start_date);
+		end_date = new Date(end_date);
 		
-		if(name=='' || start_date=='' || end_date==''){
+		var day = (end_date-start_date)/(1000*60*60*24);
+		day = parseInt(day)+1;
+		
+		
+		//날짜 선택 체크
+		/*var start_year = parseInt(start_date.substring(0,4));
+		var start_month = parseInt(start_date.substring(5,7));
+		var start_day = parseInt(start_date.substring(8,10));
+		
+		var end_year = parseInt(end_date.substring(0,4));
+		var end_month = parseInt(end_date.substring(5,7));
+		var end_day = parseInt(end_date.substring(8,10));*/
+		
+		/*if(name=='' || start_date=='' || end_date==''){
 			alert('이름과 일정을 입력해주세요.');
+		}else if(start_date>end_date){
+			alert('날짜를 올바르게 입력해주세요.');
 		}else{
 			$.ajax({
 				url:'./schedule/addSummary',
@@ -45,7 +62,7 @@ $(document).ready(function(){
 			});
 			
 			
-		}
+		}*/
 		//location.href='./newList';
 	});
 });
