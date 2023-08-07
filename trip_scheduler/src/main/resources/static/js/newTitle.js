@@ -15,56 +15,9 @@ $(document).ready(function(){
 	});
 	
 	
-	//작성완료
-	$('.complete-btn').click(function(){
-		
-		var name = $('#name').val();
-		var start_date = $('#date-start').val();
-		var end_date = $('#date-end').val();
-		
-		start_date = new Date(start_date);
-		end_date = new Date(end_date);
-		
-		var day = (end_date-start_date)/(1000*60*60*24);
-		day = parseInt(day)+1;
-		
-		
-		//날짜 선택 체크
-		/*var start_year = parseInt(start_date.substring(0,4));
-		var start_month = parseInt(start_date.substring(5,7));
-		var start_day = parseInt(start_date.substring(8,10));
-		
-		var end_year = parseInt(end_date.substring(0,4));
-		var end_month = parseInt(end_date.substring(5,7));
-		var end_day = parseInt(end_date.substring(8,10));*/
-		
-		/*if(name=='' || start_date=='' || end_date==''){
-			alert('이름과 일정을 입력해주세요.');
-		}else if(start_date>end_date){
-			alert('날짜를 올바르게 입력해주세요.');
-		}else{
-			$.ajax({
-				url:'./schedule/addSummary',
-				type:'post',
-				data :{
-					'name':name,
-					'start_date':start_date,
-					'end_date':end_date
-				},
-				success:function(res){
-					if(res=='ok'){
-						console.log('summary 저장');
-					}else{
-						console.log('실패');
-					}
-				},
-				error:function(err){}
-			});
-			
-			
-		}*/
-		//location.href='./newList';
-	});
+	//summary완료
+	summaryPost();
+	
 });
 
 
@@ -133,7 +86,7 @@ function completeFriends(){
 	       			$('.friends').append(
 	       				`<span class="friend">
 							<span class="friend-name">${item.id}</span>
-							<span style="display:none">${item.user_idx}</span>
+							<span id="friend-idx" style="display:none">${item.user_idx}</span>
 							<i class="fa-solid fa-xmark friend-del"></i>
 						</span>`
 	       			);
@@ -141,5 +94,78 @@ function completeFriends(){
 	       	}
 		});
 		
+	});
+}
+
+
+//summary완료
+function summaryPost(){
+	
+	var data={
+		'name':'',
+		'start_date':'',
+		'end_date':'',
+		'days':'',
+		'userList':[]
+	}
+	
+	//작성완료
+	$('.complete-btn').click(function(){
+		
+		//summary저장
+		data['name'] = $('#name').val();
+		data['start_date'] = $('#date-start').val();
+		data['end_date'] = $('#date-end').val();
+		var start_date = $('#date-start').val();
+		var end_date = $('#date-end').val();
+		
+		start_date = new Date(data['start_date']);
+		end_date = new Date(data['end_date']);
+		
+		var day = (end_date-start_date)/(1000*60*60*24);
+		data['days'] = parseInt(day)+1;
+		
+		//summaryFollow저장
+		$.each($('.friend'),function(index,item){
+			var value = $(item).children().eq(1).text();
+			value = parseInt(value);
+			data['userList'].push(value);
+		});
+		
+		
+		if(data['name']=='' || start_date=='' || end_date==''){
+			alert('이름과 일정을 입력해주세요.');
+		}else if(start_date>end_date){
+			alert('날짜를 올바르게 입력해주세요.');
+		}else{
+			$.ajax({
+				url:'./schedule/addSummary',
+				type:'post',
+				contentType: 'application/json;charset=UTF-8',
+		       	data : JSON.stringify(data),
+				success:function(res){
+					if(res=='ok'){
+						console.log('summary 저장');
+					}else{
+						console.log('실패');
+					}
+				},
+				error:function(err){}
+			});
+			
+			
+		}
+		
+		
+		//날짜 선택 체크
+		/*var start_year = parseInt(start_date.substring(0,4));
+		var start_month = parseInt(start_date.substring(5,7));
+		var start_day = parseInt(start_date.substring(8,10));
+		
+		var end_year = parseInt(end_date.substring(0,4));
+		var end_month = parseInt(end_date.substring(5,7));
+		var end_day = parseInt(end_date.substring(8,10));*/
+		
+		//location.href='./newList';
 	});
 }

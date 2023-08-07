@@ -13,7 +13,7 @@ public class SummaryFollowDao {
 	SqlSession s;
 	
 	public int addSmFl(SummaryFollow sf) {
-		return s.insert("summaryFollow.addSmFl",sf);
+		return s.insert("sm_fl.addSmFl",sf);
 	}
 	
 }

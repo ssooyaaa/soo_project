@@ -6,6 +6,7 @@ public class Summary {
 	private String name=null;
 	private String start_date=null;
 	private String end_date=null;
+	private int days=0;
 	
 	public int getSm_idx() {
 		return sm_idx;
@@ -30,6 +31,12 @@ public class Summary {
 	}
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
+	}
+	public int getDays() {
+		return days;
+	}
+	public void setDays(int days) {
+		this.days = days;
 	}
 	
 	
