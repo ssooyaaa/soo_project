@@ -17,5 +17,7 @@ public class SummaryDao {
 		return s.insert("summary.addSummary",sum);
 	}
 	
-	
+	public Summary getSummary(int idx) {
+		return s.selectOne("summary.getSummary",idx);
+	}
 }

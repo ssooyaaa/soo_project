@@ -143,11 +143,11 @@ function summaryPost(){
 				type:'post',
 				contentType: 'application/json;charset=UTF-8',
 		       	data : JSON.stringify(data),
-				success:function(res){
-					if(res=='ok'){
-						console.log('summary 저장');
+				success:function(idx){
+					if(idx!=null || idx!=''){
+						location.href='./newList?sm_idx='+idx;
 					}else{
-						console.log('실패');
+						console.log('다시 입력해주세요.');
 					}
 				},
 				error:function(err){}
@@ -156,16 +156,5 @@ function summaryPost(){
 			
 		}
 		
-		
-		//날짜 선택 체크
-		/*var start_year = parseInt(start_date.substring(0,4));
-		var start_month = parseInt(start_date.substring(5,7));
-		var start_day = parseInt(start_date.substring(8,10));
-		
-		var end_year = parseInt(end_date.substring(0,4));
-		var end_month = parseInt(end_date.substring(5,7));
-		var end_day = parseInt(end_date.substring(8,10));*/
-		
-		//location.href='./newList';
 	});
 }

@@ -1,5 +1,22 @@
 $(document).ready(function(){
 	
+	//summary내용 가져오기
+	var sm_idx = $('#map-sm-idx').val();
+	$.ajax({
+		url:'./schedule/getSummary',
+		type:'get',
+		data:{'sm_idx':sm_idx},
+		success:function(map){
+			console.log(map.summary.name);
+			$('.newList-main').prepend(
+					`<div class="newList-title">${map.summary.name}</div>
+					<div class="newList-date">${map.summary.start_date} ~ ${map.summary.end_date}</div>`
+			);
+			
+		},
+		error:function(err){}
+	});
+	
 	//사전경비추가
 	$('#add-ad').click(function(){
 		$('.add-ad-content').show();
@@ -17,7 +34,7 @@ $(document).ready(function(){
 	});
 	
 	
-	//사정경비-작성삭제
+	//사전경비-작성삭제
 	$('.del-advance').click(function(){
 		this.parentElement.remove();
 	});

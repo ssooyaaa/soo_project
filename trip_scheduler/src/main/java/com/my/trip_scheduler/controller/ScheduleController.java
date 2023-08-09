@@ -1,6 +1,7 @@
 package com.my.trip_scheduler.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.trip_scheduler.service.SummaryFollowService;
@@ -65,9 +69,10 @@ public class ScheduleController {
 	@Transactional
 	@PostMapping("/addSummary")
 	@ResponseBody
-	public String addSummary(
+	public int addSummary(
 			@RequestBody Map<String, Object> map,
-			HttpSession s
+			HttpSession s,
+			Model m
 			) {
 		
 		String name = (String)map.get("name");
@@ -102,7 +107,23 @@ public class ScheduleController {
 			smflService.addSmFl(newSF);
 		}
 		
-		return "ok";
+		return new_sm_idx;
+	}
+	
+	
+	//일정짜기-mainTitle가져오기
+	@GetMapping("/getSummary")
+	@ResponseBody
+	public Map<String, Object> getSummary(
+			@RequestParam(value="sm_idx") int sm_idx
+			) {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		Summary summary = summaryService.getSummary(sm_idx);
+		map.put("summary", summary);
+		
+		return map;
 	}
 
 }

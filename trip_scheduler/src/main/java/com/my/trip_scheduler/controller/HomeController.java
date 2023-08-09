@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.trip_scheduler.vo.User;
 
@@ -44,7 +45,12 @@ public class HomeController {
 	
 	//새일정짜기-리스트 작성
 	@GetMapping("/newList")
-	public String newList() {
+	public String newList(
+			@RequestParam(value="sm_idx") int sm_idx,
+			Model m
+			) {
+		
+		m.addAttribute("sm_idx",sm_idx);
 		
 		return "newList";
 	}

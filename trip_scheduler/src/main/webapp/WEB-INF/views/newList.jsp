@@ -25,10 +25,12 @@
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
+	<input type="text" id="map-sm-idx" value="${sm_idx}"/>
 
 	<div class="newList-main">
-		<div class="newList-title">태국여행 with Family</div>
-		<div class="newList-date">2023.06.05-2023.06.06</div>
+		
+		
+		
 		<div class="newList-friends">
 			<div class="newList-friend">
 				<i class="fa-solid fa-circle-minus"></i>
