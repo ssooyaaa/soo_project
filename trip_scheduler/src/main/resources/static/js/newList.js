@@ -1,21 +1,17 @@
 $(document).ready(function(){
 	
-	//summary내용 가져오기
+	
 	var sm_idx = $('#map-sm-idx').val();
-	$.ajax({
-		url:'./schedule/getSummary',
-		type:'get',
-		data:{'sm_idx':sm_idx},
-		success:function(map){
-			console.log(map.summary.name);
-			$('.newList-main').prepend(
-					`<div class="newList-title">${map.summary.name}</div>
-					<div class="newList-date">${map.summary.start_date} ~ ${map.summary.end_date}</div>`
-			);
-			
-		},
-		error:function(err){}
+	
+	//summary내용 가져오기
+	getSummary(sm_idx);
+	
+	//summary내용-친구삭제
+	$(document).on('click','.del-friend',function(){
+		var parent = $(this).parent();
+		parent.remove();
 	});
+	
 	
 	//사전경비추가
 	$('#add-ad').click(function(){
@@ -80,3 +76,31 @@ $(document).ready(function(){
 		$('.day-memo').hide();
 	});
 });
+
+
+//summary내용 가져오기
+function getSummary(sm_idx){
+	$.ajax({
+		url:'./schedule/getSummary',
+		type:'get',
+		data:{'sm_idx':sm_idx},
+		success:function(map){
+			
+			$('.newList-main').prepend(
+					`<div class="newList-title">${map.summary.name}</div>
+					<div class="newList-date">${map.summary.start_date} ~ ${map.summary.end_date}</div>`
+			);
+			
+			$.each(map.userIdList, function(index,item){
+				$('.newList-friends').append(
+						`<div class="newList-friend">
+							<i class="fa-solid fa-circle-minus del-friend"></i>
+							<span>${item}</span>
+						</div>`
+				);			
+			});
+			
+		},
+		error:function(err){}
+	});
+};

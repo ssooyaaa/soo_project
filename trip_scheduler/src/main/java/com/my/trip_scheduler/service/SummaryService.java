@@ -19,4 +19,5 @@ public class SummaryService {
 	public Summary getSummary(int idx) {
 		return summaryDao.getSummary(idx);
 	}
+	
 }

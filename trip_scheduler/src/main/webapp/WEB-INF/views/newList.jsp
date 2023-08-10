@@ -32,21 +32,14 @@
 		
 		
 		<div class="newList-friends">
-			<div class="newList-friend">
-				<i class="fa-solid fa-circle-minus"></i>
-				<span>최쑤</span>
-			</div>
-			<div class="newList-friend">
-				<i class="fa-solid fa-circle-minus"></i>
-				<span>ssooyaaa</span>
-			</div>
-			<div class="newList-friend">
-				<i class="fa-solid fa-circle-minus"></i>
-				<span>choisso</span>
-			</div>
+			
+			
 			
 		</div>
 	</div>
+	
+	
+	
 	
 	<div class="newList-schedule">
 	

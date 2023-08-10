@@ -2,8 +2,10 @@ package com.my.trip_scheduler.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -112,6 +114,7 @@ public class ScheduleController {
 	
 	
 	//일정짜기-mainTitle가져오기
+	@Transactional
 	@GetMapping("/getSummary")
 	@ResponseBody
 	public Map<String, Object> getSummary(
@@ -122,6 +125,35 @@ public class ScheduleController {
 		
 		Summary summary = summaryService.getSummary(sm_idx);
 		map.put("summary", summary);
+		
+		List<SummaryFollow> smfl = smflService.getSmFl(sm_idx);
+		List<Integer> list = new ArrayList<>();
+		
+		for(int i=0;i<smfl.size();i++) {
+			int user_idx_1 = smfl.get(i).getUser_idx_1();
+			int user_idx_2 = smfl.get(i).getUser_idx_2();
+			
+			list.add(user_idx_1);
+			list.add(user_idx_2);
+			
+		}
+		
+		Set<Integer> userIdx = new HashSet<>(list);
+		List<Integer> userIdxList = new ArrayList<>(userIdx);
+		
+		List<String> userIdList = new ArrayList<>();
+		
+		for(int i=0;i<userIdxList.size();i++) {
+			int user_idx = userIdxList.get(i);
+			
+			User user = new User();
+			user.setUser_idx(user_idx);
+			
+			User getUser = userService.getUserByIdx(user);
+			userIdList.add(getUser.getId());
+		}
+		
+		map.put("userIdList", userIdList);
 		
 		return map;
 	}
