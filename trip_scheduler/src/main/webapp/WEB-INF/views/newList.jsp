@@ -49,24 +49,9 @@
 				<i class="fa-solid fa-circle-plus" id="add-ad"></i>
 			</div>
 			<div class="advance-list">
-				<div class="advance-item">
-					<span>비행기값 :</span>
-					<div class="advance-item-price">
-						<i class="fa-solid fa-won-sign"></i>
- 						<span>1,000,000</span>
-					</div>
-					<i class="fa-solid fa-circle-minus del-advance"></i>
-				</div>
 				
 				
-				<div class="advance-item">
-					<span>비행기값 :</span>
-					<div class="advance-item-price">
-						<i class="fa-solid fa-won-sign"></i>
- 						<span>1,000,000</span>
-					</div>
-					<i class="fa-solid fa-circle-minus del-advance"></i>
-				</div>
+				
 				
 			</div>
 		</div>
@@ -74,7 +59,7 @@
 		<div class="add-ad-content">
 			<div class="add-advance">
 				<div class="add-advance-content">
-					<input type="text" placeholder="항목"/>
+					<input type="text" id="ad-item" placeholder="항목"/>
 					<span style="font-weight:900;margin-left:5px;">:</span>
 				</div>
 				<div class="price-list">
@@ -83,7 +68,7 @@
 							<option value="usd">USD</option>
 					</select>
 				</div>
-				<input class="advance-add-price" type="text" />
+				<input class="advance-add-price" id="advance-add-price" type="number" />
 				<button class="add-advance-btn">저장</button>
 				<span style="font-weight:900;margin-left:5px;">/</span>
 				<button class="cancel-advance-btn">취소</button>

@@ -20,7 +20,29 @@ $(document).ready(function(){
 	
 	//사전경비-저장
 	$('.add-advance-btn').click(function(){
-		$('.add-ad-content').hide();
+		var adItem = $('#ad-item').val();
+		
+		var num = $('#advance-add-price').val();
+		var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
+		var formatted = formatter.format(num);
+		
+		if(adItem=='' || num==''){
+			alert('항목과 금액을 정확하게 입력해주세요.');
+		}else{
+			$('.advance-list').append(
+					`<div class="advance-item">
+						<span>${adItem} :</span>
+						<div class="advance-item-price">
+							<i class="fa-solid fa-won-sign"></i>
+	 						<span>${formatted}</span>
+						</div>
+						<i class="fa-solid fa-circle-minus del-advance"></i>
+					</div>`
+			);
+		}
+		
+		
+		//$('.add-ad-content').hide();
 	});
 	
 	
