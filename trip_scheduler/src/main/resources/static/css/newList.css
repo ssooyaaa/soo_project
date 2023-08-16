@@ -223,6 +223,11 @@
 	display:flex;
 	margin-top:20px;
 	margin-bottom:20px;
+	width:100%;
+}
+
+.advance-items{
+	width:50%;
 }
 
 .advance-item-price{

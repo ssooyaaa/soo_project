@@ -22,16 +22,24 @@ $(document).ready(function(){
 	$('.add-advance-btn').click(function(){
 		var adItem = $('#ad-item').val();
 		
+		var price = '';		
+		if($('#price-mode option:selected').val()==''){
+			price = '';
+		}else if($('#price-mode option:selected').val()=='usd'){
+			price = 'usd'
+		}
+		console.log(price);
+		
 		var num = $('#advance-add-price').val();
 		var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
 		var formatted = formatter.format(num);
 		
 		if(adItem=='' || num==''){
 			alert('항목과 금액을 정확하게 입력해주세요.');
-		}else{
+		}else if(price==''){
 			$('.advance-list').append(
 					`<div class="advance-item">
-						<span>${adItem} :</span>
+						<span class="advance-items">${adItem} :</span>
 						<div class="advance-item-price">
 							<i class="fa-solid fa-won-sign"></i>
 	 						<span>${formatted}</span>
@@ -39,8 +47,18 @@ $(document).ready(function(){
 						<i class="fa-solid fa-circle-minus del-advance"></i>
 					</div>`
 			);
+		}else if(price=='usd'){
+			$('.advance-list').append(
+					`<div class="advance-item">
+						<span class="advance-items">${adItem} :</span>
+						<div class="advance-item-price">
+							<i class="fa-solid fa-dollar-sign"></i>
+	 						<span>${formatted}</span>
+						</div>
+						<i class="fa-solid fa-circle-minus del-advance"></i>
+					</div>`
+			);
 		}
-		
 		
 		//$('.add-ad-content').hide();
 	});
