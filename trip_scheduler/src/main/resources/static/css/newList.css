@@ -224,10 +224,14 @@
 	margin-top:20px;
 	margin-bottom:20px;
 	width:100%;
+	align-items:center;
 }
 
 .advance-items{
-	width:50%;
+	width:25%;
+	display:flex;
+	word-break:keep-all;
+	padding-right:10px;
 }
 
 .advance-item-price{
