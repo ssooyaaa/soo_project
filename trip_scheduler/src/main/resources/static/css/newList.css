@@ -297,7 +297,6 @@
 	width:85%;
 	height:130px;
 	margin-left:7.5%;
-	margin-top:30px;
 	display:flex;
 	align-items:center;
 	flex-direction:row;
@@ -326,6 +325,7 @@
 .info-money{
 	margin-top:20px;
 	font-size:15px;
+	display:flex;
 }
 
 .edit-remove>i{
@@ -351,7 +351,7 @@
 }
 
 .time>input{
-	width:100px;
+	width:150px;
 	margin-right:5px;
 	border:1px solid #1e1e1e;
 	text-align:center;

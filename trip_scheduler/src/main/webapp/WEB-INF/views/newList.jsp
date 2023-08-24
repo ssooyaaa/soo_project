@@ -79,7 +79,7 @@
 		<div class="newList-day">
 			<!-- <div class="day">DAY1
 				
-				<div class="schedule-list">
+				 <div class="schedule-list">
 					<div class="add-schedule">
 						<span class=start-end-time>
 							<span class=start-time>08:00</span>
@@ -88,18 +88,24 @@
 						</span>
 						<div class="schedule-info">
 							<div class="info-location">공항도착</div>
-							<div class="info-money">사용금액 :</div>
+							<div class="info-money">
+								<span style="margin-right:10px;">사용금액 :</span>
+								<div class="money-item">
+									<i class="fa-solid fa-won-sign"></i>
+			 						<span>10,0000</span>
+								</div>
+							</div>
+							
 						</div>
 						<div class="edit-remove">
 							<i class="fa-solid fa-angles-left"></i>
 						</div>
 					</div>
-				</div>
+				</div> 
 				
-			</div>
+			</div> -->
 			
-			 -->
-			
+			 
 			<!-- <div class="write-schedule">
 				<div class="time">
 					<input class="write-start-time" placeholder="시작시간"/>
@@ -122,7 +128,7 @@
 			</div> -->
 			
 			
-			<div class="update-schedule">
+			<!-- <div class="update-schedule">
 				<div class="time">
 					<input class="write-start-time" value="08:00"/>
 					<span style="margin-right:5px">~</span>
@@ -141,7 +147,7 @@
 					<span class="update-save">수정하기</span>
 					<span class="update-cancel">일정삭제</span>
 				</div>
-			</div>
+			</div> -->
 			
 			
 			<div class="day-memo">

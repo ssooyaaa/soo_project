@@ -81,18 +81,19 @@ $(document).ready(function(){
 		var parent = this.parentElement.parentElement;
 		var children = $(parent).children().eq(0);
 		children.show();
-		
 	});
+	
 	
 	//일정추가-저장버튼
-	$('.write-save').click(function(){
-		$('.write-schedule').hide();
-	});
+	addToDoList();
+	
 	
 	//일정추가-취소버튼
-	$('.write-cancel').click(function(){
-		$('.write-schedule').hide();
+	$(document).on('click','.write-cancel',function(){
+		var parent = this.parentElement.parentElement;
+		parent.remove();
 	});
+	
 	
 	//일정클릭-삭제/수정가능
 	$('.edit-remove').click(function(){
@@ -148,12 +149,12 @@ function getSummary(sm_idx){
 				$('.newList-day').append(
 						`<div class="day" id="day${i}">DAY${i}
 							
-							
+													
 							<div class="write-schedule" id="write-schedule${i}">
 								<div class="time">
-									<input class="write-start-time" placeholder="시작시간"/>
+									<input type="time" class="write-start-time" placeholder="시작시간"/>
 									<span style="margin-right:5px">~</span>
-									<input class="write-end-time" placeholder="종료시간"/>
+									<input type="time" class="write-end-time" placeholder="종료시간"/>
 								</div>
 								<div class="location">
 									<span style="font-weight:900;">장소 :</span>
@@ -161,7 +162,13 @@ function getSummary(sm_idx){
 								</div>
 								<div class="money">
 									<span style="font-weight:900;">금액 :</span>
-									<input class="write-money"/>
+									<span class="price-list">
+										<select name="price-mode-day" id="price-mode-day">
+												<option value="">KRW</option>
+												<option value="usd">USD</option>
+										</select>
+									</span>
+									<input type="number" class="write-money"/>
 								</div>
 								
 								<div class="write-btn">
@@ -183,4 +190,91 @@ function getSummary(sm_idx){
 		},
 		error:function(err){}
 	});
+};
+
+
+//일정추가-저장버튼
+function addToDoList(){
+		
+		$(document).on('click','.write-save',function(){
+			var start = $('.write-start-time').val();
+			var end = $('.write-end-time').val();
+			var location = $('.write-location').val();
+			
+			var price = '';		
+			if($('#price-mode-day option:selected').val()==''){
+				price = '';
+			}else if($('#price-mode-day option:selected').val()=='usd'){
+				price = 'usd'
+			}
+			
+			var num = $('.write-money').val();
+			var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
+			var formatted = formatter.format(num);
+			
+			var parent = this.parentElement.parentElement.parentElement;
+			
+			if(start<end){
+				if(start=='' || end=='' || location=='' || num==''){
+					alert('모든 항목에 기입해주세요.');
+				}else if(price==''){
+					$(parent).append(
+							`<div class="schedule-list">
+								<div class="add-schedule">
+									<span class=start-end-time>
+										<span class=start-time>${start}</span>
+										<span>~</span>
+										<span class=end-time>${end}</span>
+									</span>
+									<div class="schedule-info">
+										<div class="info-location">${location}</div>
+										<div class="info-money">
+											<span style="margin-right:10px;">사용금액 :</span>
+											<div class="money-item">
+												<i class="fa-solid fa-won-sign"></i>
+						 						<span>${formatted}</span>
+											</div>
+										</div>
+									</div>
+									<div class="edit-remove">
+										<i class="fa-solid fa-angles-left"></i>
+									</div>
+								</div>
+							</div>`
+					);
+					$('.write-schedule').hide();
+				}else if(price=='usd'){
+					$(parent).append(
+							`<div class="schedule-list">
+								<div class="add-schedule">
+									<span class=start-end-time>
+										<span class=start-time>${start}</span>
+										<span>~</span>
+										<span class=end-time>${end}</span>
+									</span>
+									<div class="schedule-info">
+										<div class="info-location">${location}</div>
+										<div class="info-money">
+											<span style="margin-right:10px;">사용금액 :</span>
+											<div class="money-item">
+												<i class="fa-solid fa-dollar-sign"></i>
+						 						<span>${formatted}</span>
+											</div>
+										</div>
+									</div>
+									<div class="edit-remove">
+										<i class="fa-solid fa-angles-left"></i>
+									</div>
+								</div>
+							</div>`
+					);
+					$('.write-schedule').hide();
+				}
+			}else{
+				alert('시간을 올바르게 입력해주세요.');
+			}
+			
+		});
+		
+
 };
