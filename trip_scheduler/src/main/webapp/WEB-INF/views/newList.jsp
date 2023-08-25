@@ -147,8 +147,8 @@
 					<span class="update-save">수정하기</span>
 					<span class="update-cancel">일정삭제</span>
 				</div>
-			</div> -->
-			
+			</div> 
+			 -->
 			
 			<div class="day-memo">
 				<div class="memo-days-close">

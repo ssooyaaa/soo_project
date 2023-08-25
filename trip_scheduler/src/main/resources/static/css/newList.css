@@ -297,6 +297,7 @@
 	width:85%;
 	height:130px;
 	margin-left:7.5%;
+	margin-top:20px;
 	display:flex;
 	align-items:center;
 	flex-direction:row;
@@ -396,7 +397,7 @@
 .update-schedule{
 	width:85%;
 	margin-left:7.5%;
-	margin-top:50px;
+	margin-top:20px;
 	font-size:17px;
 	border:3px solid #EE8A58;
 	border-radius:10px;

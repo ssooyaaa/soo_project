@@ -96,11 +96,19 @@ $(document).ready(function(){
 	
 	
 	//일정클릭-삭제/수정가능
-	$('.edit-remove').click(function(){
+	$(document).on('click','.edit-remove',function(){
+		
+		$('.write-schedule').hide();
 		$('.update-schedule').show();
 	});
 	
-	//일정클릭-금액등록
+	
+	
+	//일정클릭-수정하기
+	$(document).on('click','.update-save',function(){
+		var start = $('#up-start-time').val();
+		console.log(start);
+	});
 	$('.update-save').click(function(){
 		$('.update-schedule').hide();
 	});
@@ -178,7 +186,8 @@ function getSummary(sm_idx){
 							</div>
 							
 							
-				
+							
+							
 							<div class="day-btn">
 								<span class="add-schedule-btn">일정추가</span>
 								<span class="add-memo-btn">메모추가</span>
@@ -215,16 +224,45 @@ function addToDoList(){
 			var parent = this.parentElement.parentElement.parentElement;
 			
 			if(start<end){
-				if(start=='' || end=='' || location=='' || num==''){
+				/*if(start=='' || end=='' || location=='' || num==''){
 					alert('모든 항목에 기입해주세요.');
-				}else if(price==''){
+				}else */if(price==''){
 					$(parent).append(
 							`<div class="schedule-list">
+								
+								<div class="update-schedule">
+									<div class="time">
+										<input type="time" class="write-start-time" id="up-start-time" value="${start}"/>
+										<span style="margin-right:5px">~</span>
+										<input type="time" class="write-end-time" id="up-end-time" value="${end}"/>
+									</div>
+									<div class="location">
+										<span style="font-weight:900;">장소 :</span>
+										<input class="write-location" id="up-location" value="${location}"/>
+									</div>
+									<div class="money">
+										<span style="font-weight:900;">금액 :</span>
+										<span class="price-list">
+											<select name="price-mode-day" id="price-mode-day">
+													<option value="">KRW</option>
+													<option value="usd">USD</option>
+											</select>
+										</span>
+										<input type="number" class="write-money" id="up-money" value="${num}"/>
+									</div>
+									
+									<div class="update-btn">
+										<span class="update-save">수정하기</span>
+										<span class="update-cancel">일정삭제</span>
+									</div>
+								</div> 
+							
+							
 								<div class="add-schedule">
-									<span class=start-end-time>
-										<span class=start-time>${start}</span>
+									<span class="start-end-time">
+										<span class="start-time">${start}</span>
 										<span>~</span>
-										<span class=end-time>${end}</span>
+										<span class="end-time">${end}</span>
 									</span>
 									<div class="schedule-info">
 										<div class="info-location">${location}</div>
@@ -247,10 +285,10 @@ function addToDoList(){
 					$(parent).append(
 							`<div class="schedule-list">
 								<div class="add-schedule">
-									<span class=start-end-time>
-										<span class=start-time>${start}</span>
+									<span class="start-end-time">
+										<span class="start-time">${start}</span>
 										<span>~</span>
-										<span class=end-time>${end}</span>
+										<span class="end-time">${end}</span>
 									</span>
 									<div class="schedule-info">
 										<div class="info-location">${location}</div>
