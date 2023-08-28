@@ -140,7 +140,14 @@
 				</div>
 				<div class="money">
 					<span style="font-weight:900;">금액 :</span>
-					<input class="write-money"/>
+					<span class="price-list">
+						<select name="price-mode-day" id="price-mode-day">
+								<option value="">KRW</option>
+								<option value="usd">USD</option>
+						</select>
+					</span>
+					<input type="number" class="write-money" id="up-money" value="${num}"/>
+				
 				</div>
 				
 				<div class="update-btn">
