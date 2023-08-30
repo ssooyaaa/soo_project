@@ -18,6 +18,7 @@ $(document).ready(function(){
 		$('.add-ad-content').show();
 	});
 	
+	
 	//사전경비-저장
 	$('.add-advance-btn').click(function(){
 		var adItem = $('#ad-item').val();
@@ -76,10 +77,27 @@ $(document).ready(function(){
 	});
 	
 	
+	//일정 순서 정렬
+	$(document).on('click','.sort-by-time',function(){
+		alert('확인');
+	});
+	
+	
 	//일정추가버튼
 	$(document).on('click','.add-schedule-btn',function(){
 		var parent = this.parentElement.parentElement;
-		var children = $(parent).children().eq(0);
+		var children = $(parent).children().eq(1);
+		
+		//input초기화
+		$(children).find('input[type=time]').each(function(){
+			$(this).val('');
+		});
+		$(children).find('input[type=text]').each(function(){
+			$(this).val('');
+		});
+		$(children).find('input[type=number]').each(function(){
+			$(this).val('');
+		});
 		
 		children.show();
 	});
@@ -112,9 +130,12 @@ $(document).ready(function(){
 	
 	
 	//일정클릭-일정삭제
-	$('.update-cancel').click(function(){
-		$('.update-schedule').hide();
+	$(document).on('click','.update-cancel',function(){
+		var forRemove = this.parentElement.parentElement.parentElement;
+		
+		$(forRemove).remove();
 	});
+	
 	
 	//메모추가클릭
 	$('.add-memo-btn').click(function(){
@@ -156,7 +177,7 @@ function getSummary(sm_idx){
 				$('.newList-day').append(
 						`<div class="day" id="day${i}">DAY${i}
 							
-													
+							<i class="fa-solid fa-arrow-down-1-9 sort-by-time"></i>					
 							<div class="write-schedule" id="write-schedule${i}">
 								<div class="time">
 									<input type="time" class="write-start-time" placeholder="시작시간"/>
@@ -165,7 +186,7 @@ function getSummary(sm_idx){
 								</div>
 								<div class="location">
 									<span style="font-weight:900;">장소 :</span>
-									<input class="write-location"/>
+									<input type="text" class="write-location" id="write-location"/>
 								</div>
 								<div class="money">
 									<span style="font-weight:900;">금액 :</span>
@@ -205,8 +226,6 @@ function getSummary(sm_idx){
 function addToDoList(){
 		
 		$(document).on('click','.write-save',function(){
-			
-			$('.update-schedule').hide();
 			
 			var a = this.parentElement.parentElement;
 			var start = $(a).children().eq(0).children().eq(0).val();

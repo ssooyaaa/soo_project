@@ -293,6 +293,17 @@
 	font-weight:900;
 }
 
+.sort-by-time{
+	font-size:15px;
+	margin-left:10px;
+	color:#7F7F80;
+	cursor:pointer;
+}
+
+.sort-by-time:hover{
+	color:#1e1e1e;
+}
+
 .add-schedule{
 	width:85%;
 	height:130px;
