@@ -79,7 +79,11 @@ $(document).ready(function(){
 	
 	//일정 순서 정렬
 	$(document).on('click','.sort-by-time',function(){
-		alert('확인');
+		//새로고침 느낌으로 할 것!
+		var parent = this.parentElement;
+		console.log(parent);
+		
+		
 	});
 	
 	
@@ -138,13 +142,19 @@ $(document).ready(function(){
 	
 	
 	//메모추가클릭
-	$('.add-memo-btn').click(function(){
-		$('.day-memo').show();
+	$(document).on('click','.add-memo-btn',function(){
+		var parent = this.parentElement.parentElement;
+		var memo = $(parent).children().eq(3);
+		
+		$(memo).show();
 	});
 	
+	
 	//메모닫기-저장-닫기
-	$('.memo-close').click(function(){
-		$('.day-memo').hide();
+	$(document).on('click','.memo-close',function(){
+		var memo = this.parentElement.parentElement;
+		
+		$(memo).hide();
 	});
 });
 
@@ -211,6 +221,31 @@ function getSummary(sm_idx){
 							<div class="day-btn">
 								<span class="add-schedule-btn">일정추가</span>
 								<span class="add-memo-btn">메모추가</span>
+							</div>
+							
+							
+							<div class="day-memo">
+								<div class="memo-days-close">
+									<span class="memo-days">DAY${i}</span>
+									<i class="fa-solid fa-xmark memo-close"></i>
+								</div>
+								
+								<div class="write-memo">
+									<input type="text" placeholder="메모를 적어주세요."/>
+									<i class="fa-solid fa-pen-to-square memo-btn"></i>
+								</div>
+								
+								
+								<div class="memo-list">
+									<div class="memo">
+										<input type="checkbox"/>
+										<span class="nickname">ssooyaaa</span>
+										<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdsdfsafsfafdsfdsfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
+										<i class="fa-solid fa-xmark memo-del"></i>
+									</div>
+									
+								</div>
+				
 							</div>
 														
 						</div>`

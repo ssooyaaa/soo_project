@@ -157,7 +157,7 @@
 			</div> 
 			 -->
 			
-			<div class="day-memo">
+			<!-- <div class="day-memo">
 				<div class="memo-days-close">
 					<span class="memo-days">DAY 1</span>
 					<i class="fa-solid fa-xmark memo-close"></i>
@@ -180,7 +180,7 @@
 					
 				</div>
 				
-			</div>
+			</div> -->
 			
 			
 		</div>
