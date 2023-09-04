@@ -26,6 +26,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 	<input type="text" id="map-sm-idx" value="${sm_idx}"/>
+	<%-- <input type="text" id="map-id" value="${userId}"/> --%>
 
 	<div class="newList-main">
 		
@@ -185,7 +186,7 @@
 			
 		</div>
 		
-		<button class="save-btn">저장</button>
+		<!-- <button class="save-btn">저장</button> -->
 	</div>
 	
 	

@@ -2,6 +2,7 @@ $(document).ready(function(){
 	
 	
 	var sm_idx = $('#map-sm-idx').val();
+	//var userId = $('#map-id').val();
 	
 	//summary내용 가져오기
 	getSummary(sm_idx);
@@ -150,6 +151,35 @@ $(document).ready(function(){
 	});
 	
 	
+	//메모 작성
+	$(document).on('click','.memo-btn',function(){
+		var parent = this.parentElement.parentElement;
+		var memoList = $(parent).children().eq(2);
+		
+		var memo = $(this).siblings().val();
+
+		if(memo==''){
+			alert('메모를 적어주세요.');
+		}else{
+			$(memoList).append(
+					`<div class="memo">
+						<span class="nickname">userId</span>
+						<span class="memo-des">${memo}</span>
+						<i class="fa-solid fa-xmark memo-del"></i>
+					</div>`
+			);
+		}
+		
+	});
+	
+	
+	//작성메모 삭제
+	$(document).on('click','.memo-del',function(){
+		var memo = this.parentElement;
+		$(memo).remove();
+	});
+	
+	
 	//메모닫기-저장-닫기
 	$(document).on('click','.memo-close',function(){
 		var memo = this.parentElement.parentElement;
@@ -231,18 +261,13 @@ function getSummary(sm_idx){
 								</div>
 								
 								<div class="write-memo">
-									<input type="text" placeholder="메모를 적어주세요."/>
+									<input type="text" id="memo-text" placeholder="메모를 적어주세요."/>
 									<i class="fa-solid fa-pen-to-square memo-btn"></i>
 								</div>
 								
 								
 								<div class="memo-list">
-									<div class="memo">
-										<input type="checkbox"/>
-										<span class="nickname">ssooyaaa</span>
-										<span class="memo-des">이ㅑㅓ리;마ㅓsdfsdsdfsafsfafdsfdsfsdfsasgㅇㄹ;ㅣㅁ나어;ㅣ마넝ㄹ;ㅣ</span>
-										<i class="fa-solid fa-xmark memo-del"></i>
-									</div>
+									
 									
 								</div>
 				

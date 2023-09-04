@@ -48,10 +48,18 @@ public class HomeController {
 	public String newList(
 			@RequestParam(value="sm_idx") int sm_idx,
 			Model m
+			//HttpSession s
 			) {
 		
 		m.addAttribute("sm_idx",sm_idx);
 		
+		/*
+		 * User loginUser = (User)s.getAttribute("loginUser"); String id =
+		 * loginUser.getId();
+		 * 
+		 * m.addAttribute("userId", id);
+		 * 
+		 */
 		return "newList";
 	}
 	
