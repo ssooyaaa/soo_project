@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="advance">
+
+
+	<!-- 사전경비추가 -->
+	<insert id="addAdvance" parameterType="Advance" useGeneratedKeys="true" keyProperty="ad_idx">
+		INSERT INTO advance
+		(sm_idx, item, price_type, price)
+		VALUES
+		(#{sm_idx}, #{item}, #{price_type}, #{price})
+	</insert>
+	
+
+</mapper>

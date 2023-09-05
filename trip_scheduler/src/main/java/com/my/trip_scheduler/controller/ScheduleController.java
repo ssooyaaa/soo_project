@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.my.trip_scheduler.service.AdvanceService;
 import com.my.trip_scheduler.service.SummaryFollowService;
 import com.my.trip_scheduler.service.SummaryService;
 import com.my.trip_scheduler.service.UserService;
+import com.my.trip_scheduler.vo.Advance;
 import com.my.trip_scheduler.vo.Summary;
 import com.my.trip_scheduler.vo.SummaryFollow;
 import com.my.trip_scheduler.vo.User;
@@ -39,6 +41,9 @@ public class ScheduleController {
 	
 	@Autowired
 	SummaryFollowService smflService;
+	
+	@Autowired
+	AdvanceService advanceService;
 	
 	//새일정짜기-summary-친구추가 
 	@PostMapping("/getUserByIdx")
@@ -113,7 +118,7 @@ public class ScheduleController {
 	}
 	
 	
-	//일정짜기-mainTitle가져오기
+	//일정짜기-mainTitle가져오기+저장된내용
 	@Transactional
 	@GetMapping("/getSummary")
 	@ResponseBody
@@ -123,9 +128,13 @@ public class ScheduleController {
 		
 		Map<String, Object> map = new HashMap<>();
 		
+		
+		//summary
 		Summary summary = summaryService.getSummary(sm_idx);
 		map.put("summary", summary);
 		
+		
+		//일정 관련된 친구 가져오기
 		List<SummaryFollow> smfl = smflService.getSmFl(sm_idx);
 		List<Integer> list = new ArrayList<>();
 		
@@ -158,4 +167,29 @@ public class ScheduleController {
 		return map;
 	}
 
+	
+	//사전경비추가
+	@PostMapping("/addAdvance")
+	@ResponseBody
+	public String addAdvance(
+			@RequestParam(value="sm_idx") int sm_idx,
+			@RequestParam(value="item") String item,
+			@RequestParam(value="price_type") String price_type,
+			@RequestParam(value="price") int price
+			) {
+		
+		Advance ad = new Advance();
+		
+		ad.setSm_idx(sm_idx);
+		ad.setItem(item);
+		ad.setPrice_type(price_type);
+		ad.setPrice(price);
+		
+		advanceService.addAdvance(ad);
+		
+		return "ok";
+	}
+	
+	
+	
 }

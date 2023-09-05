@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var sm_idx = $('#map-sm-idx').val();
 	//var userId = $('#map-id').val();
 	
-	//summary내용 가져오기
+	//summary내용 가져오기+저장된 내용 가져오기
 	getSummary(sm_idx);
 	
 	//summary내용-친구삭제
@@ -35,32 +35,51 @@ $(document).ready(function(){
 		var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
 		var formatted = formatter.format(num);
 		
+		var number = parseInt(num);//strign->int로 변경
+		
+		
 		if(adItem=='' || num==''){
 			alert('항목과 금액을 정확하게 입력해주세요.');
-		}else if(price==''){
+		}else{
 			$('.advance-list').append(
 					`<div class="advance-item">
 						<span class="advance-items">${adItem}</span>
 						<span style="">:</span>
 						<div class="advance-item-price">
-							<i class="fa-solid fa-won-sign"></i>
+							<i class="fa-solid fa-won-sign price-type"></i>
 	 						<span>${formatted}</span>
 						</div>
 						<i class="fa-solid fa-circle-minus del-advance"></i>
 					</div>`
 			);
-		}else if(price=='usd'){
-			$('.advance-list').append(
-					`<div class="advance-item">
-						<span class="advance-items">${adItem}</span>
-						<span style="">:</span>
-						<div class="advance-item-price">
-							<i class="fa-solid fa-dollar-sign"></i>
-	 						<span>${formatted}</span>
-						</div>
-						<i class="fa-solid fa-circle-minus del-advance"></i>
-					</div>`
-			);
+		
+			var type = $('.price-type').last();
+			
+			//금액표기 변경
+			if(price=='usd'){
+				type.replaceWith(function() {
+					  return '<i class="fa-solid fa-dollar-sign"></i>';
+				});
+			}
+			
+			$.ajax({
+				url:'./schedule/addAdvance',
+				type:'post',
+				data:{
+					'sm_idx':sm_idx,
+					'item':adItem,
+					'price_type':price,
+					'price':number
+				},
+				success:function(res){
+					if(res=='ok'){
+					}else{
+						alert('등록에 실패했습니다.');
+					}
+				},
+				error:function(err){}
+			});
+			
 		}
 		
 	});
@@ -189,7 +208,7 @@ $(document).ready(function(){
 });
 
 
-//summary내용 가져오기
+//summary내용 가져오기+저장된 내용 가져오기
 function getSummary(sm_idx){
 	$.ajax({
 		url:'./schedule/getSummary',
