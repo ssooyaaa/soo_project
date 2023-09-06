@@ -10,5 +10,11 @@
 		(#{sm_idx}, #{item}, #{price_type}, #{price})
 	</insert>
 	
+	
+	<!-- 저장된 사전경비 가져오기 -->
+	<select id="getAdvance" parameterType="Integer" resultType="Advance">
+		SELECT * FROM advance
+		WHERE sm_idx=#{sm_idx}
+	</select>
 
 </mapper>

@@ -164,6 +164,11 @@ public class ScheduleController {
 		
 		map.put("userIdList", userIdList);
 		
+		
+		//사전경비 리스트 가져오기
+		List<Advance> adList = advanceService.getAdvance(sm_idx);
+		map.put("adList", adList);
+		
 		return map;
 	}
 

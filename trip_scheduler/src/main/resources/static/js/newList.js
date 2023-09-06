@@ -216,11 +216,45 @@ function getSummary(sm_idx){
 		data:{'sm_idx':sm_idx},
 		success:function(map){
 			
+			//사전경비리스트
+			$.each(map.adList, function(index, item){
+				
+				var price = item.price;
+				var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
+				var formatted = formatter.format(price);
+				
+				$('.advance-list').append(
+						`<div class="advance-item">
+							<span class="advance-items">${item.item}</span>
+							<span style="">:</span>
+							<div class="advance-item-price">
+								<i class="fa-solid fa-won-sign price-type"></i>
+		 						<span>${formatted}</span>
+							</div>
+							<i class="fa-solid fa-circle-minus del-advance"></i>
+						</div>`
+				);
+				
+				var type = $('.price-type').last();
+				
+				//금액표기 변경
+				if(item.price_type=='usd'){
+					type.replaceWith(function() {
+						  return '<i class="fa-solid fa-dollar-sign"></i>';
+					});
+				}
+				
+			});
+			
+			
+			//summary
 			$('.newList-main').prepend(
 					`<div class="newList-title">${map.summary.name}</div>
 					<div class="newList-date">${map.summary.start_date} ~ ${map.summary.end_date}</div>`
 			);
 			
+			
+			//등록된 친구
 			$.each(map.userIdList, function(index,item){
 				$('.newList-friends').append(
 						`<div class="newList-friend">
@@ -230,6 +264,8 @@ function getSummary(sm_idx){
 				);			
 			});
 			
+			
+			//총 일 수별로 days셋팅
 			var days = map.summary.days;
 						
 			for(var i=1;i<=days;i++){

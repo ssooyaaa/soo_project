@@ -1,5 +1,7 @@
 package com.my.trip_scheduler.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,4 +18,7 @@ public class AdvanceDao {
 		return s.insert("advance.addAdvance", ad);
 	}
 	
+	public List<Advance> getAdvance(int sm_idx){
+		return s.selectList("advance.getAdvance", sm_idx);
+	}
 }
