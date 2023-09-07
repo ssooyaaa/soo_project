@@ -21,4 +21,8 @@ public class AdvanceService {
 	public List<Advance> getAdvance(int sm_idx){
 		return advanceDao.getAdvance(sm_idx);
 	}
+	
+	public int delAd(int ad_idx) {
+		return advanceDao.delAd(ad_idx);
+	}
 }

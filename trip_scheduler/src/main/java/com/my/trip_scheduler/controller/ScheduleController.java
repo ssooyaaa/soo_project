@@ -176,7 +176,7 @@ public class ScheduleController {
 	//사전경비추가
 	@PostMapping("/addAdvance")
 	@ResponseBody
-	public String addAdvance(
+	public Integer addAdvance(
 			@RequestParam(value="sm_idx") int sm_idx,
 			@RequestParam(value="item") String item,
 			@RequestParam(value="price_type") String price_type,
@@ -190,11 +190,27 @@ public class ScheduleController {
 		ad.setPrice_type(price_type);
 		ad.setPrice(price);
 		
+		
 		advanceService.addAdvance(ad);
+		
+		//advance저장 후, idx가져오기
+		int ad_idx = ad.getAd_idx();
+		
+		return ad_idx;
+	}
+	
+	
+	//사전경비삭제
+	@PostMapping("/delAd")
+	@ResponseBody
+	public String delAd(
+			@RequestParam(value="ad_idx") int ad_idx
+			) {
+		
+		advanceService.delAd(ad_idx);
 		
 		return "ok";
 	}
-	
 	
 	
 }

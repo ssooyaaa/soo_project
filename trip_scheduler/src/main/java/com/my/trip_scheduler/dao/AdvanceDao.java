@@ -21,4 +21,8 @@ public class AdvanceDao {
 	public List<Advance> getAdvance(int sm_idx){
 		return s.selectList("advance.getAdvance", sm_idx);
 	}
+	
+	public int delAd(int ad_idx) {
+		return s.delete("advance.delAd", ad_idx);
+	}
 }

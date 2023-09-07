@@ -16,5 +16,13 @@
 		SELECT * FROM advance
 		WHERE sm_idx=#{sm_idx}
 	</select>
+	
+	
+	<!-- 사전경비 삭제 -->
+	<delete id="delAd" parameterType="Integer">
+		DELETE FROM advance
+		WHERE ad_idx=#{ad_idx}
+	</delete>
+
 
 </mapper>

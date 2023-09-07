@@ -71,8 +71,12 @@ $(document).ready(function(){
 					'price_type':price,
 					'price':number
 				},
-				success:function(res){
-					if(res=='ok'){
+				success:function(idx){
+					if(idx!=''||idx!=null){
+						var plusIdx = $('.advance-item').last();
+						$(plusIdx).prepend(
+								`<input style="display:none" id="map-ad-idx" value="${idx}"/>`
+						);
 					}else{
 						alert('등록에 실패했습니다.');
 					}
@@ -93,7 +97,23 @@ $(document).ready(function(){
 	
 	//사전경비-작성삭제
 	$(document).on('click','.del-advance',function(){
-		this.parentElement.remove();
+		var parent = this.parentElement;
+		parent.remove();
+		
+		var idx = $(parent).children().eq(0).val();
+		
+		$.ajax({
+			url:'./schedule/delAd',
+			type:'post',
+			data:{'ad_idx':idx},
+			success:function(res){
+				if(res=='ok'){
+				}else{
+					alert('삭제에 실패했습니다.');
+				}
+			},
+			error:function(err){}
+		});
 	});
 	
 	
@@ -135,6 +155,7 @@ $(document).ready(function(){
 	$(document).on('click','.write-cancel',function(){
 		var parent = this.parentElement.parentElement;
 		parent.remove();
+		
 	});
 	
 	
@@ -225,6 +246,7 @@ function getSummary(sm_idx){
 				
 				$('.advance-list').append(
 						`<div class="advance-item">
+							<input style="display:none" class="map-ad-idx" value="${item.ad_idx}"/>
 							<span class="advance-items">${item.item}</span>
 							<span style="">:</span>
 							<div class="advance-item-price">
