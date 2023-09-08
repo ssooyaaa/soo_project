@@ -16,77 +16,19 @@ $(document).ready(function(){
 	
 	//사전경비추가
 	$('#add-ad').click(function(){
+		
+		//input초기화
+		$('#ad-item').val('');
+		$('#advance-add-price').val('');
+		
 		$('.add-ad-content').show();
+		
 	});
 	
 	
 	//사전경비-저장
-	$('.add-advance-btn').click(function(){
-		var adItem = $('#ad-item').val();
-		
-		var price = '';		
-		if($('#price-mode option:selected').val()==''){
-			price = '';
-		}else if($('#price-mode option:selected').val()=='usd'){
-			price = 'usd'
-		}
-		
-		var num = $('#advance-add-price').val();
-		var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
-		var formatted = formatter.format(num);
-		
-		var number = parseInt(num);//strign->int로 변경
-		
-		
-		if(adItem=='' || num==''){
-			alert('항목과 금액을 정확하게 입력해주세요.');
-		}else{
-			$('.advance-list').append(
-					`<div class="advance-item">
-						<span class="advance-items">${adItem}</span>
-						<span style="">:</span>
-						<div class="advance-item-price">
-							<i class="fa-solid fa-won-sign price-type"></i>
-	 						<span>${formatted}</span>
-						</div>
-						<i class="fa-solid fa-circle-minus del-advance"></i>
-					</div>`
-			);
-		
-			var type = $('.price-type').last();
-			
-			//금액표기 변경
-			if(price=='usd'){
-				type.replaceWith(function() {
-					  return '<i class="fa-solid fa-dollar-sign"></i>';
-				});
-			}
-			
-			$.ajax({
-				url:'./schedule/addAdvance',
-				type:'post',
-				data:{
-					'sm_idx':sm_idx,
-					'item':adItem,
-					'price_type':price,
-					'price':number
-				},
-				success:function(idx){
-					if(idx!=''||idx!=null){
-						var plusIdx = $('.advance-item').last();
-						$(plusIdx).prepend(
-								`<input style="display:none" id="map-ad-idx" value="${idx}"/>`
-						);
-					}else{
-						alert('등록에 실패했습니다.');
-					}
-				},
-				error:function(err){}
-			});
-			
-		}
-		
-	});
+	addAdvance(sm_idx);
+	
 	
 	
 	//사전경비-취소
@@ -96,25 +38,8 @@ $(document).ready(function(){
 	
 	
 	//사전경비-작성삭제
-	$(document).on('click','.del-advance',function(){
-		var parent = this.parentElement;
-		parent.remove();
-		
-		var idx = $(parent).children().eq(0).val();
-		
-		$.ajax({
-			url:'./schedule/delAd',
-			type:'post',
-			data:{'ad_idx':idx},
-			success:function(res){
-				if(res=='ok'){
-				}else{
-					alert('삭제에 실패했습니다.');
-				}
-			},
-			error:function(err){}
-		});
-	});
+	delAdvance();
+	
 	
 	
 	//일정 순서 정렬
@@ -148,7 +73,7 @@ $(document).ready(function(){
 	
 	
 	//일정추가-저장버튼
-	addToDoList();
+	addToDoList(sm_idx);
 	
 	
 	//일정추가-취소버튼
@@ -227,6 +152,7 @@ $(document).ready(function(){
 		$(memo).hide();
 	});
 });
+
 
 
 //summary내용 가져오기+저장된 내용 가져오기
@@ -359,8 +285,114 @@ function getSummary(sm_idx){
 };
 
 
+//사전경비-저장
+function addAdvance(sm_idx){
+	$('.add-advance-btn').click(function(){
+		
+		var adItem = $('#ad-item').val();
+		
+		var price = '';		
+		if($('#price-mode option:selected').val()==''){
+			price = '';
+		}else if($('#price-mode option:selected').val()=='usd'){
+			price = 'usd'
+		}
+		
+		var num = $('#advance-add-price').val();
+		var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
+		var formatted = formatter.format(num);
+		
+		var number = parseInt(num);//strign->int로 변경
+		
+		
+		if(adItem=='' || num==''){
+			alert('항목과 금액을 정확하게 입력해주세요.');
+		}else{
+			$('.advance-list').append(
+					`<div class="advance-item">
+						<span class="advance-items">${adItem}</span>
+						<span style="">:</span>
+						<div class="advance-item-price">
+							<i class="fa-solid fa-won-sign price-type"></i>
+	 						<span>${formatted}</span>
+						</div>
+						<i class="fa-solid fa-circle-minus del-advance"></i>
+					</div>`
+			);
+		
+			var type = $('.price-type').last();
+			
+			//금액표기 변경
+			if(price=='usd'){
+				type.replaceWith(function() {
+					  return '<i class="fa-solid fa-dollar-sign"></i>';
+				});
+			}
+			
+			$.ajax({
+				url:'./schedule/addAdvance',
+				type:'post',
+				data:{
+					'sm_idx':sm_idx,
+					'item':adItem,
+					'price_type':price,
+					'price':number
+				},
+				success:function(idx){
+					if(idx!=''||idx!=null){
+						var plusIdx = $('.advance-item').last();
+						$(plusIdx).prepend(
+								`<input style="display:none" id="map-ad-idx" value="${idx}"/>`
+						);
+						
+						//input초기화
+						$('#ad-item').val('');
+						$('#advance-add-price').val('');
+						
+						$('.add-ad-content').show();
+						
+												
+					}else{
+						alert('등록에 실패했습니다.');
+					}
+				},
+				error:function(err){}
+			});
+			
+		}
+		
+	});
+}
+
+
+//사전경비-작성삭제
+function delAdvance(){
+	$(document).on('click','.del-advance',function(){
+		var parent = this.parentElement;
+		parent.remove();
+		
+		var idx = $(parent).children().eq(0).val();
+		
+		$.ajax({
+			url:'./schedule/delAd',
+			type:'post',
+			data:{'ad_idx':idx},
+			success:function(res){
+				if(res=='ok'){
+				}else{
+					alert('삭제에 실패했습니다.');
+				}
+			},
+			error:function(err){}
+		});
+	});
+	
+}
+
+
+
 //일정추가-저장버튼
-function addToDoList(){
+function addToDoList(sm_idx){
 		
 		$(document).on('click','.write-save',function(){
 			
@@ -382,10 +414,15 @@ function addToDoList(){
 			
 			var parent = this.parentElement.parentElement.parentElement;
 			
+			console.log(parent);
+			
+			var day = $(this).closest('.day').attr('id').substring(3);
+			
+			
 			if(start<end){
-				/*if(start=='' || end=='' || location=='' || num==''){
-					alert('모든 항목에 기입해주세요.');
-				}else */if(price==''){
+				/*if(start=='' || end=='' || location==''){
+					alert('금액을 제외한 모든 항목에 기입해주세요.');
+				}else if*/{
 					$(parent).append(
 							`<div class="schedule-list">
 								
@@ -428,7 +465,7 @@ function addToDoList(){
 										<div class="info-money">
 											<span style="margin-right:10px;">사용금액 :</span>
 											<div class="money-item">
-												<i class="fa-solid fa-won-sign"></i>
+												<i class="fa-solid fa-won-sign priceType"></i>
 						 						<span>${formatted}</span>
 											</div>
 										</div>
@@ -437,64 +474,47 @@ function addToDoList(){
 										<i class="fa-solid fa-angles-left"></i>
 									</div>
 								</div>
-							</div>`
-					);
-					$('.write-schedule').hide();
-				}else if(price=='usd'){
-					$(parent).append(
-							`<div class="schedule-list">
 								
-								<div class="update-schedule">
-									<div class="time">
-										<input type="time" class="write-start-time" id="up-start-time" value="${start}"/>
-										<span style="margin-right:5px">~</span>
-										<input type="time" class="write-end-time" id="up-end-time" value="${end}"/>
-									</div>
-									<div class="location">
-										<span style="font-weight:900;">장소 :</span>
-										<input class="write-location" id="up-location" value="${location}"/>
-									</div>
-									<div class="money">
-										<span style="font-weight:900;">금액 :</span>
-										<span class="price-list">
-											<select name="price-mode-day" id="price-mode-day">
-													<option value="">KRW</option>
-													<option value="usd">USD</option>
-											</select>
-										</span>
-										<input type="number" class="write-money" id="up-money" value="${num}"/>
-									</div>
-									
-									<div class="update-btn">
-										<span class="update-save">수정하기</span>
-										<span class="update-cancel">일정삭제</span>
-									</div>
-								</div>
-							
-							
-							
-								<div class="add-schedule">
-									<span class="start-end-time">
-										<span class="start-time">${start}</span>
-										<span>~</span>
-										<span class="end-time">${end}</span>
-									</span>
-									<div class="schedule-info">
-										<div class="info-location">${location}</div>
-										<div class="info-money">
-											<span style="margin-right:10px;">사용금액 :</span>
-											<div class="money-item">
-												<i class="fa-solid fa-dollar-sign"></i>
-						 						<span>${formatted}</span>
-											</div>
-										</div>
-									</div>
-									<div class="edit-remove">
-										<i class="fa-solid fa-angles-left"></i>
-									</div>
-								</div>
 							</div>`
 					);
+					
+					var type = $('.priceType').last();
+					
+					//금액표기 변경
+					if(price=='usd'){
+						type.replaceWith(function() {
+							  return '<i class="fa-solid fa-dollar-sign"></i>';
+						});
+					}
+					
+					
+					$.ajax({
+						url:'./schedule/addPlan',
+						type:'post',
+						data:{
+							'sm_idx':sm_idx,
+							'day':day,
+							'start_time':start,
+							'end_time':end,
+							'todo':location,
+							'priceType':price,
+							'price':num
+						},
+						success:function(idx){
+							if(idx!=null || idx!=''){
+								var plusIdx = $('.schedule-list').last();
+								
+								$(plusIdx).append(
+										`<input style="" id="map-plan-idx" value="${idx}"/>`
+								);
+							}else{
+								alert('저장에 실패했습니다.')
+							}
+						},
+						error:function(err){}
+					});
+					
+					
 					$('.write-schedule').hide();
 				}
 			}else{

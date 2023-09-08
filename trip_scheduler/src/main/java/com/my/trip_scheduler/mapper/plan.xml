@@ -1,0 +1,12 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="plan">
+
+	<!-- plan추가 -->
+	<insert id="addPlan" parameterType="Plan" useGeneratedKeys="true" keyProperty="plan_idx">
+		INSERT INTO plan
+		(sm_idx, day, start_time, end_time, todo, priceType, price)
+		VALUES
+		(#{sm_idx}, #{day}, #{start_time}, #{end_time}, #{todo}, #{priceType}, #{price})
+	</insert>
+
+</mapper>

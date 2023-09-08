@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.trip_scheduler.service.AdvanceService;
+import com.my.trip_scheduler.service.PlanService;
 import com.my.trip_scheduler.service.SummaryFollowService;
 import com.my.trip_scheduler.service.SummaryService;
 import com.my.trip_scheduler.service.UserService;
 import com.my.trip_scheduler.vo.Advance;
+import com.my.trip_scheduler.vo.Plan;
 import com.my.trip_scheduler.vo.Summary;
 import com.my.trip_scheduler.vo.SummaryFollow;
 import com.my.trip_scheduler.vo.User;
@@ -44,6 +46,9 @@ public class ScheduleController {
 	
 	@Autowired
 	AdvanceService advanceService;
+	
+	@Autowired
+	PlanService planService;
 	
 	//새일정짜기-summary-친구추가 
 	@PostMapping("/getUserByIdx")
@@ -210,6 +215,37 @@ public class ScheduleController {
 		advanceService.delAd(ad_idx);
 		
 		return "ok";
+	}
+	
+	
+	//일정추가
+	@PostMapping("addPlan")
+	@ResponseBody
+	public int addPlan(
+			@RequestParam(value="sm_idx") int sm_idx,
+			@RequestParam(value="day") int day,
+			@RequestParam(value="start_time") String start_time,
+			@RequestParam(value="end_time") String end_time,
+			@RequestParam(value="todo") String todo,
+			@RequestParam(value="priceType") String priceType,
+			@RequestParam(value="price") int price
+			) {
+		
+		Plan newP = new Plan();
+		
+		newP.setSm_idx(sm_idx);
+		newP.setDay(day);
+		newP.setStart_time(start_time);
+		newP.setEnd_time(end_time);
+		newP.setTodo(todo);
+		newP.setPriceType(priceType);
+		newP.setPrice(price);
+		
+		planService.addPlan(newP);
+		
+		int plan_idx = newP.getPlan_idx();
+		
+		return plan_idx;
 	}
 	
 	
