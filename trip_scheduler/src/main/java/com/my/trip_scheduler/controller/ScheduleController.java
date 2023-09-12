@@ -174,7 +174,15 @@ public class ScheduleController {
 		List<Advance> adList = advanceService.getAdvance(sm_idx);
 		map.put("adList", adList);
 		
+		
+		//일정가져오기
+		List<Plan> planList = planService.getPlan(sm_idx);
+		map.put("planList", planList);
+				
+		
 		return map;
+				
+		
 	}
 
 	
@@ -246,6 +254,33 @@ public class ScheduleController {
 		int plan_idx = newP.getPlan_idx();
 		
 		return plan_idx;
+	}
+	
+	
+	//계획수정
+	@PostMapping("/updatePlan")
+	@ResponseBody
+	public String updatePlan(
+			@RequestParam(value="plan_idx") int plan_idx,
+			@RequestParam(value="start_time") String start_time,
+			@RequestParam(value="end_time") String end_time,
+			@RequestParam(value="todo") String todo,
+			@RequestParam(value="priceType") String priceType,
+			@RequestParam(value="price") int price
+			) {
+		
+		Plan p = new Plan();
+		
+		p.setPlan_idx(plan_idx);
+		p.setStart_time(start_time);
+		p.setEnd_time(end_time);
+		p.setTodo(todo);
+		p.setPriceType(priceType);
+		p.setPrice(price);
+		
+		planService.updatePlan(p);
+		
+		return "ok";
 	}
 	
 	

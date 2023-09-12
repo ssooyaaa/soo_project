@@ -104,6 +104,7 @@ $(document).ready(function(){
 		var forRemove = this.parentElement.parentElement.parentElement;
 		
 		$(forRemove).remove();
+		console.log(forRemove);
 	});
 	
 	
@@ -215,8 +216,10 @@ function getSummary(sm_idx){
 			
 			//총 일 수별로 days셋팅
 			var days = map.summary.days;
-						
+			
+			
 			for(var i=1;i<=days;i++){
+				
 				$('.newList-day').append(
 						`<div class="day" id="day${i}">DAY${i}
 							
@@ -279,6 +282,87 @@ function getSummary(sm_idx){
 						</div>`
 				);
 			} 
+			
+			
+			//일정 가져오기
+			$.each(map.planList, function(index,item){
+				var planDay = item.day;
+				
+				var price = item.price;
+				var formatter = new Intl.NumberFormat('ko-KR');//숫자형식화(,)
+				var formatted = formatter.format(price);
+				
+				var dayElement = $('#'+'day'+planDay);
+				$(dayElement).append(
+						`<div class="schedule-list">
+						
+							<div class="update-schedule">
+								<div class="time">
+									<input type="time" class="write-start-time" id="up-start-time" value="${item.start_time}"/>
+									<span style="margin-right:5px">~</span>
+									<input type="time" class="write-end-time" id="up-end-time" value="${item.end_time}"/>
+								</div>
+								<div class="location">
+									<span style="font-weight:900;">장소 :</span>
+									<input class="write-location" id="up-location" value="${item.todo}"/>
+								</div>
+								<div class="money">
+									<span style="font-weight:900;">금액 :</span>
+									<span class="price-list">
+										<select name="price-mode-day" id="price-mode-day">
+												<option value="">KRW</option>
+												<option value="usd">USD</option>
+										</select>
+									</span>
+									<input type="number" class="write-money" id="up-money" value="${item.price}"/>
+								</div>
+								
+								<div class="update-btn">
+									<span class="update-save">수정하기</span>
+									<span class="update-cancel">일정삭제</span>
+								</div>
+							</div> 
+						
+						
+							<div class="add-schedule">
+								<span class="start-end-time">
+									<span class="start-time">${item.start_time}</span>
+									<span>~</span>
+									<span class="end-time">${item.end_time}</span>
+								</span>
+								<div class="schedule-info">
+									<div class="info-location">${item.todo}</div>
+									<div class="info-money">
+										<span style="margin-right:10px;">사용금액 :</span>
+										<div class="money-item">
+											<i class="fa-solid fa-won-sign priceType"></i>
+					 						<span>${formatted}</span>
+										</div>
+									</div>
+								</div>
+								<div class="edit-remove">
+									<i class="fa-solid fa-angles-left"></i>
+								</div>
+							</div>
+							
+							<input style="display:none" id="map-plan-idx" value="${item.plan_idx}"/>
+						</div>`
+				);
+				
+				//금액표기 변경
+				if(item.priceType==''){
+					$('.priceType').replaceWith(function() {
+						  return '<i class="fa-solid fa-won-sign"></i>';
+					});
+				}else if(item.priceType=='usd'){
+					$('.priceType').replaceWith(function() {
+						  return '<i class="fa-solid fa-dollar-sign"></i>';
+					});
+				}
+				
+			});
+					
+			
 		},
 		error:function(err){}
 	});
@@ -414,7 +498,6 @@ function addToDoList(sm_idx){
 			
 			var parent = this.parentElement.parentElement.parentElement;
 			
-			console.log(parent);
 			
 			var day = $(this).closest('.day').attr('id').substring(3);
 			
@@ -505,8 +588,11 @@ function addToDoList(sm_idx){
 								var plusIdx = $('.schedule-list').last();
 								
 								$(plusIdx).append(
-										`<input style="" id="map-plan-idx" value="${idx}"/>`
+										`<input style="display:none" id="map-plan-idx" value="${idx}"/>`
 								);
+
+								$('.write-schedule').hide();
+								
 							}else{
 								alert('저장에 실패했습니다.')
 							}
@@ -515,7 +601,6 @@ function addToDoList(sm_idx){
 					});
 					
 					
-					$('.write-schedule').hide();
 				}
 			}else{
 				alert('시간을 올바르게 입력해주세요.');
@@ -532,6 +617,8 @@ function updateSchedule(){
 	
 	$(document).on('click','.update-save',function(){
 		
+		var plan_idx = $(this.parentElement.parentElement.parentElement).children().eq(2).val();
+			
 		var a = this.parentElement.parentElement;
 		
 		var start = $(a).children().eq(0).children().eq(0).val();
@@ -558,7 +645,8 @@ function updateSchedule(){
 		if(start<end){
 			/*if(start=='' || end=='' || location=='' || num==''){
 				alert('모든 항목에 기입해주세요.');
-			}else */if(price==''){
+			}else if(price==''){*/
+			
 				$(addParent).append(
 						`<div class="schedule-list">
 							
@@ -601,7 +689,7 @@ function updateSchedule(){
 									<div class="info-money">
 										<span style="margin-right:10px;">사용금액 :</span>
 										<div class="money-item">
-											<i class="fa-solid fa-won-sign"></i>
+											<i class="fa-solid fa-won-sign priceType"></i>
 					 						<span>${formatted}</span>
 										</div>
 									</div>
@@ -610,66 +698,44 @@ function updateSchedule(){
 									<i class="fa-solid fa-angles-left"></i>
 								</div>
 							</div>
-						</div>`
-				);
-				$('.update-schedule').hide();
-			}else if(price=='usd'){
-				$(parent).append(
-						`<div class="schedule-list">
 							
-							<div class="update-schedule">
-								<div class="time">
-									<input type="time" class="write-start-time" id="up-start-time" value="${start}"/>
-									<span style="margin-right:5px">~</span>
-									<input type="time" class="write-end-time" id="up-end-time" value="${end}"/>
-								</div>
-								<div class="location">
-									<span style="font-weight:900;">장소 :</span>
-									<input class="write-location" id="up-location" value="${location}"/>
-								</div>
-								<div class="money">
-									<span style="font-weight:900;">금액 :</span>
-									<span class="price-list">
-										<select name="price-mode-day" id="price-mode-day">
-												<option value="">KRW</option>
-												<option value="usd">USD</option>
-										</select>
-									</span>
-									<input type="number" class="write-money" id="up-money" value="${num}"/>
-								</div>
-								
-								<div class="update-btn">
-									<span class="update-save">수정하기</span>
-									<span class="update-cancel">일정삭제</span>
-								</div>
-							</div>
+							<input style="display:none" id="map-plan-idx" value="${plan_idx}"/>
 						
-						
-						
-							<div class="add-schedule">
-								<span class="start-end-time">
-									<span class="start-time">${start}</span>
-									<span>~</span>
-									<span class="end-time">${end}</span>
-								</span>
-								<div class="schedule-info">
-									<div class="info-location">${location}</div>
-									<div class="info-money">
-										<span style="margin-right:10px;">사용금액 :</span>
-										<div class="money-item">
-											<i class="fa-solid fa-dollar-sign"></i>
-					 						<span>${formatted}</span>
-										</div>
-									</div>
-								</div>
-								<div class="edit-remove">
-									<i class="fa-solid fa-angles-left"></i>
-								</div>
-							</div>
 						</div>`
 				);
-				$('.update-schedule').hide();
-			}
+				
+				//금액표기 변경
+				if(price==''){
+					$('.priceType').replaceWith(function() {
+						  return '<i class="fa-solid fa-won-sign"></i>';
+					});
+				}else if(price=='usd'){
+					$('.priceType').replaceWith(function() {
+						  return '<i class="fa-solid fa-dollar-sign"></i>';
+					});
+				}
+				
+				$.ajax({
+					url:'./schedule/updatePlan',
+					type:'post',
+					data:{
+						'plan_idx':plan_idx,
+						'start_time':start,
+						'end_time':end,
+						'todo':location,
+						'priceType':price,
+						'price':num
+					},
+					success:function(res){
+						if(res=='ok'){
+							$('.update-schedule').hide();
+						}else{
+							alert('수정실패했습니다.')
+						}
+					},
+					error:function(err){}
+				});
+				
 		}else{
 			alert('시간을 올바르게 입력해주세요.');
 		}

@@ -8,5 +8,21 @@
 		VALUES
 		(#{sm_idx}, #{day}, #{start_time}, #{end_time}, #{todo}, #{priceType}, #{price})
 	</insert>
+	
+	
+	<!-- plan가져오기 -->
+	<select id="getPlan" parameterType="Integer" resultType="Plan">
+		 SELECT * FROM plan
+		 WHERE sm_idx=${sm_idx}
+		 ORDER BY start_time
+	</select>
+	
+	
+	<!-- plan수정하기 -->
+	<update id="updatePlan" parameterType="Plan">
+		UPDATE plan
+		SET start_time=#{start_time}, end_time=#{end_time}, todo=#{todo}, priceType=#{priceType}, price=#{price}
+		WHERE plan_idx=#{plan_idx}
+	</update>
 
 </mapper>
