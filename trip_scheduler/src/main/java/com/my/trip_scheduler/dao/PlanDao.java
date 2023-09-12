@@ -25,4 +25,8 @@ public class PlanDao {
 	public int updatePlan(Plan p) {
 		return s.update("plan.updatePlan", p);
 	}
+	
+	public int delPlan(int idx) {
+		return s.delete("plan.delPlan",idx);
+	}
 }

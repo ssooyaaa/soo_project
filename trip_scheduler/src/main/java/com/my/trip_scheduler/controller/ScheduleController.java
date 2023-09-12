@@ -21,11 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.trip_scheduler.service.AdvanceService;
+import com.my.trip_scheduler.service.MemoService;
 import com.my.trip_scheduler.service.PlanService;
 import com.my.trip_scheduler.service.SummaryFollowService;
 import com.my.trip_scheduler.service.SummaryService;
 import com.my.trip_scheduler.service.UserService;
 import com.my.trip_scheduler.vo.Advance;
+import com.my.trip_scheduler.vo.Memo;
 import com.my.trip_scheduler.vo.Plan;
 import com.my.trip_scheduler.vo.Summary;
 import com.my.trip_scheduler.vo.SummaryFollow;
@@ -49,6 +51,10 @@ public class ScheduleController {
 	
 	@Autowired
 	PlanService planService;
+	
+	@Autowired
+	MemoService memoService;
+	
 	
 	//새일정짜기-summary-친구추가 
 	@PostMapping("/getUserByIdx")
@@ -257,7 +263,7 @@ public class ScheduleController {
 	}
 	
 	
-	//계획수정
+	//일정수정
 	@PostMapping("/updatePlan")
 	@ResponseBody
 	public String updatePlan(
@@ -283,5 +289,50 @@ public class ScheduleController {
 		return "ok";
 	}
 	
+	
+	//일정삭제
+	@PostMapping("/delPlan")
+	@ResponseBody
+	public String delPlan(
+			@RequestParam(value="plan_idx") int plan_idx
+			) {
+		
+		planService.delPlan(plan_idx);
+		
+		return "ok";
+	}
+	
+	
+	//메모추가
+	@PostMapping("/addMemo")
+	@ResponseBody
+	public Map<String, Object> addMemo(
+			@RequestParam(value="sm_idx") int sm_idx,
+			@RequestParam(value="day") int day,
+			@RequestParam(value="content") String content,
+			HttpSession s
+			) {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		Memo newM = new Memo();
+		newM.setSm_idx(sm_idx);
+		newM.setDay(day);
+		newM.setContent(content);
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		String loginId = loginUser.getId();
+		
+		newM.setId(loginId);
+		
+		memoService.addMemo(newM);
+		
+		int memo_idx = newM.getMemo_idx();
+		
+		map.put("id", loginId);
+		map.put("memo_idx", memo_idx);
+		
+		return map;
+	}
 	
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo">
+
+
+	<!-- 메모추가 -->
+	<insert id="addMemo" parameterType="Memo" useGeneratedKeys="true" keyProperty="memo_idx">
+		INSERT INTO memo
+		(sm_idx, day, id, content)
+		VALUES
+		(#{sm_idx}, #{day}, #{id}, #{content})
+	</insert>
+
+</mapper>

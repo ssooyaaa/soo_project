@@ -24,5 +24,13 @@
 		SET start_time=#{start_time}, end_time=#{end_time}, todo=#{todo}, priceType=#{priceType}, price=#{price}
 		WHERE plan_idx=#{plan_idx}
 	</update>
+	
+	
+	<!-- plan삭제 -->
+	<delete id="delPlan" parameterType="Integer">
+		DELETE FROM plan
+		WHERE plan_idx=#{plan_idx}
+	</delete>
+
 
 </mapper>
