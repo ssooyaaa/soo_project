@@ -47,13 +47,13 @@
 		
 		<div class="select-list">
 			<select name="date-mode" id="date-mode">
-					<option value="">최신날짜순</option>
-					<option value="old">오래된날짜순</option>
+					<option value="">최신등록순</option>
+					<option value="old">오래된등록순</option>
 			</select>
 		</div>
 	
-	
-		<div class="allList-item">
+		<div class="allList">
+			<div class="allList-item">
 			<div class="allList-title">태국여행 with Family</div>
 			<div class="allList-date">
 				<span style="font-family:home-name;width:13%;">DATE</span>
@@ -74,6 +74,8 @@
 				</div>
 			</div>
 		</div>
+		</div>
+		
 	</div>
 
 

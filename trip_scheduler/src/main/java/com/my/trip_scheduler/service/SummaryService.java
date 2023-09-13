@@ -1,10 +1,13 @@
 package com.my.trip_scheduler.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.my.trip_scheduler.dao.SummaryDao;
 import com.my.trip_scheduler.vo.Summary;
+import com.my.trip_scheduler.vo.SummaryFollow;
 
 @Service
 public class SummaryService {
@@ -20,4 +23,7 @@ public class SummaryService {
 		return summaryDao.getSummary(idx);
 	}
 	
+	public Summary getAllList(int idx) {
+		return summaryDao.getAllList(idx);
+	}
 }

@@ -22,7 +22,9 @@ public class HomeController {
 	
 	//홈화면
 	@GetMapping("/")
-	public String home() {
+	public String home(Model m) {
+		
+		m.getAttribute("loginUser");
 		
 		return "home";
 	}

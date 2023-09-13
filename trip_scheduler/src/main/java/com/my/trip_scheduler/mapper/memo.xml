@@ -9,5 +9,19 @@
 		VALUES
 		(#{sm_idx}, #{day}, #{id}, #{content})
 	</insert>
+	
+	
+	<!-- 메모리스트 -->
+	<select id="getMemo" parameterType="Memo" resultType="Memo">
+		SELECT * FROM memo
+		WHERE sm_idx=#{sm_idx} AND day=#{day}
+	</select>
+	
+	
+	<!-- 메모삭제 -->
+	<delete id="delMemo" parameterType="Integer">
+		DELETE FROM memo
+		WHERE memo_idx=#{memo_idx}
+	</delete>
 
 </mapper>

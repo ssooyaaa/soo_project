@@ -335,4 +335,43 @@ public class ScheduleController {
 		return map;
 	}
 	
+	
+	//메모리스트 가져오기
+	@GetMapping("/getMemo")
+	@ResponseBody
+	public Map<String, Object> getMemo(
+			@RequestParam(value="sm_idx") int sm_idx,
+			@RequestParam(value="day") int day,
+			HttpSession s
+			) {
+		
+		HashMap<String, Object> map = new HashMap<>();
+		
+		Memo m = new Memo();
+		m.setSm_idx(sm_idx);
+		m.setDay(day);
+		
+		List<Memo> memoList = memoService.getMemo(m);
+		map.put("memoList", memoList);
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		String loginId = loginUser.getId();
+		map.put("loginId", loginId);
+		
+		return map;
+	}
+	
+	
+	//메모삭제
+	@PostMapping("/delMemo")
+	@ResponseBody
+	public String delMemo(
+			@RequestParam(value="memo_idx") int memo_idx
+			) {
+		
+		memoService.delMemo(memo_idx);
+		
+		return "ok";
+	}
+	
 }

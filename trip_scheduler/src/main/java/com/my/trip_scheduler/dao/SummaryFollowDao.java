@@ -22,4 +22,8 @@ public class SummaryFollowDao {
 		return s.selectList("sm_fl.getSmFl",idx);
 	}
 	
+	public List<SummaryFollow> getSummaryIdx(SummaryFollow sf){
+		return s.selectList("sm_fl.getSummaryIdx",sf);
+	}
+	
 }

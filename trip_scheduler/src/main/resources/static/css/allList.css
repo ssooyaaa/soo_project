@@ -36,10 +36,15 @@
 	width:95%;
 }
 
+.allList{
+	padding-bottom:20px;
+}
+
 .allList-item{
 	width:90%;
 	margin-left:5%;
 	margin-top:20px;
+	margin-bottom:20px;
 	border:2px solid #E0DDDD;
 	border-radius:20px;
 	padding:20px 30px;

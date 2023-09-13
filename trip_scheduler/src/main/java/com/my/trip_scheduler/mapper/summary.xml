@@ -10,12 +10,17 @@
 	</insert>
 	
 	
-	<!-- 일정짜기(summary가져오기) -->
+	<!-- 일정짜기(summary가져오기)-->
 	<select id="getSummary" parameterType="Integer" resultType="Summary">
 		SELECT * FROM summary
 		WHERE sm_idx=#{sm_idx}
 	</select>
 	
 	
+	<!-- 모든일정가져오기(sm_idx로) -->
+	<select id="getAllList" parameterType="Integer" resultType="Summary">
+		SELECT * FROM summary
+		WHERE sm_idx=#{sm_idx}
+	</select>
 
 </mapper>

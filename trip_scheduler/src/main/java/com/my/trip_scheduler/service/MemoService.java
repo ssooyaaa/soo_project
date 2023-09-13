@@ -1,5 +1,7 @@
 package com.my.trip_scheduler.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,13 @@ public class MemoService {
 	
 	public int addMemo(Memo m) {
 		return memoDao.addMemo(m);
+	}
+	
+	public List<Memo> getMemo(Memo m){
+		return memoDao.getMemo(m);
+	}
+	
+	public int delMemo(int idx) {
+		return memoDao.delMemo(idx);
 	}
 }

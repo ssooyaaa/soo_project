@@ -4,15 +4,21 @@ $(document).ready(function(){
 	var sm_idx = $('#map-sm-idx').val();
 	//var userId = $('#map-id').val();
 	
+	
 	//summary내용 가져오기+저장된 내용 가져오기
 	getSummary(sm_idx);
 	
-	//summary내용-친구삭제
-	$(document).on('click','.del-friend',function(){
-		var parent = $(this).parent();
-		parent.remove();
-	});
 	
+	//summary내용-친구삭제
+	//$(document).on('click','.del-friend',function(){
+	//	var parent = $(this).parent();
+	//	parent.remove();
+	//});
+	
+	
+	//summary내용-친구선택
+	
+
 	
 	//사전경비추가
 	$('#add-ad').click(function(){
@@ -42,13 +48,17 @@ $(document).ready(function(){
 	
 	
 	
+	
+	
+	
+	
 	//일정 순서 정렬
 	$(document).on('click','.sort-by-time',function(){
 		//새로고침 느낌으로 할 것!
 		var parent = this.parentElement;
 		console.log(parent);
 		
-		
+		location.replace('./newList?sm_idx='+sm_idx);
 	});
 	
 	
@@ -120,6 +130,11 @@ $(document).ready(function(){
 	});
 	
 	
+	
+	
+	
+	
+	
 	//메모추가클릭
 	$(document).on('click','.add-memo-btn',function(){
 		var parent = this.parentElement.parentElement;
@@ -127,13 +142,44 @@ $(document).ready(function(){
 		var day = $(memo).children().eq(0).children().eq(0).text().substring(3);
 		var memoList = $(memo).children().eq(2);
 		
-		console.log(parent);
-		console.log(day);
-		console.log(memo);
-		console.log(memoList);
-		
 		$(memo).show();
+		
+		$.ajax({
+			url:'./schedule/getMemo',
+			type:'get',
+			data:{
+				'sm_idx':sm_idx,
+				'day':day
+			},
+			success:function(map){
+				$.each(map.memoList, function(index,item){
+					
+					if(item.id!=map.loginId){
+						$(memoList).append(
+								`<div class="memo">
+										<input style="display:none" value="${item.memo_idx}"/>
+										<span class="nickname">${item.id}</span>
+										<span class="memo-des">${item.content}</span>
+									</div>`
+						);
+					}else{
+						$(memoList).append(
+								`<div class="memo">
+										<input style="display:none" value="${item.memo_idx}"/>
+										<span class="nickname">${item.id}</span>
+										<span class="memo-des">${item.content}</span>
+										<i class="fa-solid fa-xmark memo-del"></i>
+									</div>`
+						);
+					}
+					
+					
+				});
+			},
+			error:function(err){}
+		});
 	});
+	
 	
 	
 	//메모 작성
@@ -160,12 +206,14 @@ $(document).ready(function(){
 					if(map.memo_idx!=null || map.memo_idx!=''){
 						$(memoList).append(
 								`<div class="memo">
-									<input value="${map.memo_idx}"/>
+									<input style="display:none" value="${map.memo_idx}"/>
 									<span class="nickname">${map.id}</span>
 									<span class="memo-des">${memo}</span>
 									<i class="fa-solid fa-xmark memo-del"></i>
 								</div>`
 						);
+						
+						$('#memo-text').val('');
 					}else{
 						alert('다시 한번 시도해주세요.');
 					}
@@ -182,17 +230,34 @@ $(document).ready(function(){
 	//작성메모 삭제
 	$(document).on('click','.memo-del',function(){
 		var memo = this.parentElement;
-		$(memo).remove();
+		var memo_idx = $(memo).children().eq(0).val();
+		
+		$.ajax({
+			url:'./schedule/delMemo',
+			type:'post',
+			data:{'memo_idx':memo_idx},
+			success:function(res){
+				if(res=='ok'){
+					$(memo).remove();
+				}else{
+					alert('다시 시도해주세요');
+				}
+			},
+			error:function(err){}
+		});
+		
 	});
 	
 	
-	//메모닫기-저장-닫기
+	//메모닫기
 	$(document).on('click','.memo-close',function(){
 		var memo = this.parentElement.parentElement;
 		
 		$(memo).hide();
 	});
 });
+
+
 
 
 
@@ -247,9 +312,10 @@ function getSummary(sm_idx){
 			$.each(map.userIdList, function(index,item){
 				$('.newList-friends').append(
 						`<div class="newList-friend">
-							<i class="fa-solid fa-circle-minus del-friend"></i>
+							<i class="fa-solid fa-user selected-friend"></i>
 							<span>${item}</span>
 						</div>`
+						//<i class="fa-solid fa-circle-minus del-friend"></i>
 				);			
 			});
 			
@@ -545,9 +611,9 @@ function addToDoList(sm_idx){
 			
 			
 			if(start<end){
-				/*if(start=='' || end=='' || location==''){
+				if(start=='' || end=='' || location==''){
 					alert('금액을 제외한 모든 항목에 기입해주세요.');
-				}else if*/{
+				}else{
 										
 					$.ajax({
 						url:'./schedule/addPlan',
@@ -683,9 +749,9 @@ function updateSchedule(){
 		$(parent).remove();
 		
 		if(start<end){
-			/*if(start=='' || end=='' || location=='' || num==''){
-				alert('모든 항목에 기입해주세요.');
-			}else if(price==''){*/
+			if(start=='' || end=='' || location=='' ){
+				alert('금액을 제외한 모든 항목에 기입해주세요.');
+			}else{
 			
 				$.ajax({
 					url:'./schedule/updatePlan',
@@ -779,6 +845,7 @@ function updateSchedule(){
 					error:function(err){}
 				});
 				
+			}
 		}else{
 			alert('시간을 올바르게 입력해주세요.');
 		}

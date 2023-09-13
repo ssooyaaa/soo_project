@@ -25,6 +25,7 @@
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
+	<input style="display:none" id="map-user-idx" type="text" value="${loginUser.user_idx}"/>
 	
 	<div class="home-body">
 		<img class="home-img" src="image/home-img.png" />
