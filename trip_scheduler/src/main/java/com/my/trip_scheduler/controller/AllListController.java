@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.trip_scheduler.service.SummaryFollowService;
@@ -101,8 +102,34 @@ public class AllListController {
 		}
 		
 		map.put("allList", allList);
-		
-		
 		return map;
+	}
+	
+	
+	//모든리스트 개수
+	@GetMapping("/getCountAllList")
+	@ResponseBody
+	public int getCountAllList(HttpSession s) {
+		
+		User loginUser = (User)s.getAttribute("loginUser");
+		int user_idx = loginUser.getUser_idx();
+		
+		SummaryFollow sf = new SummaryFollow();
+		sf.setUser_idx_1(user_idx);
+		sf.setUser_idx_2(user_idx);
+		
+		//일정가져오기
+		List<SummaryFollow> smIdxList = sfService.getSummaryIdx(sf);
+		
+		Set<Integer> smIdx = new HashSet<>();
+		
+		for(int i=0;i<smIdxList.size();i++) {
+			int sm_idx = smIdxList.get(i).getSm_idx();
+			
+			smIdx.add(sm_idx);
+		}
+		
+		return smIdx.size();
+		
 	}
 }

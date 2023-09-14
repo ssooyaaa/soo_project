@@ -68,9 +68,10 @@ public class HomeController {
 	
 	//여행리스트
 	@GetMapping("/allList")
-	public String allList(HttpSession s) {
+	public String allList(HttpSession s, Model m) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
+		m.getAttribute("loginUser");
 		
 		if(loginUser==null) {
 			return "redirect:/login";

@@ -26,4 +26,8 @@ public class SummaryService {
 	public Summary getAllList(int idx) {
 		return summaryDao.getAllList(idx);
 	}
+	
+	public int getCountAllList(int idx) {
+		return summaryDao.getCountAllList(idx);
+	}
 }

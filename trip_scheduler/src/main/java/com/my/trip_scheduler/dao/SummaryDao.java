@@ -28,4 +28,7 @@ public class SummaryDao {
 		return s.selectOne("summary.getAllList",idx);
 	}
 	
+	public int getCountAllList(int idx) {
+		return s.selectOne("summary.getCountAllList",idx);
+	}
 }

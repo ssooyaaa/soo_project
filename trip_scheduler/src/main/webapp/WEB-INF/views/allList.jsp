@@ -16,6 +16,11 @@
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
 	crossorigin="anonymous">
 	
+	<!-- //페이지네이션 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js" 
+	integrity="sha512-frFP3ZxLshB4CErXkPVEXnd5ingvYYtYhE5qllGdZmcOlRKNEPbufyupfdSTNmoF5ICaQNO6SenXzOZvoGkiIA==" 
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
 	<link rel="stylesheet"  href="css/all.min.css"/>
 	<link rel="stylesheet" href="css/app.css"/>
 	<link rel="stylesheet"  href="css/allList.css"/>
@@ -24,6 +29,9 @@
 <body>
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
+	
+	<input style="display:none" id="map-user-idx" type="text" value="${loginUser.user_idx}"/>
+	
 
 	<div class="allList-main">
 	
@@ -47,34 +55,20 @@
 		
 		<div class="select-list">
 			<select name="date-mode" id="date-mode">
-					<option value="">최신등록순</option>
-					<option value="old">오래된등록순</option>
+					<option value="">최신날짜순</option>
+					<option value="old">오래된날짜순</option>
 			</select>
+			<i class="fa-solid fa-magnifying-glass search-icon"></i>
 		</div>
 	
 		<div class="allList">
-			<div class="allList-item">
-			<div class="allList-title">태국여행 with Family</div>
-			<div class="allList-date">
-				<span style="font-family:home-name;width:13%;">DATE</span>
-				<span>2023.06.05-2023.06.06</span>
-			</div>
-			<div class="allList-friends">
-				<div style="font-family:home-name;width:20%;">WITH</div>
-				<div class="friends">
-					<span>최쑤 /</span>
-					<span>sooyaa /</span>
-					<span>chiossoo /</span>
-					<span>최쑤 /</span>
-					<span>sooyaa /</span>
-					<span>chiossoo /</span>
-					<span>최쑤 /</span>
-					<span>sooyaa /</span>
-					<span>chiossoo /</span>
-				</div>
-			</div>
+			
+			
+			
+			
 		</div>
-		</div>
+		
+		<ul id="pagination-demo" class="pagination-allList"></ul>
 		
 	</div>
 
