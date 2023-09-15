@@ -25,4 +25,8 @@ public class MemoService {
 	public int delMemo(int idx) {
 		return memoDao.delMemo(idx);
 	}
+	
+	public int delMemoBySmIdx(int idx) {
+		return memoDao.delMemoBySmIdx(idx);
+	}
 }

@@ -255,6 +255,13 @@ $(document).ready(function(){
 		
 		$(memo).hide();
 	});
+	
+	
+	//일정전체삭제
+	$('.del-btn').click(function(){
+		delItem(sm_idx);
+	});
+	
 });
 
 
@@ -854,3 +861,22 @@ function updateSchedule(){
 		
 	});
 };
+
+
+//일정전체삭제
+function delItem(sm_idx){
+	$.ajax({
+		url:'./schedule/delItem',
+		type:'post',
+		data:{'sm_idx':sm_idx},
+		success:function(res){
+			if(res=='ok'){
+				alert('삭제되었습니다.');
+				location.replace('./');
+			}else{
+				alert('다시 한번 시도해주세요.');
+			}
+		},
+		error:function(err){}
+	});
+}

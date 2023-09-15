@@ -31,4 +31,8 @@ public class SummaryDao {
 	public int getCountAllList(int idx) {
 		return s.selectOne("summary.getCountAllList",idx);
 	}
+	
+	public int delSmBySmIdx(int idx) {
+		return s.delete("summary.delSmBySmIdx",idx);
+	}
 }

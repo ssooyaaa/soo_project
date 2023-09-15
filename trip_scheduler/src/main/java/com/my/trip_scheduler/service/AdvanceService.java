@@ -25,4 +25,8 @@ public class AdvanceService {
 	public int delAd(int ad_idx) {
 		return advanceDao.delAd(ad_idx);
 	}
+	
+	public int delAdBySmIdx(int idx) {
+		return advanceDao.delAdBySmIdx(idx);
+	}
 }

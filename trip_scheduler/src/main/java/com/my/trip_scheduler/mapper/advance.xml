@@ -23,6 +23,12 @@
 		DELETE FROM advance
 		WHERE ad_idx=#{ad_idx}
 	</delete>
-
+	
+	
+	<!-- 일정전체삭제 -->
+	<delete id="delAdBySmIdx" parameterType="Integer">
+		DELETE FROM advance
+		WHERE sm_idx=#{sm_idx}
+	</delete>
 
 </mapper>

@@ -23,4 +23,11 @@
 		WHERE user_idx_1=#{user_idx_1} OR user_idx_2=#{user_idx_2}
 	</select>
 	
+	
+	<!-- 일정전체삭제 -->
+	<delete id="delSmFlBySmIdx" parameterType="Integer">
+		DELETE FROM sm_fl
+		WHERE sm_idx=#{sm_idx}
+	</delete>
+	
 </mapper>

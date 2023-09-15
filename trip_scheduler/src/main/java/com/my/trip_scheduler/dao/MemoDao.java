@@ -25,4 +25,8 @@ public class MemoDao {
 	public int delMemo(int idx) {
 		return s.delete("memo.delMemo", idx);
 	}
+	
+	public int delMemoBySmIdx(int idx) {
+		return s.delete("memo.delMemoBySmIdx",idx);
+	}
 }

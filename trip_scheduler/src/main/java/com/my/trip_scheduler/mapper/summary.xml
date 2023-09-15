@@ -29,4 +29,11 @@
 		WHERE sm_idx=#{sm_idx}
 	</select>
 	
+	
+	<!-- 일정전체삭제 -->
+	<delete id="delSmBySmIdx" parameterType="Integer">
+		DELETE FROM summary
+		WHERE sm_idx=#{sm_idx}
+	</delete>
+	
 </mapper>

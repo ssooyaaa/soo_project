@@ -30,4 +30,8 @@ public class SummaryService {
 	public int getCountAllList(int idx) {
 		return summaryDao.getCountAllList(idx);
 	}
+	
+	public int delSmBySmIdx(int idx) {
+		return summaryDao.delSmBySmIdx(idx);
+	}
 }

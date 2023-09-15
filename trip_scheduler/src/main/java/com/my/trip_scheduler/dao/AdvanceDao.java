@@ -25,4 +25,8 @@ public class AdvanceDao {
 	public int delAd(int ad_idx) {
 		return s.delete("advance.delAd", ad_idx);
 	}
+	
+	public int delAdBySmIdx(int idx) {
+		return s.delete("advance.delAdBySmIdx",idx);
+	}
 }

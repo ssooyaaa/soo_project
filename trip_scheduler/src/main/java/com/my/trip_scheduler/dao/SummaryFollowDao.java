@@ -26,4 +26,8 @@ public class SummaryFollowDao {
 		return s.selectList("sm_fl.getSummaryIdx",sf);
 	}
 	
+	public int delSmFlBySmIdx(int idx) {
+		return s.delete("sm_fl.delSmFlBySmIdx", idx);
+	}
+	
 }

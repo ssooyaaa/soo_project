@@ -25,4 +25,8 @@ public class SummaryFollowService {
 	public List<SummaryFollow> getSummaryIdx(SummaryFollow sf){
 		return smflDao.getSummaryIdx(sf);
 	}
+	
+	public int delSmFlBySmIdx(int idx) {
+		return smflDao.delSmFlBySmIdx(idx);
+	}
 }

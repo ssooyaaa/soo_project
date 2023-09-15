@@ -102,6 +102,7 @@ public class AllListController {
 		}
 		
 		map.put("allList", allList);
+		
 		return map;
 	}
 	

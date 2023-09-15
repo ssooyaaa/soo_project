@@ -29,4 +29,8 @@ public class PlanService {
 	public int delPlan(int idx) {
 		return planDao.delPlan(idx);
 	}
+	
+	public int delPlanBySmIdx(int idx) {
+		return planDao.delPlanBySmIdx(idx);
+	}
 }

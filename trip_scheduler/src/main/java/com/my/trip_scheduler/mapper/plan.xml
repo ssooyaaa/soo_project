@@ -32,5 +32,11 @@
 		WHERE plan_idx=#{plan_idx}
 	</delete>
 
+	
+	<!-- 일정전체삭제 -->
+	<delete id="delPlanBySmIdx" parameterType="Integer">
+		DELETE FROM plan
+		WHERE sm_idx=#{sm_idx}
+	</delete>
 
 </mapper>

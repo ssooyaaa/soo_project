@@ -185,7 +185,7 @@
 			
 		</div>
 		
-		<!-- <button class="save-btn">저장</button> -->
+		<button class="del-btn">일정 전체 삭제</button>
 	</div>
 	
 	

@@ -114,15 +114,26 @@ public class ScheduleController {
 		User loginUser = (User)s.getAttribute("loginUser");
 		int user_idx = loginUser.getUser_idx();
 		
-		for(int i=0;i<userList.size();i++) {
+		if(userList.size()==0) {
 			SummaryFollow newSF = new SummaryFollow();
-			int user_idx_2 = userList.get(i);
 			
 			newSF.setSm_idx(new_sm_idx);
 			newSF.setUser_idx_1(user_idx);
-			newSF.setUser_idx_2(user_idx_2);
-			
+			newSF.setUser_idx_2(user_idx);
+
 			smflService.addSmFl(newSF);
+		}else {
+			for(int i=0;i<userList.size();i++) {
+				SummaryFollow newSF = new SummaryFollow();
+				int user_idx_2 = userList.get(i);
+				
+				newSF.setSm_idx(new_sm_idx);
+				newSF.setUser_idx_1(user_idx);
+				newSF.setUser_idx_2(user_idx_2);
+				
+				smflService.addSmFl(newSF);
+			}
+			
 		}
 		
 		return new_sm_idx;
@@ -370,6 +381,24 @@ public class ScheduleController {
 			) {
 		
 		memoService.delMemo(memo_idx);
+		
+		return "ok";
+	}
+	
+	
+	//일정전체삭제
+	@Transactional
+	@PostMapping("/delItem")
+	@ResponseBody
+	public String delItem(
+			@RequestParam(value="sm_idx") int sm_idx
+			) {
+		
+		advanceService.delAdBySmIdx(sm_idx);
+		summaryService.delSmBySmIdx(sm_idx);
+		smflService.delSmFlBySmIdx(sm_idx);
+		planService.delPlanBySmIdx(sm_idx);
+		memoService.delMemoBySmIdx(sm_idx);
 		
 		return "ok";
 	}

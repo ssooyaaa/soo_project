@@ -1,16 +1,17 @@
 $(document).ready(function(){
 	
 	var loginUserIdx = $('#map-user-idx').val();
-	var selectOption = $('#date-mode option:selected').val();
 	
 	//모든 리스트 가져오기
-	getAllList(selectOption);
+	getAllList('');
 	
 	
 	//옵션 선택 리스트 가져오기
 	$('.search-icon').click(function(){
+		
 		var selectOption = $('#date-mode option:selected').val();
 		
+		$('#pagination-demo').twbsPagination('destroy');
 		$('.allList').empty();
 		
 		getAllList(selectOption);
@@ -19,8 +20,17 @@ $(document).ready(function(){
 	
 	
 	//일정클릭-일정보기
+	$(document).on('click','.allList-item',function(){
+		var smIdx = $(this).children().eq(2).val();
+		console.log(smIdx);
+		
+		location.href='./newList?sm_idx='+smIdx;
+	});
 	$('.allList-item').click(function(){
-		location.href='./newList';
+		var smIdx = $(this).children().eq(2).val();
+		console.log(smIdx);
+		/*location.href='./newList';
+		*/
 	});
 	
 	
@@ -58,6 +68,7 @@ function getAllList(selectOption){
 	var totalPages=0;
 	var countInOnePage=5;
 	
+		
 	$.ajax({
 		url:'./allList/getCountAllList',
 		type:'get',
@@ -100,19 +111,26 @@ function getAllList(selectOption){
 					var start = (page-1)*countInOnePage;
 					
 					var pageResult = $(result).slice(start, start+countInOnePage);
-					console.log(pageResult);
+					
+					//오늘 날짜 구하기
+					var today = getToday();
+					
 					
 					$.each(pageResult, function(index,item){
 						var smIdx = item.sm_idx;
-				
+						var end_date = item.end_date;
+						
 						$('.allList').append(
 								`<div class="allList-item">
-									<div class="allList-title">${item.name}</div>
+									<div class="allList-title">
+										<span class="item-title" style="width:90%;">${item.name}</span>
+										
+									</div>
 									<div class="allList-date">
 										<span style="font-family:home-name;width:13%;">DATE</span>
 										<span>${item.start_date} ~ ${item.end_date}</span>
 									</div>
-									<input id="smIdx${item.sm_idx}" value=${item.sm_idx} />
+									<input style="display:none" id="smIdx${item.sm_idx}" value=${item.sm_idx} />
 									<div class="allList-friends">
 										<div style="font-family:home-name;width:13%;">WITH</div>
 										<div class="friends">
@@ -135,7 +153,21 @@ function getAllList(selectOption){
 								});
 								
 							}
+							
 						});
+						
+						var statusElement = $('#'+'smIdx'+smIdx).siblings('.allList-title');
+						
+						if(end_date>=today){
+							console.log(item.end_date);
+							$(statusElement).append(
+									`<span class="item-status">진행중</span>`
+							);
+						}else{
+							$(statusElement).append(
+									`<span style="background:#E74C3C" class="item-status">종료</span>`
+							);
+						}
 						
 						
 					});
@@ -148,4 +180,17 @@ function getAllList(selectOption){
 	});
 	
 	
+}
+
+
+//오늘날짜구하기
+function getToday(){     
+	var now = new Date();     
+	var year = now.getFullYear();     
+	var month = now.getMonth() + 1;
+	var date = now.getDate();     
+	month = month >=10 ? month : "0" + month;  
+	date = date >= 10 ? date : "0" + date;
+
+	return ""+year+"-"+month+"-"+date; 
 }

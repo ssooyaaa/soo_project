@@ -29,4 +29,8 @@ public class PlanDao {
 	public int delPlan(int idx) {
 		return s.delete("plan.delPlan",idx);
 	}
+	
+	public int delPlanBySmIdx(int idx) {
+		return s.delete("plan.delPlanBySmIdx",idx);
+	}
 }

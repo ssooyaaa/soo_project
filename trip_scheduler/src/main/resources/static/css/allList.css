@@ -36,6 +36,10 @@
 	width:95%;
 }
 
+.search-icon{
+	cursor:pointer;
+}
+
 .allList{
 	padding-bottom:20px;
 }
@@ -55,10 +59,19 @@
 	border:2px solid var(--color-main);
 }
 
-.allList-title{
+.item-title{
 	font-family:home-name;
 	font-size:40px;
 	color:var(--color-main);
+}
+
+.item-status{
+	margin-left:10px;
+	padding:5px 10px;
+	border-radius:20px;
+	background:#81CA6D;
+	color:#fff;
+	font-weight:700;
 }
 
 .allList-date{
@@ -81,9 +94,8 @@
 
 .pagination-allList{
 	width:100%;
-	display:flex;
 	justify-content:center;
-	margin-padding:30px;
+	padding-bottom:30px;
 }
 
 .pagination li a.page-link{
