@@ -26,6 +26,9 @@
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
+	<input type="text" style="display:none" id="map-sm-idx" value="${sm_idx}"/>
+	
+	
 	<div class="receipt-main">
 	
 		<div class="title">
@@ -39,6 +42,39 @@
 		
 		
 		<div class="days">
+			<div class="exchange-rate">
+				<div style="font-weight:800;font-size:22px;">
+					<span>환율입력</span>
+					<i class="fa-solid fa-circle-plus add-rate-btn"></i>
+				</div>
+				
+				
+				<div class="add-r-content">
+					<div class="add-rate">
+						
+						<div class="price-list">
+							<select name="price-mode" id="price-mode">
+									<option value="USD">USD</option>
+									<option value="JPY">JPY</option>
+							</select>
+						</div>
+						<input class="rate-add-price" type="number" />
+						<button class="save-rate-btn">저장</button>
+						<span style="font-weight:900;margin-left:5px;">/</span>
+						<button class="cancel-rate-btn">취소</button>
+					</div>
+				</div>
+				
+				
+				<div class="rate-list">
+					
+					
+					
+				</div>
+			</div>
+			
+			
+			
 		
 			<div class="adv-price">
 				<div style="font-weight:800;font-size:22px;">사전경비</div>

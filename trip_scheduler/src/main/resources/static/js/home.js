@@ -11,7 +11,7 @@ $(document).ready(function(){
 	});
 	
 	$('#tripExpenses').click(function(){
-		location.href='./tripExpenses';
+		location.href='./tripExpenses?user_idx='+user_idx;
 	});
 	
 });

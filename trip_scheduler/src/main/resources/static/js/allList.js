@@ -26,12 +26,6 @@ $(document).ready(function(){
 		
 		location.href='./newList?sm_idx='+smIdx;
 	});
-	$('.allList-item').click(function(){
-		var smIdx = $(this).children().eq(2).val();
-		console.log(smIdx);
-		/*location.href='./newList';
-		*/
-	});
 	
 	
 	//새일정짜기
@@ -42,7 +36,7 @@ $(document).ready(function(){
 	
 	//여행경비
 	$('.move-expense').click(function(){
-		location.href='./tripExpenses';
+		location.href='./tripExpenses?user_idx='+loginUserIdx;
 	});
 	
 });
@@ -159,7 +153,6 @@ function getAllList(selectOption){
 						var statusElement = $('#'+'smIdx'+smIdx).siblings('.allList-title');
 						
 						if(end_date>=today){
-							console.log(item.end_date);
 							$(statusElement).append(
 									`<span class="item-status">진행중</span>`
 							);

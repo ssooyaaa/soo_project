@@ -83,9 +83,10 @@ public class HomeController {
 	
 	//여행경비
 	@GetMapping("/tripExpenses")
-	public String tripExpenses(HttpSession s) {
+	public String tripExpenses(HttpSession s, Model m) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
+		m.getAttribute("loginUser");
 		
 		if(loginUser==null) {
 			return "redirect:/login";
@@ -98,7 +99,12 @@ public class HomeController {
 	
 	//여행경비-영수증
 	@GetMapping("/receipt")
-	public String receipt() {
+	public String receipt(
+			@RequestParam(value="sm_idx") int sm_idx,
+			Model m
+			) {
+		
+		m.addAttribute("sm_idx",sm_idx);
 		
 		return "receipt";
 	}

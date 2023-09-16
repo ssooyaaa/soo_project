@@ -25,6 +25,8 @@
 
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
+	<input style="display:none" id="map-user-idx" type="text" value="${loginUser.user_idx}"/>
+	
 	
 	<div class="expenses-main">
 	
@@ -52,24 +54,31 @@
 					<option value="">최신날짜순</option>
 					<option value="old">오래된날짜순</option>
 			</select>
+			<i class="fa-solid fa-magnifying-glass search-icon"></i>
 		</div>
 		
 		
+		<div class="expenseAllList">
 		
-		<div class="expenses-item">
-			<div class="expenses-title">태국여행 with Family</div>
-			<div class="expenses-date">
-				<span style="font-family:home-name;width:13%;">DATE</span>
-				<span>2023.06.05-2023.06.06</span>
-			</div>
-			<div class="total-expenses">
-				<div>총 경비</div>
-				<div class="nation-price">
-					<i class="fa-solid fa-won-sign"></i>
-					<span>10,000</span>
+			<div class="expenses-item">
+				<div class="expenses-title">태국여행 with Family</div>
+				<div class="expenses-date">
+					<span style="font-family:home-name;width:13%;">DATE</span>
+					<span>2023.06.05-2023.06.06</span>
+				</div>
+				<div class="total-expenses">
+					<div>총 경비</div>
+					<div class="nation-price">
+						<i class="fa-solid fa-won-sign"></i>
+						<span>10,000</span>
+					</div>
 				</div>
 			</div>
+		
+		
 		</div>
+		
+		<ul id="pagination-demo" class="pagination-expenseList"></ul>
 	
 	</div>
 
