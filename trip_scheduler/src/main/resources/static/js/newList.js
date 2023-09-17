@@ -25,7 +25,7 @@ $(document).ready(function(){
 		
 		//input초기화
 		$('#ad-item').val('');
-		$('#advance-add-price').val('');
+		$('#advance-add-price').val(0);
 		
 		$('.add-ad-content').show();
 		
@@ -75,7 +75,7 @@ $(document).ready(function(){
 			$(this).val('');
 		});
 		$(children).find('input[type=number]').each(function(){
-			$(this).val('');
+			$(this).val(0);
 		});
 		
 		children.show();
@@ -618,10 +618,10 @@ function addToDoList(sm_idx){
 			
 			
 			if(start<end){
-				if(start=='' || end=='' || location==''){
-					alert('금액을 제외한 모든 항목에 기입해주세요.');
+				if(start=='' || end=='' || location=='' || num==''){
+					alert('모든 항목에 기입해주세요(금액이 없는 경우:0)');
 				}else{
-										
+					
 					$.ajax({
 						url:'./schedule/addPlan',
 						type:'post',
@@ -756,8 +756,8 @@ function updateSchedule(){
 		$(parent).remove();
 		
 		if(start<end){
-			if(start=='' || end=='' || location=='' ){
-				alert('금액을 제외한 모든 항목에 기입해주세요.');
+			if(start=='' || end=='' || location=='' || num=='' ){
+				alert('모든 항목에 기입해주세요(금액이 없는 경우:0)');
 			}else{
 			
 				$.ajax({

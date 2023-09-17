@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	var user_idx = $('#map-user-idx').val();
+	
 	//메인 이름 -> 홈화면으로 이동
 	$('.main-name').click(function(){
 		location.href='./';
@@ -57,7 +59,7 @@ $(document).ready(function(){
 	
 	//로그인O-일정리스트
 	$('#go-schedule-list-btn').click(function(){
-		location.href="./allList";
+		location.href="./allList?user_idx="+user_idx;
 	});
 	
 	
@@ -70,7 +72,7 @@ $(document).ready(function(){
 	
 	//로그인O-여행경비
 	$('#go-expense-list-btn').click(function(){
-		location.href="./tripExpenses";
+		location.href="./tripExpenses?user_idx="+user_idx;
 	});
 	
 	

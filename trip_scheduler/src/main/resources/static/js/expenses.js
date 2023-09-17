@@ -89,26 +89,26 @@ function getAllExpense(selectOption){
 				url:'./expense/getAllExpense',
 				type:'get',
 				data:{},
-				success:function(list){
+				success:function(map){
 					
 					$('.expenseAllList').empty();
 					
 				
 					if(selectOption==''){
-						list = sortResults(list, "start_date");
+						map.allList = sortResults(map.allList, "start_date");
 					}else if(selectOption=='old'){
-						list = sortResults(list, "start_date","asc");
+						map.allList = sortResults(map.allList, "start_date","asc");
 					}
 					
 					var start = (page-1)*countInOnePage;
 					
-					var pageResult = $(list).slice(start, start+countInOnePage);
+					var pageResult = $(map.allList).slice(start, start+countInOnePage);
 					
 					//오늘 날짜 구하기
 					var today = getToday();
 					
 					
-					$.each(list, function(index,item){
+					$.each(map.allList, function(index,item){
 						var smIdx = item.sm_idx;
 						var end_date = item.end_date;
 						
@@ -126,9 +126,9 @@ function getAllExpense(selectOption){
 											
 									<div class="total-expenses">
 										<div>총 경비</div>
-										<div class="nation-price">
+										<div class="nation-price" id="total${item.sm_idx}">
 											<i class="fa-solid fa-won-sign"></i>
-											<span>10,000</span>
+											
 										</div>
 									</div>
 								</div>`
@@ -147,8 +147,20 @@ function getAllExpense(selectOption){
 							);
 						}
 						
-						
 					});
+					
+
+					$.each(map.tpList, function(index,item){
+						var smIdx = item.sm_idx;
+						
+						var totalElement = $('#'+'total'+smIdx);
+						
+						$(totalElement).append(
+								`<span>${item.total}</span>`
+						);
+					});
+					
+					
 				},
 				error:function(err){}
 			});

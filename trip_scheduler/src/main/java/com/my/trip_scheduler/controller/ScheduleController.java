@@ -21,16 +21,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.trip_scheduler.service.AdvanceService;
+import com.my.trip_scheduler.service.ExchangeService;
 import com.my.trip_scheduler.service.MemoService;
 import com.my.trip_scheduler.service.PlanService;
 import com.my.trip_scheduler.service.SummaryFollowService;
 import com.my.trip_scheduler.service.SummaryService;
+import com.my.trip_scheduler.service.TotalPriceService;
 import com.my.trip_scheduler.service.UserService;
 import com.my.trip_scheduler.vo.Advance;
 import com.my.trip_scheduler.vo.Memo;
 import com.my.trip_scheduler.vo.Plan;
 import com.my.trip_scheduler.vo.Summary;
 import com.my.trip_scheduler.vo.SummaryFollow;
+import com.my.trip_scheduler.vo.TotalPrice;
 import com.my.trip_scheduler.vo.User;
 
 @Controller
@@ -54,6 +57,12 @@ public class ScheduleController {
 	
 	@Autowired
 	MemoService memoService;
+	
+	@Autowired
+	TotalPriceService tpService;
+	
+	@Autowired
+	ExchangeService eService;
 	
 	
 	//새일정짜기-summary-친구추가 
@@ -135,6 +144,10 @@ public class ScheduleController {
 			}
 			
 		}
+		
+		TotalPrice newTp = new TotalPrice();
+		newTp.setSm_idx(new_sm_idx);
+		tpService.addTotal(newTp);
 		
 		return new_sm_idx;
 	}
@@ -399,6 +412,8 @@ public class ScheduleController {
 		smflService.delSmFlBySmIdx(sm_idx);
 		planService.delPlanBySmIdx(sm_idx);
 		memoService.delMemoBySmIdx(sm_idx);
+		eService.delExchangeByDelAll(sm_idx);
+		tpService.delTotal(sm_idx);
 		
 		return "ok";
 	}

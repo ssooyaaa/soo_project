@@ -32,12 +32,14 @@
 	<div class="receipt-main">
 	
 		<div class="title">
-			<span>태국여행 with Family</span>
+			
+			
 		</div>
 		
 		<div class="date">
 			<span style="font-family:home-name;margin-right:20px;">DATE</span>
-			<span>2023.06.05-2023.06.06</span>
+			
+			
 		</div>
 		
 		
@@ -79,7 +81,7 @@
 			<div class="adv-price">
 				<div style="font-weight:800;font-size:22px;">사전경비</div>
 				<div class="adv-list">
-					<div class="adv-items">
+					<!-- <div class="adv-items">
 						<span>비행기값</span>
 						<div class="price">
 							<i class="fa-solid fa-won-sign"></i>
@@ -93,12 +95,12 @@
 							<i class="fa-solid fa-won-sign"></i>
 	 						<span>5,000</span>
 						</div>
-					</div>
+					</div> -->
 					
 				</div>
 			</div>
 			
-			
+			<!-- 
 			<div class="day">
 				<div style="font-weight:800;font-size:22px;">DAY1</div>
 				<div class="receipt-list">
@@ -152,7 +154,7 @@
  					<span>1,000,000</span>
 				</div>
 			</div>
-			
+			 -->
 			
 			
 			
