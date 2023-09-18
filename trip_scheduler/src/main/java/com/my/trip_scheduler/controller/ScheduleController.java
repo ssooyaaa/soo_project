@@ -121,7 +121,15 @@ public class ScheduleController {
 		int new_sm_idx = newSummary.getSm_idx();
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
+		
 		
 		if(userList.size()==0) {
 			SummaryFollow newSF = new SummaryFollow();
@@ -345,7 +353,14 @@ public class ScheduleController {
 		newM.setContent(content);
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		String loginId = loginUser.getId();
+		String loginId = null;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			loginId = kakaoUser.getId();
+		}else {
+			loginId = loginUser.getId();
+		}
 		
 		newM.setId(loginId);
 		
@@ -379,7 +394,15 @@ public class ScheduleController {
 		map.put("memoList", memoList);
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		String loginId = loginUser.getId();
+		String loginId = null;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			loginId = kakaoUser.getId();
+		}else {
+			loginId = loginUser.getId();
+		}
+		
 		map.put("loginId", loginId);
 		
 		return map;

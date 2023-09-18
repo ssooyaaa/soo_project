@@ -277,10 +277,8 @@ header i:hover{
 
 .kakao-login{
 	width:100%;
-	padding:10px 10px;
 	text-align:center;
-	background:yellow;
-	border-radius:10px;
+	cursor:pointer;
 }
 
 .or-login{

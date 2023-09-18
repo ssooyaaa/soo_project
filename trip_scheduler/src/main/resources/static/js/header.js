@@ -1,6 +1,11 @@
 $(document).ready(function(){
 	
 	var user_idx = $('#map-user-idx').val();
+	var kakao_idx = $('#map-kakao-idx').val();
+	
+	if(user_idx==null || user_idx==''){
+		user_idx = kakao_idx;
+	}
 	
 	//메인 이름 -> 홈화면으로 이동
 	$('.main-name').click(function(){

@@ -27,6 +27,12 @@
 		WHERE id=#{id} AND pw=MD5(#{pw})
 	</select>
 	
+	<!-- 카카오로그인 -->
+	<select id="kakaoLogin" parameterType="String" resultType="User">
+		SELECT * FROM user
+		WHERE id=#{id}
+	</select>
+	
 	<!-- 비밀번호 재설정-아이디/이메일 존재여부 확인 -->
 	<select id="getUserByIdAndEmail" parameterType="User" resultType="User">
 		SELECT * FROM user

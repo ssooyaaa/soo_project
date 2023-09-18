@@ -28,6 +28,10 @@ public class UserService {
 		return userDao.login(user);
 	}
 	
+	public User kakaoLogin(String id) {
+		return userDao.kakaoLogin(id);
+	}
+	
 	public User getUserByIdAndEmail(User user) {
 		return userDao.getUserByIdAndEmail(user);
 	}

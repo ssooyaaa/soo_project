@@ -68,7 +68,14 @@ public class ExpenseController {
 		HashMap<String, Object> map = new HashMap<>();
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		SummaryFollow sf = new SummaryFollow();
 		sf.setUser_idx_1(user_idx);

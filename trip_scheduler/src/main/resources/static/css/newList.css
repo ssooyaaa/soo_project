@@ -530,13 +530,12 @@
 }
 
 .memo > .nickname{
-	width:100px;
+	width:210px;
 	margin-right:10px;
-	margin-left:20px;
 }
 
 .memo > .memo-des{
-	width:450px;
+	width:360px;
 }
 
 .memo > .memo-del{

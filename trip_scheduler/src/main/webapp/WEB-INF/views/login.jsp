@@ -25,7 +25,9 @@
 	<div class="login-container">
 		<div class="home-name">J처럼.</div>
 		<div class="container">
-			<div class="kakao-login">카카오톡으로 로그인</div>
+			<a href="https://kauth.kakao.com/oauth/authorize?client_id=096241bf30c19b1881244ce03b3292fe&redirect_uri=http://localhost:8080/trip_scheduler/auth/kakao/callback&response_type=code">
+				<img src="image/kakao_login_large_wide.png" class="kakao-login"/>
+			</a>
 			<div class="or-login">또는</div>
 			<input type="text" class="login-id" placeholder="아이디"/>
 			<input type="password" class="login-pw" placeholder="패스워드"/>

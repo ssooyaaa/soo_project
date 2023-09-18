@@ -31,6 +31,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
 	<input style="display:none" id="map-user-idx" type="text" value="${loginUser.user_idx}"/>
+	<input style="display:none" id="map-kakao-idx" type="text" value="${kakaoUser.user_idx}"/>
 	
 
 	<div class="allList-main">

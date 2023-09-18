@@ -26,6 +26,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	
 	<input style="display:none" id="map-user-idx" type="text" value="${loginUser.user_idx}"/>
+	<input style="display:none" id="map-kakao-idx" type="text" value="${kakaoUser.user_idx}"/>
 	
 	
 	<div class="expenses-main">
@@ -60,7 +61,7 @@
 		
 		<div class="expenseAllList">
 		
-			<div class="expenses-item">
+			<!-- <div class="expenses-item">
 				<div class="expenses-title">태국여행 with Family</div>
 				<div class="expenses-date">
 					<span style="font-family:home-name;width:13%;">DATE</span>
@@ -73,7 +74,7 @@
 						<span>10,000</span>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		
 		
 		</div>

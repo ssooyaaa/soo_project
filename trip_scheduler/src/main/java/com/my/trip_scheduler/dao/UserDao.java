@@ -28,6 +28,10 @@ public class UserDao {
 		return s.selectOne("user.login",user);
 	}
 	
+	public User kakaoLogin(String id) {
+		return s.selectOne("user.kakaoLogin",id);
+	}
+	
 	public User getUserByIdAndEmail(User user) {
 		return s.selectOne("user.getUserByIdAndEmail",user);
 	}

@@ -30,13 +30,14 @@ import com.my.trip_scheduler.vo.User;
 public class AllListController {
 	
 	@Autowired
-	SummaryService sService;
+	UserService uService;
 	
 	@Autowired
 	SummaryFollowService sfService;
 	
 	@Autowired
-	UserService uService;
+	SummaryService smService;
+	
 	
 	
 	@Transactional
@@ -47,7 +48,14 @@ public class AllListController {
 		Map<String, Object> map = new HashMap<>();
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		SummaryFollow sf = new SummaryFollow();
 		sf.setUser_idx_1(user_idx);
@@ -71,7 +79,7 @@ public class AllListController {
 		for(Iterator<Integer> it = smIdx.iterator(); it.hasNext();) {
 			int sm_idx = it.next();
 			
-			Summary sm = sService.getAllList(sm_idx);
+			Summary sm = smService.getAllList(sm_idx);
 			allList.add(sm);
 			
 			//관련 친구 가져오기
@@ -113,7 +121,14 @@ public class AllListController {
 	public int getCountAllList(HttpSession s) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		SummaryFollow sf = new SummaryFollow();
 		sf.setUser_idx_1(user_idx);

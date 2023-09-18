@@ -34,8 +34,17 @@ public class FollowController {
 		Follow fl = new Follow();
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
-		String loginUser_id = loginUser.getId();
+		int user_idx=0;
+		String loginUser_id=null;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+			loginUser_id = kakaoUser.getId();
+		}else {
+			user_idx = loginUser.getUser_idx();
+			loginUser_id = loginUser.getId();
+		}
 		
 		fl.setUser_idx_1(user_idx);
 		fl.setUser_idx_2(user_idx);
@@ -73,7 +82,16 @@ public class FollowController {
 			) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx_1 = loginUser.getUser_idx();
+		int user_idx_1 = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx_1 = kakaoUser.getUser_idx();
+			
+		}else {
+			user_idx_1 = loginUser.getUser_idx();
+		}
+		
 		
 		Follow f = new Follow();
 		f.setUser_idx_1(user_idx_1);
@@ -95,7 +113,16 @@ public class FollowController {
 			HttpSession s) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int loginUserIdx = loginUser.getUser_idx();
+		int loginUserIdx = 0;
+		
+		if(loginUser==null) {
+			
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			loginUserIdx = kakaoUser.getUser_idx();
+			
+		}else {
+			loginUserIdx = loginUser.getUser_idx();
+		}
 		
 		Follow f1 = new Follow();
 		f1.setUser_idx_1(loginUserIdx);
@@ -109,6 +136,8 @@ public class FollowController {
 		
 		User user2 = followService.checkUserTwo(f2);
 		
+		System.out.println(user1);
+		System.out.println(user2);
 		if(user1==null && user2==null) {
 			return null;
 		}else if(user1==null) {
@@ -126,7 +155,14 @@ public class FollowController {
 	public int getCountAlarm(HttpSession s) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		int count = followService.getCountAlarm(user_idx);
 		
@@ -140,7 +176,14 @@ public class FollowController {
 	public List<User> requestedFollowList(HttpSession s) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		List<User> followList = followService.requestedFollowList(user_idx);
 		
@@ -157,7 +200,15 @@ public class FollowController {
 			) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
+		
 		
 		Follow f = new Follow();
 		f.setUser_idx_1(user_idx_1);
@@ -178,7 +229,15 @@ public class FollowController {
 			) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
+		
 		
 		Follow f = new Follow();
 		f.setUser_idx_1(user_idx_1);
@@ -199,7 +258,14 @@ public class FollowController {
 			) {
 		
 		User loginUser = (User)s.getAttribute("loginUser");
-		int user_idx = loginUser.getUser_idx();
+		int user_idx = 0;
+		
+		if(loginUser==null) {
+			User kakaoUser = (User)s.getAttribute("kakaoUser");
+			user_idx = kakaoUser.getUser_idx();
+		}else {
+			user_idx = loginUser.getUser_idx();
+		}
 		
 		Follow f = new Follow();
 		f.setUser_idx_1(user_idx);

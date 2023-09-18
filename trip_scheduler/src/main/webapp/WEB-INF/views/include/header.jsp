@@ -42,7 +42,7 @@
 			<i class="fa-solid fa-xmark close-btn" onclick="hideSide()"></i>
 		</div>
 		<div class="login-side-menu">
-			<c:if test="${empty sessionScope.loginUser}">
+			<c:if test="${(empty sessionScope.loginUser) and (empty sessionScope.kakaoUser)}">
 				<div class="side-main">
 					<div class="side-login-alert">
 						로그인 후 사용해주세요
@@ -55,10 +55,23 @@
 			</c:if>
 			
 			
+			
 			<c:if test="${not empty sessionScope.loginUser}">
 				<div class="side-main">
 					<div class="side-login-alert">
 						<span>${loginUser.nickname}님 반갑습니다.</span>
+						<i class="fa-regular fa-face-smile-wink"></i>
+					</div>
+					<div class="side-login-btn" id="logout-btn">
+						로그아웃>
+					</div>
+				</div>
+			</c:if>
+			
+			<c:if test="${not empty sessionScope.kakaoUser}">
+				<div class="side-main">
+					<div class="side-login-alert">
+						<span>${kakaoUser.nickname}님 반갑습니다.</span>
 						<i class="fa-regular fa-face-smile-wink"></i>
 					</div>
 					<div class="side-login-btn" id="logout-btn">
@@ -83,7 +96,15 @@
 					</div>
 				</c:if>
 				
-				<c:if test="${empty sessionScope.loginUser}">
+				<c:if test="${not empty sessionScope.kakaoUser}">
+					<div class="plus-member-btn">
+						<span>친구관리</span>
+						<i class="fa-solid fa-angle-down" id="member-down"></i>
+						<i class="fa-solid fa-angle-up" id="member-up"></i>
+					</div>
+				</c:if>
+				
+				<c:if test="${(empty sessionScope.loginUser) and (empty sessionScope.kakaoUser)}">
 					<div class="plus-member-btn" id="plus-member-btn">
 						<span>친구관리</span>
 					</div>
@@ -108,7 +129,13 @@
 					</div>
 				</c:if>
 				
-				<c:if test="${empty sessionScope.loginUser}">
+				<c:if test="${not empty sessionScope.kakaoUser}">
+					<div class="schedule-list-btn" id="go-schedule-list-btn">
+						<span>일정리스트</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${(empty sessionScope.loginUser) and (empty sessionScope.kakaoUser)}">
 					<div class="schedule-list-btn" id="schedule-list-btn">
 						<span>일정리스트</span>
 					</div>
@@ -123,7 +150,13 @@
 					</div>
 				</c:if>
 				
-				<c:if test="${empty sessionScope.loginUser}">
+				<c:if test="${not empty sessionScope.kakaoUser}">
+					<div class="expense-list-btn" id="go-expense-list-btn">
+						<span>여행경비</span>
+					</div>
+				</c:if>
+				
+				<c:if test="${(empty sessionScope.loginUser) and (empty sessionScope.kakaoUser)}">
 					<div class="expense-list-btn" id="expense-list-btn">
 						<span>여행경비</span>
 					</div>

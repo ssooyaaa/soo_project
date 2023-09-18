@@ -52,7 +52,7 @@ $(document).ready(function(){
 									<input style="display:none" value="${idx}"/>
 								</div>`
 						);
-						
+						location.href='./receipt?sm_idx='+sm_idx;
 						$('.add-r-content').hide();
 					}
 					
