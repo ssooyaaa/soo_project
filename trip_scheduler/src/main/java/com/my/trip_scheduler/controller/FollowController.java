@@ -159,7 +159,13 @@ public class FollowController {
 		
 		if(loginUser==null) {
 			User kakaoUser = (User)s.getAttribute("kakaoUser");
-			user_idx = kakaoUser.getUser_idx();
+			
+			if(kakaoUser!=null) {
+				user_idx = kakaoUser.getUser_idx();
+			}else {
+				return 0;
+			}
+			
 		}else {
 			user_idx = loginUser.getUser_idx();
 		}
