@@ -1,3 +1,4 @@
+import 'package:csh_design/screen/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,18 +17,12 @@ class _IndexScreenState extends State<IndexScreen> {
   String mainText='Flutter 디자인';
   Color textColor=Colors.black;
 
-  int bottomSelectedIdx = 0;
-
-  void onItemTapped(int index){
-    setState(() {
-      bottomSelectedIdx= index;
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.white,
 
       body: SafeArea(
         child: Container(
@@ -72,6 +67,7 @@ class _IndexScreenState extends State<IndexScreen> {
 
               SizedBox(height: 20,),
 
+              //todo Radio 버튼
               Row(
                 children: [
                   TypeRadio(
@@ -123,39 +119,79 @@ class _IndexScreenState extends State<IndexScreen> {
                     },
                   ),
                 ],
+              ),
+
+              SizedBox(height: 15,),
+
+              //todo 리스트
+              Expanded(
+
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                      buildBox(context),
+                    ],
+                  ),
+                ),
               )
+
             ],
           ),
         ),
       ),
-      
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: bottomSelectedIdx,
-        onTap: onItemTapped,
-        items: const[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "홈"),
-          
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: "공부추가"),
-          
-          BottomNavigationBarItem(
-              icon: Icon(Icons.info_outline_rounded),
-              label: "앱 정보"),
-        ],
-        backgroundColor: Color(0xffE8EAEA),
-        selectedItemColor: Color(0xff2692F5),
 
-      ),
-      
+
     );
   }
 }
 
 
+Widget buildBox(BuildContext ctx){
+  return Container(
+    width: double.infinity,
+    padding: EdgeInsets.symmetric(vertical: 14),
+    color: Colors.white,
 
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+
+      children: [
+
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('플러터 강의 오픈', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+            SizedBox(height: 4,),
+            Text('플러터 신규강의 오픈(수강생모집)'),
+          ],
+        ),
+        OutlinedButton(
+            onPressed: (){
+              //todo 스크린 이동
+              Navigator.push(
+                ctx,
+                MaterialPageRoute(builder: (context) => const DetailScreen()),
+              );
+            },
+            child: Text('신청', style: TextStyle(fontWeight: FontWeight.bold),),
+        ),
+
+
+      ],
+    ),
+
+  );
+}
 
 
 class TypeRadio extends StatelessWidget {

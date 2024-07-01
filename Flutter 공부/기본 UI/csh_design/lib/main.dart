@@ -1,4 +1,5 @@
 import 'package:csh_design/screen/index_screen.dart';
+import 'package:csh_design/screen/root_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        useMaterial3: false,
       ),
-      home: IndexScreen(),
+      home: RootScreen(),
     );
   }
 }
