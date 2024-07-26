@@ -6,7 +6,12 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
+
+  int todoIdx = 0;
+
+  TodoScreen({
+    required this.todoIdx
+  });
 
   @override
   State<TodoScreen> createState() => _TodoScreenState();
@@ -23,6 +28,8 @@ class _TodoScreenState extends State<TodoScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    Provider.of<TodoModel>(context, listen: false).getTodo(widget.todoIdx);
 
   }
 
@@ -57,7 +64,7 @@ class _TodoScreenState extends State<TodoScreen> {
 
             ElevatedButton(
                 onPressed: () {
-                  Provider.of<TodoModel>(context, listen: false).getTodo();
+                  //Provider.of<TodoModel>(context, listen: false).getTodo(1);
                 },
                 child: Text('TODO 조회'),
             ),
