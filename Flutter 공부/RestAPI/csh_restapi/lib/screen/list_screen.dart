@@ -59,7 +59,7 @@ class TodoBox extends StatelessWidget {
       onTap: (){
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => TodoScreen(todoIdx: todo.id,),
+            builder: (context) => TodoScreen(abc: todo,),
           ),
         );
       },
@@ -79,7 +79,7 @@ class TodoBox extends StatelessWidget {
                       child: Text('title : ${todo.title}', overflow: TextOverflow.ellipsis,)
                   ),
                   SizedBox(width: 20,),
-                  Text('${todo.completed}'),
+                  Text('${todo.completed ? '완료':'미완료'}', style: TextStyle(color: todo.completed? Colors.blue:Colors.red), ),
                 ],
             ),
           ],

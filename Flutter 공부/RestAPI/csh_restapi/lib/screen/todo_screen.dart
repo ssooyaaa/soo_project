@@ -3,14 +3,17 @@ import 'dart:convert';
 import 'package:csh_restapi/model/todo_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:loading_overlay/loading_overlay.dart';
 import 'package:provider/provider.dart';
+
+import '../vo/todo.dart';
 
 class TodoScreen extends StatefulWidget {
 
-  int todoIdx = 0;
+  Todo abc;
 
   TodoScreen({
-    required this.todoIdx
+    required this.abc
   });
 
   @override
@@ -21,7 +24,19 @@ class _TodoScreenState extends State<TodoScreen> {
 
   TextStyle ts = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
+  bool _loading = true;
 
+  void init() async{
+
+    await Provider.of<TodoModel>(context, listen: false).getTodo(widget.abc.id);
+    //await Future.delayed(Duration(milliseconds: 1200));
+    print('데이터 조회 끝');
+
+    setState(() {
+      _loading = false;
+    });
+
+  }
 
 
   @override
@@ -29,46 +44,82 @@ class _TodoScreenState extends State<TodoScreen> {
     // TODO: implement initState
     super.initState();
 
-    Provider.of<TodoModel>(context, listen: false).getTodo(widget.todoIdx);
-
+    init();
   }
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('TODO 상세보기'),
+        title: Text('${widget.abc.title}'),
       ),
 
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          children: [
+      body: LoadingOverlay(
+        color: Colors.black,
+        isLoading: _loading,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            children: [
+        
+        
+              Consumer<TodoModel>(builder: (context, todoModel, child){
 
+                // Widget w;
+                //
+                // if(todoModel.todo.id==0){
+                //   //todo 아직 받아온 데이터 없음
+                //   w = Center(child: Text('로딩중'),);
+                // }else{
+                //   //todo 데이터 존재
+                //   w = Container(
+                //     width: double.infinity,
+                //
+                //     child: Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         Text('userId : ${todoModel.todo.userId}', style: ts,),
+                //         Text('id : ${todoModel.todo.id}', style: ts,),
+                //         Text('title : ${todoModel.todo.title}', style: ts,),
+                //         Text('completed : ${todoModel.todo.completed ? '완료' : '미완료'}', style: ts,),
+                //
+                //       ],
+                //     ),
+                //   );
+                // }
+                //
+                //
+                // return w;
 
-            Consumer<TodoModel>(builder: (context, todoModel, child){
-              return Column(
-                children: [
-                  Text('userId : ${todoModel.todo.userId}', style: ts,),
-                  Text('id : ${todoModel.todo.id}', style: ts,),
-                  Text('title : ${todoModel.todo.title}', style: ts,),
-                  Text('completed : ${todoModel.todo.completed ? '완료' : '미완료'}', style: ts,),
+                return
 
-                ],
-              );
-            }),
+                    todoModel.todo.id != 0 ?
+                    Container(
+                      width: double.infinity,
 
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('userId : ${todoModel.todo.userId}', style: ts,),
+                          Text('id : ${todoModel.todo.id}', style: ts,),
+                          Text('title : ${todoModel.todo.title}', style: ts,),
+                          Text('completed : ${todoModel.todo.completed ? '완료' : '미완료'}', style: ts,),
 
-
-            ElevatedButton(
-                onPressed: () {
-                  //Provider.of<TodoModel>(context, listen: false).getTodo(1);
-                },
-                child: Text('TODO 조회'),
-            ),
-          ],
+                        ],
+                      ),
+                    ) :
+                    Text('로딩중');
+              }),
+        
+        
+            ],
+          ),
         ),
       ),
     );

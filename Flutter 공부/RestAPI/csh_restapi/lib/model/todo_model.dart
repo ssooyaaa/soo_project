@@ -16,14 +16,14 @@ class TodoModel extends ChangeNotifier{
   List<Todo> todos = [];
 
 
-  void getAllTodos() async{
+  Future<void> getAllTodos() async{
      todos = await TodoHttp.fetchAllTodos();
 
      notifyListeners();
   }
 
 
-  void getTodo(int index) async{
+  Future<void> getTodo(int index) async{
 
     todo = Todo();
     todo = await TodoHttp.fetchTodo(index);
